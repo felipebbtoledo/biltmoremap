@@ -7,13 +7,9 @@
             var curRow = contents[row];
             tableHTML += "<tr>";
             for (var col=0; col < curRow.length; col=col+1|0) {
-                if( (new RegExp( '\\b' + curRow.join('\\b|\\b') + '\\b') ).test("Biltmore Square")) {
+                if(curRow[col].startsWith("Biltmore Square")){
                     tableHTML += "<td>" + curRow[col+1] + "</td>";
                 }
-                //if(curRow[col].includes("Biltmore Square")){
-                    //console.log("1:"+curRow[col+1]);
-                    //tableHTML += "<td>" + curRow[col+1] + "</td>";
-                //}
                 //tableHTML += "<td>" + curRow[col] + "</td>";
             }
             tableHTML += "</tr>";
