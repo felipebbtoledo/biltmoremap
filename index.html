@@ -7,7 +7,9 @@
             var curRow = contents[row];
             tableHTML += "<tr>";
             for (var col=0; col < curRow.length; col=col+1|0)
-                console.log(curRow[col]);
+                if(curRow[col].contains("Biltmore Square")){
+                    console.log(curRow[col].next());
+                }
                 tableHTML += "<td>" + curRow[col] + "</td>";
             tableHTML += "</tr>";
         }
