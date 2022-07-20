@@ -8,9 +8,10 @@
             tableHTML += "<tr>";
             for (var col=0; col < curRow.length; col=col+1|0) {
                 if(curRow[col].indexOf("Biltmore Square") >= 0){
-                    console.log("1:"+curRow[col+1]);
+                    //console.log("1:"+curRow[col+1]);
+                    tableHTML += "<td>" + curRow[col+1] + "</td>";
                 }
-                tableHTML += "<td>" + curRow[col] + "</td>";
+                //tableHTML += "<td>" + curRow[col] + "</td>";
             }
             tableHTML += "</tr>";
         }
