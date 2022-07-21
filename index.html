@@ -11,7 +11,9 @@
                 // if(curRow[col].startsWith("Biltmore Square")){
                 //     tableHTML += "<td>" + curRow[col+1] + "</td>";
                 // }
-                tableHTML += "<td>" + curRow[col] + "</td>";
+                if(!curRow[col].startsWith("Community")) { // print all but the cells that starts with Community word
+                    tableHTML += "<td>" + curRow[col] + "</td>";
+                }
             }
             tableHTML += "</tr>";
         }
