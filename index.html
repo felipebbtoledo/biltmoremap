@@ -67,9 +67,11 @@
             <!-- PAGE -->
             <div class="page-section">
                 <div class="container">
-                    <h5 class="community-title"></h5>
-                    <h6>Community Info</h6>
+                    <h5 class="community-name"></h5>
+                    <h6>Community Summary</h6>
                     <p class="community-summary"></p>
+                    <h6>Community Details</h6>
+                    <p class="community-details"></p>
                     <!-- ADDITIONAL DETAILS -->
                     <div class="additional-details">
                         <h6>Additional Details</h6>
@@ -444,16 +446,17 @@
             }
 
             var selectedCommunityId = document.querySelector('svg > rect:target');
-
+            var CommunityId;
             if(selectedCommunityId) {
-                var CommunityId = selectedCommunityId.getAttribute('id');
+                CommunityId = selectedCommunityId.getAttribute('id');
             }
             else {
-                var CommunityId = hashValue;
+                CommunityId = hashValue;
             }
-            var communityTitle = CommunityId.replace(/([A-Z])/g, ' $1').trim();
-            var communityTitleSelector = document.querySelector('.content-area .page-section .community-title');
+            var communityIdFormatted = CommunityId.replace(/([A-Z])/g, ' $1').trim();
+            var communityName = document.querySelector('.content-area .page-section .community-name');
             var communitySummary = document.querySelector('.content-area .page-section .community-summary');
+            var communityDetails = document.querySelector('.content-area .page-section .community-details');
 
             //communityTitleSelector.textContent = communityTitle;
             //if(CommunityId == 'TwoBiltmoreEstates') {
@@ -466,9 +469,10 @@
                     var curRow = contents[row];
                     for (var col=0; col < curRow.length; col=col+1|0) {
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
-                            if(curRow[col].startsWith(communityTitle)){
-                                communityTitleSelector.textContent = curRow[col]; // GS Community Name
+                            if(curRow[col].startsWith(communityIdFormatted)){
+                                communityName.textContent = curRow[col]; // GS Community Name
                                 communitySummary.textContent = curRow[col+1]; //GS Community Summary
+                                communityDetails.textContent = curRow[col+2]; //GS Community Details
                             }
                         }
                     }
