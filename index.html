@@ -35,13 +35,13 @@
                         </div>
                         <div class="col-lg-6 col-xl-5">
                             <div class="form-group m-0">
-                                <select name="for" class="selectpicker" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Communities">
-                                    <option value="2211-camelback">2211 Camelback</option>
-                                    <option value="biltmore-mountain-estates">Biltmore Mountain Estates</option>
-                                    <option value="biltmore-shores">Biltmore Shores</option>
-                                    <option value="fairway-lodge">Fairway Lodge</option>
-                                    <option value="taliverde">Taliverde</option>
-                                    <option value="two-biltmore-estates">Two Biltmore Estates</option>
+                                <select name="CommunitiesList" class="selectpicker" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Communities">
+<!--                                    <option value="2211-camelback">2211 Camelback</option>-->
+<!--                                    <option value="biltmore-mountain-estates">Biltmore Mountain Estates</option>-->
+<!--                                    <option value="biltmore-shores">Biltmore Shores</option>-->
+<!--                                    <option value="fairway-lodge">Fairway Lodge</option>-->
+<!--                                    <option value="taliverde">Taliverde</option>-->
+<!--                                    <option value="two-biltmore-estates">Two Biltmore Estates</option>-->
                                 </select>
                             </div>
                         </div>
@@ -425,6 +425,7 @@
                     var curRow = contents[row];
                     for (var col=0; col < curRow.length; col=col+1|0) {
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
+                            console.log(curRow[0]);
                             if(curRow[col].startsWith(communityIdFormatted)){
                                 communityName.textContent = curRow[col]; // GS Community Name
                                 communitySummary.textContent = curRow[col+1]; //GS Community Summary
@@ -432,8 +433,6 @@
                                 communityAdditionalInfo.textContent = curRow[col+3]; //GS Community Additional Info
 
                                 var temp;
-                                //var propertyAttribute = new Array();
-                                //var propertyAttributeValue = new Array();
                                 var elements = communityDetailsList.split(/:|,/);
                                 for(var element in elements){
                                     temp = elements[element].split(":");
