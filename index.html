@@ -394,13 +394,12 @@
         }, false);
 
         function mapCommunitySelected() {
-            //console.log(document.querySelector('svg > rect:target + foreignObject'));
             if(document.querySelector('svg > rect:target + foreignObject')){
                 document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
             }
 
             var selectedCommunityId = document.querySelector('svg > rect:target');
-            var CommunityId;
+            var CommunityId, communityDetailsList;
             if(selectedCommunityId) {
                 CommunityId = selectedCommunityId.getAttribute('id');
             }
@@ -413,24 +412,20 @@
             var communitySummary = document.querySelector('.content-area .page-section .community-summary');
             var communityDetails = document.querySelector('.content-area .page-section .community-details');
             var communityAdditionalInfo = document.querySelector('.content-area .page-section .community-additional-info');
-            var communityDetailsList;
 
-            //communityTitleSelector.textContent = communityTitle;
-            //if(CommunityId == 'TwoBiltmoreEstates') {
-            //communitySummary.textContent = 'Paragraph for ' + communityTitle + ' community. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse elementum, nunc nec sodales rhoncus, risus enim rutrum nisi, eget aliquet sapien ligula vel mi.';
-            //}
             <!-- Google Sheets -->
             "use strict";
             getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv", function thenAfter(contents, didError){
-                for (var row=0; row < contents.length; row=row+1|0) {
+                for (var row=0; row < contents.length; row=row+1|0) { //loop through rows
                     var curRow = contents[row];
 
+                    // populate the Communities dropdown list
                     var ddlEl = document.createElement("option");
                     ddlEl.textContent = curRow[0];
                     ddlEl.value = curRow[0];
                     communitiesDropdown.appendChild(ddlEl);
 
-                    for (var col=0; col < curRow.length; col=col+1|0) {
+                    for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
                             if(curRow[col].startsWith(communityIdFormatted)){
                                 communityName.textContent = curRow[col]; // GS Community Name
