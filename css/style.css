@@ -209,6 +209,12 @@ form label {
     bottom:0;
     width: 20px;
 }
+#google-sheets {
+    position: fixed;
+    left:1rem;
+    right:1rem;
+    bottom:1rem;
+}
 h5 {
     border-bottom: 1px solid var(--light-gray-color);
     color:var(--dark-color);
