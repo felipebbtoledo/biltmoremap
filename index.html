@@ -17,6 +17,7 @@
 </head>
 <body>
 <main>
+    <div id="google-sheet"></div>
     <div class="aside-panel collapsed">
 
         <!-- HEADER -->
@@ -481,7 +482,7 @@
             }
             tableHTML += "</tr>";
         }
-        document.body.innerHTML = tableHTML += "</table>";
+        document.getElementById("google-sheet").innerHTML = tableHTML += "</table>";
 
         if (didError) alert("failed to HTTP get");
     });
