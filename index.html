@@ -444,8 +444,8 @@
                                 var elements = communityDetailsList.split(/:|,/);
                                 for(var element in elements){
                                     temp = elements[element].split(":");
-                                    communityDetails.innerHTML += '<div class="row">' +
-                                        '<div class="col-4">'+temp[0]+'</div>' +
+                                    communityDetails.innerHTML += '<div class="d-flex">' +
+                                        '<div>'+temp[0]+'</div>' +
                                         // '<div class="col-8">'+temp[1]+'</div>' +
                                         '</div>';
                                 }
