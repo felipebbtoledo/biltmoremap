@@ -70,49 +70,13 @@
                     <h5 class="community-name"></h5>
                     <h6>Community Summary</h6>
                     <p class="community-summary"></p>
+                    <h6>Community Details</h6>
                     <div class="community-details">
-                        <h6>Additional Details</h6>
                         <div class="container">
-                            <div class="row">
-                                <div class="col-4">Property type:</div>
-                                <div class="col-8">Condo</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">Year built:</div>
-                                <div class="col-8">2007</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">Approx. size:</div>
-                                <div class="col-8">12345 Sqft</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">Views:</div>
-                                <div class="col-8">City Lights View</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">Parking:</div>
-                                <div class="col-8">Underground</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">Entrance:</div>
-                                <div class="col-8">Non-gated</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">Community pool:</div>
-                                <div class="col-8">Yes</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4"># of units:</div>
-                                <div class="col-8">85</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">Average price sold:</div>
-                                <div class="col-8">2M</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">Min rental period:</div>
-                                <div class="col-8">180 days</div>
-                            </div>
+<!--                            <div class="row">-->
+<!--                                <div class="col-4">Property type:</div>-->
+<!--                                <div class="col-8">Condo</div>-->
+<!--                            </div>-->
                         </div>
                     </div>
                     <h6>Community Additional Info</h6>
@@ -453,7 +417,8 @@
             var communityIdFormatted = CommunityId.replace(/([A-Z])/g, ' $1').trim();
             var communityName = document.querySelector('.content-area .page-section .community-name');
             var communitySummary = document.querySelector('.content-area .page-section .community-summary');
-            var communityDetails = document.querySelector('.content-area .page-section .community-details');
+            var communityDetails = document.querySelector('.content-area .page-section .community-details .container');
+            var communityDetailsList;
 
             //communityTitleSelector.textContent = communityTitle;
             //if(CommunityId == 'TwoBiltmoreEstates') {
@@ -469,7 +434,19 @@
                             if(curRow[col].startsWith(communityIdFormatted)){
                                 communityName.textContent = curRow[col]; // GS Community Name
                                 communitySummary.textContent = curRow[col+1]; //GS Community Summary
-                                communityDetails.textContent = curRow[col+2]; //GS Community Details
+                                communityDetailsList = curRow[col+2]; //GS Community Details
+
+                                var temp;
+                                var propertyAttribute = new Array();
+                                var propertyAttributeValue = new Array();
+                                var elements = communityDetailsList.split(/:|,/);
+                                for(var element in elements){
+                                    temp = elements[element].split(":");
+                                    communityDetails.innerHTML += '<div class="row">' +
+                                        '<div class="col-4">'+propertyAttribute.push(temp[0])+'</div>' +
+                                        '<div class="col-8">'+propertyAttributeValue.push(parseInt(temp[1])+'</div>' +
+                                        '</div>';
+                                }
                             }
                         }
                     }
