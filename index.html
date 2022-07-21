@@ -5,13 +5,13 @@
         var tableHTML = "<table><tbody>";
         for (var row=0; row < contents.length; row=row+1|0) {
             var curRow = contents[row];
-            console.log(curRow[0]);
+            //console.log(curRow[0]); // first cell of each row
             tableHTML += "<tr>";
             for (var col=0; col < curRow.length; col=col+1|0) {
-                if(curRow[col].startsWith("Biltmore Square")){
-                    tableHTML += "<td>" + curRow[col+2] + "</td>";
-                }
-                //tableHTML += "<td>" + curRow[col] + "</td>";
+                // if(curRow[col].startsWith("Biltmore Square")){
+                //     tableHTML += "<td>" + curRow[col+1] + "</td>";
+                // }
+                tableHTML += "<td>" + curRow[col] + "</td>";
             }
             tableHTML += "</tr>";
         }
