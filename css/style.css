@@ -54,18 +54,6 @@ body {
     transition: all .5s;
     width: var(--aside-panel-width);
 }
-.aside-panel .content-area .additional-details .row > div {
-    border-bottom: 1px solid var(--light-gray-color);
-    font-weight: 700;
-    padding: .5rem 0;
-}
-.aside-panel .content-area .additional-details .row > div + div {
-    color: var(--dark-gray-color);
-    font-weight: 400;
-}
-.aside-panel .content-area .additional-details .row:first-of-type > div {
-    border-top: 1px solid var(--light-gray-color);
-}
 .aside-panel .content-area h6 ~ p, .aside-panel .content-area h6 + div {
     font-size: .875rem;
 }
@@ -161,11 +149,20 @@ body {
     flex-flow: row wrap;
 }
 .aside-panel .page-section .community-details > div {
+    border-bottom: 1px solid var(--light-gray-color);
     flex:0 0 66.666667%;
+    font-weight: 700;
     max-width:66.666667%;
+    padding: .5rem 0;
+}
+.aside-panel .page-section .community-details > div:nth-child(1),
+.aside-panel .page-section .community-details > div:nth-child(2){
+    border-top: 1px solid var(--light-gray-color);
 }
 .aside-panel .page-section .community-details > div:nth-child(odd) {
+    color: var(--dark-gray-color);
     flex:0 0 33.333333%;
+    font-weight: 400;
     max-width:33.333333%;
 }
 .btn {
