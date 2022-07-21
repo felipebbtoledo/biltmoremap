@@ -156,11 +156,15 @@ body {
     padding-top: 100px;
     padding-bottom: 70px;
 }
-.aside-panel .page-section .community-details .d-flex > div {
+.aside-panel .page-section .community-details {
+    display: flex;
+    flex-flow: row wrap;
+}
+.aside-panel .page-section .community-details > div {
     flex:0 0 66.666667%;
     max-width:66.666667%;
 }
-.aside-panel .page-section .community-details .d-flex > div:nth-child(odd) {
+.aside-panel .page-section .community-details > div:nth-child(odd) {
     flex:0 0 33.333333%;
     max-width:33.333333%;
 }
