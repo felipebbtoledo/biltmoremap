@@ -67,9 +67,9 @@
             <!-- PAGE -->
             <div class="page-section">
                 <div class="container">
-                    <h5 class="area-title"></h5>
+                    <h5 class="community-title"></h5>
                     <h6>Community Info</h6>
-                    <p class="area-paragraph"></p>
+                    <p class="community-summary"></p>
                     <!-- ADDITIONAL DETAILS -->
                     <div class="additional-details">
                         <h6>Additional Details</h6>
@@ -430,77 +430,66 @@
         // if hash is not empty, display aside panel
         if(hashValue){
             asidePanel.classList.remove('collapsed');
-            mapAreaSelected();
+            mapCommunitySelected();
         }
 
         window.addEventListener('hashchange', function() {
-            mapAreaSelected();
+            mapCommunitySelected();
         }, false);
 
-        function mapAreaSelected() {
+        function mapCommunitySelected() {
             //console.log(document.querySelector('svg > rect:target + foreignObject'));
             if(document.querySelector('svg > rect:target + foreignObject')){
                 document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
             }
 
-            var selectedAreaId = document.querySelector('svg > rect:target');
+            var selectedCommunityId = document.querySelector('svg > rect:target');
 
-            if(selectedAreaId) {
-                var areaId = selectedAreaId.getAttribute('id');
+            if(selectedCommunityId) {
+                var CommunityId = selectedCommunityId.getAttribute('id');
             }
             else {
-                var areaId = hashValue;
+                var CommunityId = hashValue;
             }
-            var areaTitle = areaId.replace(/([A-Z])/g, ' $1').trim();
-            var areaTitleSelector = document.querySelector('.content-area .page-section .area-title');
-            var areaParagraph = document.querySelector('.content-area .page-section .area-paragraph');
+            var communityTitle = CommunityId.replace(/([A-Z])/g, ' $1').trim();
+            var communityTitleSelector = document.querySelector('.content-area .page-section .community-title');
+            var communitySummary = document.querySelector('.content-area .page-section .community-summary');
 
-            areaTitleSelector.textContent = areaTitle;
-            //if(areaId == 'TwoBiltmoreEstates') {
-            areaParagraph.textContent = 'Paragraph for ' + areaTitle + ' community. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse elementum, nunc nec sodales rhoncus, risus enim rutrum nisi, eget aliquet sapien ligula vel mi.';
+            //communityTitleSelector.textContent = communityTitle;
+            //if(CommunityId == 'TwoBiltmoreEstates') {
+            //communitySummary.textContent = 'Paragraph for ' + communityTitle + ' community. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse elementum, nunc nec sodales rhoncus, risus enim rutrum nisi, eget aliquet sapien ligula vel mi.';
             //}
-        }
-    });
-</script>
-<!-- Google Sheets -->
-<script>"use strict";
-
-(function(window){
-    getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv", function thenAfter(contents, didError){
-        var tableHTML = "<table><tbody>";
-        for (var row=0; row < contents.length; row=row+1|0) {
-            var curRow = contents[row];
-            //console.log(curRow[0]); // get the first cell of each row for communities name list
-            tableHTML += "<tr>";
-            for (var col=0; col < curRow.length; col=col+1|0) {
-                // if(curRow[col].startsWith("Biltmore Square")){
-                //     tableHTML += "<td>" + curRow[col+1] + "</td>";
-                // }
-                if(!curRow[col].startsWith("Community")) { // print all but the cells that starts with Community word
-                    tableHTML += "<td>" + curRow[col] + "</td>";
+            <!-- Google Sheets -->
+            "use strict";
+            getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv", function thenAfter(contents, didError){
+                for (var row=0; row < contents.length; row=row+1|0) {
+                    var curRow = contents[row];
+                    for (var col=0; col < curRow.length; col=col+1|0) {
+                        if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
+                            if(curRow[col].startsWith(communityTitle)){
+                                communityTitleSelector.textContent = curRow[col]; // GS Community Name
+                                communitySummary.textContent = curRow[col+1]; //GS Community Summary
+                            }
+                        }
+                    }
                 }
+                if (didError) alert("failed to HTTP get");
+            });
+            function getGoogleSheetByEditURL(url, then) {
+                var xhr = new XMLHttpRequest;
+                xhr.open("get", url);
+                xhr.responseType = "text";
+                xhr.onloadend = function(){
+                    return then(parseCSV(""||xhr.responseText), !xhr.responseText);
+                };
+                xhr.timeout = 8192; // assume timeout after 8 seconds
+                xhr.send();
             }
-            tableHTML += "</tr>";
-        }
-        document.getElementById("google-sheets").innerHTML = tableHTML += "</table>";
-
-        if (didError) alert("failed to HTTP get");
+            function parseCSV(g){for(var c=[],e=!1,a=0,b=0,f=0;f<g.length;f++){var d=g[f],h=g[f+1];c[a]=c[a]||[];c[a][b]=c[a][b]||"";'"'==d&&e&&'"'==h?(c[a][b]+=d,++f):'"'==d?e=!e:","!=d||e?"\r"!=d||"\n"!=h||e?"\n"!=d||e?"\r"!=d||e?c[a][b]+=d:(++a,b=0):(++a,b=0):(++a,b=0,++f):++b}return c}
+            <!-- /Google Sheets -->
+        } // /mapCommunitySelected
     });
-    function getGoogleSheetByEditURL(url, then) {
-        var xhr = new XMLHttpRequest;
-        xhr.open("get", url);
-        xhr.responseType = "text";
-        xhr.onloadend = function(){
-            return then(parseCSV(""||xhr.responseText), !xhr.responseText);
-        };
-        xhr.timeout = 8192; // assume timeout after 8 seconds
-        xhr.send();
-    }
-    // https://stackoverflow.com/a/14991797/5601591
-    function parseCSV(g){for(var c=[],e=!1,a=0,b=0,f=0;f<g.length;f++){var d=g[f],h=g[f+1];c[a]=c[a]||[];c[a][b]=c[a][b]||"";'"'==d&&e&&'"'==h?(c[a][b]+=d,++f):'"'==d?e=!e:","!=d||e?"\r"!=d||"\n"!=h||e?"\n"!=d||e?"\r"!=d||e?c[a][b]+=d:(++a,b=0):(++a,b=0):(++a,b=0,++f):++b}return c}
-})();
 </script>
-<!-- /Google Sheets -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
