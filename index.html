@@ -72,7 +72,7 @@
                     <p class="community-summary"></p>
                     <h6>Community Details</h6>
                     <div class="community-details">
-                        <div class="container">
+                        <div class="d-flex">
 <!--                            <div class="row">-->
 <!--                                <div class="col-4">Property type:</div>-->
 <!--                                <div class="col-8">Condo</div>-->
@@ -444,10 +444,7 @@
                                 var elements = communityDetailsList.split(/:|,/);
                                 for(var element in elements){
                                     temp = elements[element].split(":");
-                                    communityDetails.innerHTML += '<div class="d-flex">' +
-                                        '<div>'+temp[0]+'</div>' +
-                                        // '<div class="col-8">'+temp[1]+'</div>' +
-                                        '</div>';
+                                    communityDetails.innerHTML += '<div>'+temp[0]+'</div>';
                                 }
                             }
                         }
