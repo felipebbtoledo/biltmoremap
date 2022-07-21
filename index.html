@@ -418,6 +418,7 @@
             var communityName = document.querySelector('.content-area .page-section .community-name');
             var communitySummary = document.querySelector('.content-area .page-section .community-summary');
             var communityDetails = document.querySelector('.content-area .page-section .community-details .container');
+            var communityAdditionalInfo = document.querySelector('.content-area .page-section .community-additional-info');
             var communityDetailsList;
 
             //communityTitleSelector.textContent = communityTitle;
@@ -435,16 +436,17 @@
                                 communityName.textContent = curRow[col]; // GS Community Name
                                 communitySummary.textContent = curRow[col+1]; //GS Community Summary
                                 communityDetailsList = curRow[col+2]; //GS Community Details
+                                communityAdditionalInfo.textContent = curRow[col+3]; //GS Community Additional Info
 
                                 var temp;
-                                var propertyAttribute = new Array();
-                                var propertyAttributeValue = new Array();
+                                //var propertyAttribute = new Array();
+                                //var propertyAttributeValue = new Array();
                                 var elements = communityDetailsList.split(/:|,/);
                                 for(var element in elements){
                                     temp = elements[element].split(":");
                                     communityDetails.innerHTML += '<div class="row">' +
-                                        '<div class="col-4">'+propertyAttribute.push(temp[0])+'</div>' +
-                                        '<div class="col-8">'+propertyAttributeValue.push(temp[1])+'</div>' +
+                                        '<div class="col-4">'+temp[0]+'</div>' +
+                                        '<div class="col-8">'+temp[1]+'</div>' +
                                         '</div>';
                                 }
                             }
