@@ -408,6 +408,7 @@
                 CommunityId = hashValue;
             }
             var communityIdFormatted = CommunityId.replace(/([A-Z])/g, ' $1').trim();
+            var communitiesDropdown = document.querySelector('select[name="CommunitiesList"]');
             var communityName = document.querySelector('.content-area .page-section .community-name');
             var communitySummary = document.querySelector('.content-area .page-section .community-summary');
             var communityDetails = document.querySelector('.content-area .page-section .community-details');
@@ -423,7 +424,12 @@
             getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv", function thenAfter(contents, didError){
                 for (var row=0; row < contents.length; row=row+1|0) {
                     var curRow = contents[row];
-                    console.log(curRow[0]);
+
+                    var ddlEl = document.createElement("option");
+                    ddlEl.textContent = curRow[0];
+                    ddlEl.value = curRow[0];
+                    communitiesDropdown.appendChild(ddlEl);
+
                     for (var col=0; col < curRow.length; col=col+1|0) {
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
                             if(curRow[col].startsWith(communityIdFormatted)){
