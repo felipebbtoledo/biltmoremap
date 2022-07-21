@@ -423,9 +423,9 @@
             getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv", function thenAfter(contents, didError){
                 for (var row=0; row < contents.length; row=row+1|0) {
                     var curRow = contents[row];
+                    console.log(curRow[0]);
                     for (var col=0; col < curRow.length; col=col+1|0) {
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
-                            console.log(curRow[0]);
                             if(curRow[col].startsWith(communityIdFormatted)){
                                 communityName.textContent = curRow[col]; // GS Community Name
                                 communitySummary.textContent = curRow[col+1]; //GS Community Summary
