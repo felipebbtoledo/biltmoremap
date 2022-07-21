@@ -5,7 +5,7 @@
         var tableHTML = "<table><tbody>";
         for (var row=0; row < contents.length; row=row+1|0) {
             var curRow = contents[row];
-            console.log(contents[row]);
+            console.log(curRow[0]);
             tableHTML += "<tr>";
             for (var col=0; col < curRow.length; col=col+1|0) {
                 if(curRow[col].startsWith("Biltmore Square")){
