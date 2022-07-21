@@ -151,7 +151,6 @@ body {
 .aside-panel .page-section .community-details > div {
     border-bottom: 1px solid var(--light-gray-color);
     flex:0 0 66.666667%;
-    font-weight: 700;
     max-width:66.666667%;
     padding: .5rem 0;
 }
@@ -162,7 +161,7 @@ body {
 .aside-panel .page-section .community-details > div:nth-child(odd) {
     color: var(--dark-gray-color);
     flex:0 0 33.333333%;
-    font-weight: 400;
+    font-weight: 700;
     max-width:33.333333%;
 }
 .btn {
