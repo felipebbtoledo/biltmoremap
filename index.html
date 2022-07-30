@@ -407,39 +407,45 @@
                 CommunityId = hashValue;
             }
             var communityIdFormatted = CommunityId.replace(/([A-Z])/g, ' $1').trim();
-            var communitiesDropdown = document.querySelector('select[name="CommunitiesList"]');
-            var communityName = document.querySelector('.content-area .page-section .community-name');
-            var communitySummary = document.querySelector('.content-area .page-section .community-summary');
-            var communityDetails = document.querySelector('.content-area .page-section .community-details');
-            var communityAdditionalInfo = document.querySelector('.content-area .page-section .community-additional-info');
+            var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
+            var communityNameSelector = document.querySelector('.content-area .page-section .community-name');
+            var communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
+            var communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
+            var communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
 
             <!-- Google Sheets -->
             "use strict";
             getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv", function thenAfter(contents, didError){
                 for (var row=0; row < contents.length; row=row+1|0) { //loop through rows
                     var curRow = contents[row];
-                    console.log(curRow);
                     // populate the Communities dropdown list
                     var ddlEl = document.createElement("option");
                     ddlEl.textContent = curRow[0];
                     ddlEl.value = curRow[0];
-                    communitiesDropdown.appendChild(ddlEl);
+                    communitiesDropdownSelector.appendChild(ddlEl);
 
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
-                            if(curRow[col].startsWith(communityIdFormatted)){
-                                communityName.textContent = curRow[col]; // GS Community Name
-                                communitySummary.textContent = curRow[col+1]; //GS Community Summary
-                                communityDetailsList = curRow[col+2]; //GS Community Details
-                                communityAdditionalInfo.textContent = curRow[col+3]; //GS Community Additional Info
+                            // populate def masks
+                            const svgDefs = document.querySelector('main > svg > defs');
+                            let communityName = curRow[0];
+                            let communityPolygonPoints = curRow[col+6];
+                            communityName = communityName.replace(/ +/g, '');
+                            svgDefs.innerHTML += '<mask id="'+communityName+'Mask"><rect width="100%" height="100%" fill="white"/><polygon points="'+communityPolygonPoints+'" fill="black"/></mask>';
 
-                                var temp;
-                                var elements = communityDetailsList.split(/:|,/);
-                                for(var element in elements){
-                                    temp = elements[element].split(":");
-                                    communityDetails.innerHTML += '<div>'+temp[0]+'</div>';
-                                }
-                            }
+                            //         if(curRow[col].startsWith(communityIdFormatted)){
+                    //             communityNameSelector.textContent = curRow[col]; // GS Community Name
+                    //             communitySummarySelector.textContent = curRow[col+1]; //GS Community Summary
+                    //             communityDetailsListSelector = curRow[col+2]; //GS Community Details
+                    //             communityAdditionalInfoSelector.textContent = curRow[col+3]; //GS Community Additional Info
+                    //
+                    //             var temp;
+                    //             var elements = communityDetailsList.split(/:|,/);
+                    //             for(var element in elements){
+                    //                 temp = elements[element].split(":");
+                    //                 communityDetails.innerHTML += '<div>'+temp[0]+'</div>';
+                    //             }
+                    //         }
                         }
                     }
                 }
