@@ -427,8 +427,8 @@
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
                             // populate def masks
-                            const svgDefs = document.querySelector('main > svg > defs');
-                            let communityName = curRow[col];
+                            var svgDefs = document.querySelector('main > svg > defs');
+                            var communityName = curRow[col];
                             //let communityPolygonPoints = curRow[col+6];
                             communityName = communityName.replace(/ +/g, '');
                             svgDefs.innerHTML += '<mask id="'+communityName+'Mask"><rect width="100%" height="100%" fill="white"/></mask>';
