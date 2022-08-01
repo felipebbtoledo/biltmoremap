@@ -374,12 +374,12 @@
         // });
 
         // toggle aside panel by area clicking
-        // document.querySelector('.dropdown.bootstrap-select.show').forEach(function(el) {
-        //     el.addEventListener('click', function (e) {
-        //         $('.selectpicker').selectpicker('refresh').trigger('change');
-        //         console.log('selectpicker clicked');
-        //     });
-        // });
+        $('.selectpicker').on('change', function(){
+            let selectPickerValue = $(this).val();
+            if(selectPickerValue){
+                window.location.href = '/#'+ selectPickerValue;
+            }
+        });
 
 
         // refresh aside panel communities dropdown
