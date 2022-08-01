@@ -376,7 +376,9 @@
         // toggle aside panel by area clicking
         $('.selectpicker').on('change', function(){
             let selectPickerValue = $(this).val();
-            window.location.href = '#'+ selectPickerValue;
+            if(selectPickerValue){
+                window.location.href = '#'+ selectPickerValue;
+            }
         });
 
 
