@@ -394,7 +394,7 @@
 
         window.addEventListener('hashchange', function() {
             mapCommunitySelected();
-            setTimeout(function(){$('.selectpicker').selectpicker('refresh').trigger('change')},1000);
+            setTimeout(function(){$('.selectpicker').selectpicker('refresh').trigger('change')},2000);
         }, false);
 
         function mapCommunitySelected() {
@@ -422,15 +422,14 @@
             getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv", function thenAfter(contents, didError){
                 for (var row=0; row < contents.length; row=row+1|0) { //loop through rows
                     var curRow = contents[row];
+                    // populate the Communities dropdown list
+                    var ddlEl = document.createElement("option");
+                    ddlEl.textContent = curRow[0];
+                    ddlEl.value = curRow[0];
+                    communitiesDropdownSelector.appendChild(ddlEl);
 
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
-                            // populate the Communities dropdown list
-                            var ddlEl = document.createElement("option");
-                            ddlEl.textContent = curRow[0];
-                            ddlEl.value = curRow[0];
-                            communitiesDropdownSelector.appendChild(ddlEl);
-
                             if(curRow[col].startsWith(communityIdFormatted)){
                                 communityNameSelector.textContent = curRow[col]; // GS Community Name
                                 communitySummarySelector.textContent = curRow[col+1]; //GS Community Summary
