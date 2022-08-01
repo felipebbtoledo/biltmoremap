@@ -390,7 +390,7 @@
         if(hashValue){
             asidePanel.classList.remove('collapsed');
             mapCommunitySelected();
-            document.querySelector('select[name="CommunitiesList"]').selectpicker('refresh').trigger('change');
+            $('.selectpicker').selectpicker('refresh').trigger('change');
         }
 
         window.addEventListener('hashchange', function() {
