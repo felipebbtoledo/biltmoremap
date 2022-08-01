@@ -438,7 +438,7 @@
                     if(!curRow[0].startsWith("Community")) {
                         var ddlEl = document.createElement("option");
                         ddlEl.textContent = curRow[0];
-                        ddlEl.value = curRow[0];
+                        ddlEl.value = curRow[0].replace(/ +/g, "");
                         communitiesDropdownSelector.appendChild(ddlEl);
                     }
 
