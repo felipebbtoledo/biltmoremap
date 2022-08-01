@@ -377,6 +377,7 @@
         for (let i = 0; i < selectPickers.length; i++) {
             selectPickers[i].addEventListener("click", function() {
                 $('.selectpicker').selectpicker('refresh').trigger('change');
+                console.log('selectpicker clicked');
             });
         }
 
