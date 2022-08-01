@@ -424,7 +424,7 @@
                     ddlEl.textContent = curRow[0];
                     ddlEl.value = curRow[0];
                     communitiesDropdownSelector.appendChild(ddlEl);
-                    console.log(curRow);
+                    console.log(curRow[0]);
 
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
