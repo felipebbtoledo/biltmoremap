@@ -404,7 +404,14 @@
         }
 
         window.addEventListener('hashchange', function() {
-            mapCommunitySelected();
+            // if hash is not empty, display aside panel
+            if(hashValue){
+                asidePanel.classList.remove('collapsed');
+                mapCommunitySelected();
+            }
+            else {
+                asidePanel.classList.add('collapsed');
+            }
         }, false);
 
         function mapCommunitySelected() {
