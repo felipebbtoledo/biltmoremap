@@ -390,6 +390,7 @@
         if(hashValue){
             asidePanel.classList.remove('collapsed');
             mapCommunitySelected();
+            document.querySelector('select[name="CommunitiesList"]').selectpicker('refresh').trigger('change');
         }
 
         window.addEventListener('hashchange', function() {
@@ -429,7 +430,6 @@
                             ddlEl.textContent = curRow[col];
                             ddlEl.value = curRow[col];
                             communitiesDropdownSelector.appendChild(ddlEl);
-                            communitiesDropdownSelector.selectpicker('refresh').trigger('change');
 
                             if(curRow[col].startsWith(communityIdFormatted)){
                                 communityNameSelector.textContent = curRow[col]; // GS Community Name
