@@ -382,12 +382,11 @@
         // });
 
 
-        // toggle aside panel by area clicking
+        // refresh aside panel communities dropdown
         for (let i = 0; i < svgLinks.length; i++) {
             svgLinks[i].addEventListener("click", function() {
                 asidePanel.classList.remove('collapsed');
                 setTimeout(function(){$('.selectpicker').selectpicker('refresh').trigger('change')},2000);
-                console.log('ran');
             });
         }
 
@@ -434,10 +433,14 @@
                 for (var row=0; row < contents.length; row=row+1|0) { //loop through rows
                     var curRow = contents[row];
                     // populate the Communities dropdown list
-                    var ddlEl = document.createElement("option");
-                    ddlEl.textContent = curRow[0];
-                    ddlEl.value = curRow[0];
-                    communitiesDropdownSelector.appendChild(ddlEl);
+                    if(communitiesDropdownSelector.length < 2) {
+                        var ddlEl = document.createElement("option");
+                        if(!curRow[0].startsWith("Community")) {
+                            ddlEl.textContent = curRow[0];
+                            ddlEl.value = curRow[0];
+                            communitiesDropdownSelector.appendChild(ddlEl);
+                        }
+                    }
 
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
