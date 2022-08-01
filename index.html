@@ -405,12 +405,11 @@
 
         window.addEventListener('hashchange', function() {
             // if hash is not empty, display aside panel
-            if(hashValue){
-                asidePanel.classList.remove('collapsed');
-                mapCommunitySelected();
+            if(!hashValue){
+                asidePanel.classList.add('collapsed');
             }
             else {
-                asidePanel.classList.add('collapsed');
+                mapCommunitySelected();
             }
         }, false);
 
