@@ -351,6 +351,7 @@
     var asidePanel = document.querySelector('.aside-panel');
     var svgLinks = document.querySelectorAll('main > svg > a');
     var closeLinks = document.querySelectorAll('.popup .close');
+    var selectPickers = document.querySelectorAll('.selectpicker');
     var hash = window.location.hash;
     var hashValue = hash.split('#')[1];
     var openCloseArea = document.querySelector('.open-close-area');
@@ -371,6 +372,13 @@
         // openCloseArea.addEventListener("click", function() {
         //     asidePanel.classList.add('collapsed');
         // });
+
+        // toggle aside panel by area clicking
+        for (let i = 0; i < selectPickers.length; i++) {
+            selectPickers[i].addEventListener("click", function() {
+                $('.selectpicker').selectpicker('refresh').trigger('change');
+            });
+        }
 
         // toggle aside panel by area clicking
         for (let i = 0; i < svgLinks.length; i++) {
@@ -394,7 +402,6 @@
 
         window.addEventListener('hashchange', function() {
             mapCommunitySelected();
-            setTimeout(function(){$('.selectpicker').selectpicker('refresh').trigger('change')},2000);
         }, false);
 
         function mapCommunitySelected() {
