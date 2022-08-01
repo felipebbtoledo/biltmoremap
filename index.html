@@ -394,7 +394,7 @@
 
         window.addEventListener('hashchange', function() {
             mapCommunitySelected();
-            setInterval(function(){$('.selectpicker').selectpicker('refresh').trigger('change')},1000);
+            setTimeout(function(){$('.selectpicker').selectpicker('refresh').trigger('change')},1000);
         }, false);
 
         function mapCommunitySelected() {
@@ -427,8 +427,8 @@
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
                             // populate the Communities dropdown list
                             var ddlEl = document.createElement("option");
-                            ddlEl.textContent = curRow[col];
-                            ddlEl.value = curRow[col];
+                            ddlEl.textContent = curRow[0];
+                            ddlEl.value = curRow[0];
                             communitiesDropdownSelector.appendChild(ddlEl);
 
                             if(curRow[col].startsWith(communityIdFormatted)){
