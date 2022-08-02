@@ -421,7 +421,6 @@
             var communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
 
             $('.selectpicker').empty();
-            $('.selectpicker').selectpicker('refresh').trigger('change');
             <!-- Google Sheets -->
             "use strict";
             getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv", function thenAfter(contents, didError){
@@ -469,6 +468,7 @@
             }
             function parseCSV(g){for(var c=[],e=!1,a=0,b=0,f=0;f<g.length;f++){var d=g[f],h=g[f+1];c[a]=c[a]||[];c[a][b]=c[a][b]||"";'"'==d&&e&&'"'==h?(c[a][b]+=d,++f):'"'==d?e=!e:","!=d||e?"\r"!=d||"\n"!=h||e?"\n"!=d||e?"\r"!=d||e?c[a][b]+=d:(++a,b=0):(++a,b=0):(++a,b=0,++f):++b}return c}
             <!-- /Google Sheets -->
+            $('.selectpicker').selectpicker('refresh').trigger('change');
         } // /mapCommunitySelected
     });
 </script>
