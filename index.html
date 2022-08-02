@@ -429,10 +429,13 @@
 
                     // populate the Communities dropdown list
                     if(!curRow[0].startsWith("Community")) {
-                        console.log('inside IF populate the Communities dropdown list');
                         var ddlEl = document.createElement("option");
+                        var curRowNoSpace = curRow[0].replace(/ +/g, "");
                         ddlEl.textContent = curRow[0];
-                        ddlEl.value = curRow[0].replace(/ +/g, "");
+                        ddlEl.value = curRowNoSpace;
+                        if(communityIdFormatted == curRowNoSpace) {
+                            ddlEl.attr('selected','selected');
+                        }
                         communitiesDropdownSelector.appendChild(ddlEl);
                     }
 
