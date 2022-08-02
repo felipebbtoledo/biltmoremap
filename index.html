@@ -414,7 +414,7 @@
                 CommunityId = hashValue;
             // }
             var communityIdFormatted = CommunityId.replace(/([A-Z])/g, ' $1').trim();
-            console.log(communityIdFormatted);
+            //console.log(communityIdFormatted);
             var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
             var communityNameSelector = document.querySelector('.content-area .page-section .community-name');
             var communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
@@ -431,10 +431,9 @@
                     // populate the Communities dropdown list
                     if(!curRow[0].startsWith("Community")) {
                         var ddlEl = document.createElement("option");
-                        var curRowNoSpace = curRow[0].replace(/ +/g, "");
                         ddlEl.textContent = curRow[0];
-                        ddlEl.value = curRowNoSpace;
-                        if(communityIdFormatted == curRowNoSpace) {
+                        ddlEl.value = curRow[0];
+                        if(communityId == curRow[0]) {
                             ddlEl.attr('selected','selected');
                         }
                         communitiesDropdownSelector.appendChild(ddlEl);
