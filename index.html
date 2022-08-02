@@ -376,6 +376,8 @@
         // toggle aside panel by area clicking
         $(document).on('click', '.bootstrap-select', function (e) {
             // $('.selectpicker').val('');
+            let pickedVal = $(this).find('.dropdown-toggle').attr('title');
+            console.log(pickedVal);
             //let selectPickerValue = $(this).val();
             //console.log(selectPickerValue);
             //if(selectPickerValue){
@@ -403,12 +405,13 @@
         if(hashValue){
             asidePanel.classList.remove('collapsed');
             mapCommunitySelected();
-            $('.selectpicker[name="CommunitiesList"]').val(hashValue);
-            console.log(hashValue);
+            // $('.selectpicker[name="CommunitiesList"]').val(hashValue);
+            // console.log(hashValue);
         }
 
         window.addEventListener('hashchange', function() {
             mapCommunitySelected();
+            $('.selectpicker[name="CommunitiesList"]').val(hashValue);
         }, false);
 
         function mapCommunitySelected() {
