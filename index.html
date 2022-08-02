@@ -377,6 +377,9 @@
         $(document).on('change', '.selectpicker', function (e) {
             console.log('ddl change');
             //$('.selectpicker').selectpicker('refresh').trigger('change');
+            $('.bootstrap-select .dropdown-menu .inner,.dropdown-menu.inner').removeClass('show');
+            $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .active').removeClass('active');
+            $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .selected').removeClass('selected');
             let selectPickerValue = $(this).val();
             if(selectPickerValue){
                 console.log('inside if');
