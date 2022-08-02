@@ -376,7 +376,7 @@
         // toggle aside panel by area clicking
         $('.selectpicker').on('change', function(){
             console.log('ddl change');
-            $('.selectpicker').selectpicker('refresh');
+            $('.selectpicker').selectpicker('refresh').trigger('change');
             let selectPickerValue = $(this).val();
             if(selectPickerValue){
                 console.log('inside if');
