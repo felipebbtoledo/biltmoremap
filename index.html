@@ -369,16 +369,13 @@
             });
         }
 
-        // openCloseArea.addEventListener("click", function() {
-        //     asidePanel.classList.add('collapsed');
-        // });
+        openCloseArea.addEventListener("click", function() {
+            asidePanel.classList.add('collapsed');
+        });
 
         // toggle aside panel by area clicking
-        $(document).on('focus', '.bootstrap-select', function (e) {
-            $('.selectpicker').val('');
-            console.log('focused');
-        });
-        $('.selectpicker').on('change', function(){
+        $(document).on('change', '.selectpicker', function (e) {
+            // $('.selectpicker').val('');
             let selectPickerValue = $(this).val();
             console.log(selectPickerValue);
             if(selectPickerValue){
