@@ -376,9 +376,9 @@
         // toggle aside panel by area clicking
         $('.selectpicker').on('change', function(){
             console.log('ddl change');
+            $('.selectpicker').selectpicker('refresh');
             let selectPickerValue = $(this).val();
             if(selectPickerValue){
-                $('.selectpicker').selectpicker('refresh');
                 console.log('inside if');
                 window.location.href = '#'+ selectPickerValue;
             }
