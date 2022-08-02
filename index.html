@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-lg-6 col-xl-5">
                             <div class="form-group m-0">
-                                <select name="CommunitiesList" class="selectpicker" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Communities">
+                                <select name="CommunitiesList" class="selectpicker" data-live-search="true" data-width="100%">
                                     <!--                                    <option value="2211-camelback">2211 Camelback</option>-->
                                     <!--                                    <option value="biltmore-mountain-estates">Biltmore Mountain Estates</option>-->
                                     <!--                                    <option value="biltmore-shores">Biltmore Shores</option>-->
@@ -374,7 +374,7 @@
         });
 
         // toggle aside panel by area clicking
-        $(document).on('change', '.selectpicker', function (e) {
+        $(document).on('change', '.selectpicker[name="CommunitiesList"]', function (e) {
             // $('.selectpicker').val('');
             let selectPickerValue = $(this).val();
             console.log(selectPickerValue);
