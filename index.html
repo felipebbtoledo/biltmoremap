@@ -378,12 +378,15 @@
         //
         //     e.stopImmediatePropagation()
         // })
-        $('.selectpicker').on('change', function(){
-            console.log('ddl change');
-            $('.selectpicker').selectpicker('refresh');
+
+        $('.selectpicker').on('click', function(){
             $('.bootstrap-select .dropdown-menu .inner,.dropdown-menu.inner').removeClass('show');
             $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .active').removeClass('active');
             $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .selected').removeClass('selected');
+        });
+        $('.selectpicker').on('change', function(){
+            console.log('ddl change');
+            $('.selectpicker').selectpicker('refresh');
             let selectPickerValue = $(this).val();
             if(selectPickerValue){
                 console.log('inside if');
