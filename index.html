@@ -374,21 +374,9 @@
         // });
 
         // toggle aside panel by area clicking
-        $(document).on('change', '.selectpicker', function (e) {
-            let selectPickerValue = $(this).val();
-            console.log(selectPickerValue);
-            if(selectPickerValue){
-                console.log('inside if');
-                window.location.href = '#'+ selectPickerValue;
-            }
-            e.stopImmediatePropagation();
-        })
-
-        // $('.selectpicker').on('click', function(){
-        //     $('.bootstrap-select .dropdown-menu .inner,.dropdown-menu.inner').removeClass('show');
-        //     $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .active').removeClass('active');
-        //     $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .selected').removeClass('selected');
-        // });
+        $(document).on('focus', '.selectpicker', function (e) {
+            $(this).val('');
+        });
         $('.selectpicker').on('change', function(){
             let selectPickerValue = $(this).val();
             console.log(selectPickerValue);
@@ -397,7 +385,6 @@
                 window.location.href = '#'+ selectPickerValue;
             }
         });
-
 
         // refresh aside panel communities dropdown
         for (let i = 0; i < svgLinks.length; i++) {
