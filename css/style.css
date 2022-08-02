@@ -58,8 +58,8 @@ body {
     font-size: .875rem;
 }
 .aside-panel .open-close-area {
-    position: absolute;
-    right: -40px;
+    position: fixed;
+    left: var(--aside-panel-width);
     top: 0;
     width: 40px;
     height: 40px;
