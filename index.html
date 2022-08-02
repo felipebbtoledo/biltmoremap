@@ -377,7 +377,6 @@
         $(document).on('click', '.bootstrap-select', function (e) {
             let pickedVal = $(this).find('.dropdown-toggle').attr('title');
             window.location.href = '#'+ pickedVal.replace(/ +/g, "");
-            //}
         });
 
         // refresh aside panel communities dropdown
@@ -399,8 +398,8 @@
         if(hashValue){
             asidePanel.classList.remove('collapsed');
             mapCommunitySelected();
-            // $('.selectpicker[name="CommunitiesList"]').val(hashValue);
-            // console.log(hashValue);
+            $('.selectpicker[name="CommunitiesList"]').val(hashValue);
+            console.log(hashValue);
         }
 
         window.addEventListener('hashchange', function() {
