@@ -22,9 +22,9 @@
 
         <!-- HEADER -->
         <div class="position-relative">
-            <!--                    <div class="open-close-area" id="open-close-area">-->
-            <!--                        <a href="#"><i class="fa fa-angle-left"></i></a>-->
-            <!--                    </div>-->
+            <div class="open-close-area" id="open-close-area">
+                <a href="#"><i class="fa fa-angle-left"></i></a>
+            </div>
             <div class="header">
                 <div class="container">
                     <div class="row align-items-center">
@@ -379,15 +379,14 @@
         //     e.stopImmediatePropagation()
         // })
 
-        $('.selectpicker').on('click', function(){
-            $('.bootstrap-select .dropdown-menu .inner,.dropdown-menu.inner').removeClass('show');
-            $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .active').removeClass('active');
-            $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .selected').removeClass('selected');
-        });
+        // $('.selectpicker').on('click', function(){
+        //     $('.bootstrap-select .dropdown-menu .inner,.dropdown-menu.inner').removeClass('show');
+        //     $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .active').removeClass('active');
+        //     $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .selected').removeClass('selected');
+        // });
         $('.selectpicker').on('change', function(){
-            console.log('ddl change');
-            $('.selectpicker').selectpicker('refresh');
             let selectPickerValue = $(this).val();
+            console.log(selectPickerValue);
             if(selectPickerValue){
                 console.log('inside if');
                 window.location.href = '#'+ selectPickerValue;
