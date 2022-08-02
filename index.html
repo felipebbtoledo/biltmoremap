@@ -374,9 +374,13 @@
         // });
 
         // toggle aside panel by area clicking
-        $(document).on('change', '.selectpicker', function (e) {
+        // $(document).on('change', '.selectpicker', function (e) {
+        //
+        //     e.stopImmediatePropagation()
+        // })
+        $('.selectpicker').on('change', function(){
             console.log('ddl change');
-            //$('.selectpicker').selectpicker('refresh').trigger('change');
+            $('.selectpicker').selectpicker('refresh');
             $('.bootstrap-select .dropdown-menu .inner,.dropdown-menu.inner').removeClass('show');
             $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .active').removeClass('active');
             $('.bootstrap-select .dropdown-menu .dropdown-menu.inner .selected').removeClass('selected');
@@ -385,11 +389,7 @@
                 console.log('inside if');
                 window.location.href = '#'+ selectPickerValue;
             }
-            e.stopImmediatePropagation()
-        })
-        // $('.selectpicker').on('change', function(){
-        //
-        // });
+        });
 
 
         // refresh aside panel communities dropdown
