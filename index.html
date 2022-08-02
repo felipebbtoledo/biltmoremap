@@ -376,6 +376,7 @@
         // toggle aside panel by area clicking
         $(document).on('focus', '.selectpicker', function (e) {
             $(this).val('');
+            console.log('focused');
         });
         $('.selectpicker').on('change', function(){
             let selectPickerValue = $(this).val();
