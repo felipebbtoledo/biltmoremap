@@ -407,12 +407,12 @@
 
             var selectedCommunityId = document.querySelector('svg > rect:target');
             var CommunityId, communityDetailsList;
-            if(selectedCommunityId) {
-                CommunityId = selectedCommunityId.getAttribute('id');
-            }
-            else {
+            // if(selectedCommunityId) {
+            //     CommunityId = selectedCommunityId.getAttribute('id');
+            // }
+            // else {
                 CommunityId = hashValue;
-            }
+            // }
             var communityIdFormatted = CommunityId.replace(/([A-Z])/g, ' $1').trim();
             console.log(communityIdFormatted);
             var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
