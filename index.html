@@ -36,12 +36,6 @@
                         <div class="col-lg-6 col-xl-5">
                             <div class="form-group m-0">
                                 <select name="CommunitiesList" class="selectpicker" data-live-search="true" data-width="100%">
-                                    <!--                                    <option value="2211-camelback">2211 Camelback</option>-->
-                                    <!--                                    <option value="biltmore-mountain-estates">Biltmore Mountain Estates</option>-->
-                                    <!--                                    <option value="biltmore-shores">Biltmore Shores</option>-->
-                                    <!--                                    <option value="fairway-lodge">Fairway Lodge</option>-->
-                                    <!--                                    <option value="taliverde">Taliverde</option>-->
-                                    <!--                                    <option value="two-biltmore-estates">Two Biltmore Estates</option>-->
                                 </select>
                             </div>
                         </div>
@@ -383,7 +377,7 @@
         for (let i = 0; i < svgLinks.length; i++) {
             svgLinks[i].addEventListener("click", function() {
                 asidePanel.classList.remove('collapsed');
-                setTimeout(function(){$('.selectpicker').selectpicker('refresh').trigger('change')},2000);
+                setTimeout(function(){$('.selectpicker').selectpicker('refresh').trigger('change')},1000);
             });
         }
 
@@ -426,7 +420,8 @@
             var communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
             var communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
 
-            $(".selectpicker").empty();
+            $('.selectpicker').empty();
+            $('.selectpicker').selectpicker('refresh').trigger('change');
             <!-- Google Sheets -->
             "use strict";
             getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv", function thenAfter(contents, didError){
@@ -435,6 +430,7 @@
 
                     // populate the Communities dropdown list
                     if(!curRow[0].startsWith("Community")) {
+                        console.log('inside IF populate the Communities dropdown list');
                         var ddlEl = document.createElement("option");
                         ddlEl.textContent = curRow[0];
                         ddlEl.value = curRow[0].replace(/ +/g, "");
