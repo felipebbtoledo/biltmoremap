@@ -374,8 +374,8 @@
         // });
 
         // toggle aside panel by area clicking
-        $(document).on('focus', '.selectpicker', function (e) {
-            $(this).val('');
+        $(document).on('focus', '.bootstrap-select', function (e) {
+            $('.selectpicker').val('');
             console.log('focused');
         });
         $('.selectpicker').on('change', function(){
