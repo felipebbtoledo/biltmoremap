@@ -414,6 +414,7 @@
                 CommunityId = hashValue;
             }
             var communityIdFormatted = CommunityId.replace(/([A-Z])/g, ' $1').trim();
+            console.log(communityIdFormatted);
             var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
             var communityNameSelector = document.querySelector('.content-area .page-section .community-name');
             var communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
