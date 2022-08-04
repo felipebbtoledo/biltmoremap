@@ -36,6 +36,7 @@
                         <div class="col-lg-6 col-xl-5">
                             <div class="form-group m-0">
                                 <select name="CommunitiesList" class="selectpicker" data-live-search="true" data-width="100%">
+                                    <option selected value="">Communities</option>
                                 </select>
                             </div>
                         </div>
@@ -465,7 +466,7 @@
                         }
                     }
                 }
-                $('.selectpicker').selectpicker('refresh').trigger('change');
+                //$('.selectpicker').selectpicker('refresh').trigger('change');
                 if (didError) alert("failed to HTTP get");
             });
             function getGoogleSheetByEditURL(url, then) {
