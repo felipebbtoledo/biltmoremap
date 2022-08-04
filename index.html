@@ -401,6 +401,10 @@
         }, false);
 
         function mapCommunitySelected() {
+
+            const hash = window.location.hash;
+            const hashValue = hash.split('#')[1];
+
             if(document.querySelector('svg > rect:target + foreignObject')){
                 document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
             }
