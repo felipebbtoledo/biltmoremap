@@ -464,7 +464,7 @@
                         }
                     }
                 }
-                $('.selectpicker').selectpicker('refresh');
+                $('.selectpicker').selectpicker('refresh').trigger('change');
                 if (didError) alert("failed to HTTP get");
             });
             function getGoogleSheetByEditURL(url, then) {
