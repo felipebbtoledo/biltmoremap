@@ -369,7 +369,7 @@
         });
 
         // toggle aside panel by area clicking
-        $(document).on('click', '.bootstrap-select', function (e) {
+        $(document).on('click', '.bootstrap-select .dropdown-menu .dropdown-menu .dropdown-item', function (e) {
             let pickedVal = $(this).find('.dropdown-toggle').attr('title');
             window.location.href = '#'+ pickedVal.replace(/ +/g, "");
         });
@@ -470,7 +470,7 @@
                         }
                     }
                 }
-                //$('.selectpicker').selectpicker('refresh').trigger('change');
+                $('.selectpicker').selectpicker('refresh').trigger('change');
                 if (didError) alert("failed to HTTP get");
             });
             function getGoogleSheetByEditURL(url, then) {
