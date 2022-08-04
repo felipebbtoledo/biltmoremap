@@ -369,7 +369,7 @@
         });
 
         // toggle aside panel by area clicking
-        $(document).on('click', '.bootstrap-select .dropdown-menu .dropdown-menu .dropdown-item', function (e) {
+        $(document).on('click', '.bootstrap-select', function (e) {
             let pickedVal = $(this).find('.dropdown-toggle').attr('title');
             window.location.href = '#'+ pickedVal.replace(/ +/g, "");
         });
