@@ -409,7 +409,7 @@
                 document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
             }
 
-            // var selectedCommunityId = document.querySelector('svg > rect:target');
+             var selectedCommunityId = document.querySelector('svg > rect:target');
             var CommunityId, communityDetailsList;
             // if(selectedCommunityId) {
             //     CommunityId = selectedCommunityId.getAttribute('id');
@@ -438,8 +438,8 @@
                         ddlEl.textContent = curRow[0];
                         ddlEl.value = curRow[0];
                         console.log(hashValue);
-                        if(hashValue == curRow[0]) {
-                            ddlEl.attr('selected','selected');
+                        if(selectedCommunityId.getAttribute('id') == curRow[0]) {
+                            ddlEl.setAttribute('selected', 'selected');
                         }
                         communitiesDropdownSelector.appendChild(ddlEl);
                     }
