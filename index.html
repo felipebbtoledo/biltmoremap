@@ -414,7 +414,7 @@
              var selectedCommunityId = document.querySelector('svg > rect:target');
             var CommunityId, communityDetailsList;
             // if(selectedCommunityId) {
-            CommunityId = selectedCommunityId.getAttribute('id');
+            CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
             // }
             //else {
             //    CommunityId = hashValue;
