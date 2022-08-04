@@ -377,7 +377,7 @@
         for (let i = 0; i < svgLinks.length; i++) {
             svgLinks[i].addEventListener("click", function() {
                 asidePanel.classList.remove('collapsed');
-                setTimeout(function(){$('.selectpicker').selectpicker('refresh').trigger('change')},1000);
+                //setTimeout(function(){$('.selectpicker').selectpicker('refresh').trigger('change')},1000);
             });
         }
 
@@ -392,7 +392,7 @@
         if(hashValue){
             asidePanel.classList.remove('collapsed');
             mapCommunitySelected();
-            $('.selectpicker[name="CommunitiesList"]').val(hashValue);
+            //$('.selectpicker[name="CommunitiesList"]').val(hashValue);
             // $('.selectpicker').selectpicker('refresh');
             // console.log(hashValue);
         }
