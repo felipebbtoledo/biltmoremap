@@ -36,7 +36,7 @@
                         <div class="col-lg-6 col-xl-5">
                             <div class="form-group m-0">
                                 <select name="CommunitiesList" class="selectpicker" data-live-search="true" data-width="100%">
-                                    <option>Communities</option>
+<!--                                    <option>Communities</option>-->
                                 </select>
                             </div>
                         </div>
@@ -438,9 +438,16 @@
 
                     // populate the Communities dropdown list
                     if(!curRow[0].startsWith("Community")) {
+                        var appendFirstItem = false;
                         var ddlEl = document.createElement("option");
-                        ddlEl.textContent = curRow[0];
-                        ddlEl.value = curRow[0];
+                        if (!appendFirstItem) {
+                            ddlEl.textContent = "Communities";
+                            appendFirstItem = true;
+                        }
+                        else {
+                            ddlEl.textContent = curRow[0];
+                            ddlEl.value = curRow[0];
+                        }
                         // if(selectedCommunityId.getAttribute('id') == curRow[0]) {
                         //     ddlEl.setAttribute('selected', 'selected');
                         //     console.log('selected');
