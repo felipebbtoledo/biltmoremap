@@ -437,23 +437,20 @@
                     var curRow = contents[row];
 
                     // populate the Communities dropdown list
-                    if(!curRow[0].startsWith("Community")) {
-                        var appendFirstItem = false;
-                        var ddlEl = document.createElement("option");
-                        if (!appendFirstItem) {
-                            ddlEl.textContent = "Communities";
-                            appendFirstItem = true;
-                        }
-                        else {
-                            ddlEl.textContent = curRow[0];
-                            ddlEl.value = curRow[0];
-                        }
-                        // if(selectedCommunityId.getAttribute('id') == curRow[0]) {
-                        //     ddlEl.setAttribute('selected', 'selected');
-                        //     console.log('selected');
-                        // }
-                        communitiesDropdownSelector.appendChild(ddlEl);
+                    var ddlEl = document.createElement("option");
+                    if(curRow[0].startsWith("Community")) {
+                        ddlEl.textContent = "Communities";
                     }
+                    else {
+                        ddlEl.textContent = curRow[0];
+                        ddlEl.value = curRow[0];
+                    }
+                    // if(selectedCommunityId.getAttribute('id') == curRow[0]) {
+                    //     ddlEl.setAttribute('selected', 'selected');
+                    //     console.log('selected');
+                    // }
+                    communitiesDropdownSelector.appendChild(ddlEl);
+
 
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
