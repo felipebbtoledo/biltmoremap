@@ -412,13 +412,13 @@
              var selectedCommunityId = document.querySelector('svg > rect:target');
             var CommunityId, communityDetailsList;
             // if(selectedCommunityId) {
-            //     CommunityId = selectedCommunityId.getAttribute('id');
+            CommunityId = selectedCommunityId.getAttribute('id');
             // }
             //else {
             //    CommunityId = hashValue;
             //}
             // console.log(CommunityId);
-            var communityIdFormatted = hashValue.replace(/([A-Z])/g, ' $1').trim();
+            var communityIdFormatted = CommunityId.replace(/([A-Z])/g, ' $1').trim();
             var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
             var communityNameSelector = document.querySelector('.content-area .page-section .community-name');
             var communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
