@@ -393,13 +393,13 @@
             asidePanel.classList.remove('collapsed');
             mapCommunitySelected();
             $('.selectpicker[name="CommunitiesList"]').val(hashValue);
-            $('.selectpicker').selectpicker('refresh');
+            // $('.selectpicker').selectpicker('refresh');
             // console.log(hashValue);
         }
 
         window.addEventListener('hashchange', function() {
             mapCommunitySelected();
-            $('.selectpicker').selectpicker('refresh');
+            // $('.selectpicker').selectpicker('refresh');
         }, false);
 
         function mapCommunitySelected() {
@@ -464,6 +464,7 @@
                         }
                     }
                 }
+                $('.selectpicker').selectpicker('refresh');
                 if (didError) alert("failed to HTTP get");
             });
             function getGoogleSheetByEditURL(url, then) {
