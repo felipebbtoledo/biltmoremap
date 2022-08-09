@@ -392,14 +392,14 @@
         // if hash is not empty, display aside panel
         if(hashValue){
             asidePanel.classList.remove('collapsed');
-            mapCommunitySelected();
+            setTimeout(function() { mapCommunitySelected(); }, 500);
             //$('.selectpicker[name="CommunitiesList"]').val(hashValue);
             // $('.selectpicker').selectpicker('refresh');
             // console.log(hashValue);
         }
 
         window.addEventListener('hashchange', function() {
-            mapCommunitySelected();
+            setTimeout(function() { mapCommunitySelected(); }, 500);
             // $('.selectpicker').selectpicker('refresh');
         }, false);
 
