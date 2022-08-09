@@ -410,12 +410,12 @@
 
             var selectedCommunityId = document.querySelector('svg > rect:target');
             var CommunityId, communityDetailsList;
-            if(selectedCommunityId) {
+            if(selectedCommunityId !== null) {
                 CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
             }
-            //else {
-            //    CommunityId = hashValue;
-            //}
+            else {
+               CommunityId = hashValue;
+            }
             // console.log(CommunityId);
             var communityIdFormatted = CommunityId;
             communityIdFormatted = communityIdFormatted.replace(/([A-Z])/g, ' $1').trim();
