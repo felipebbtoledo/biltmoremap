@@ -397,7 +397,6 @@
 
         window.addEventListener('hashchange', function() {
             setTimeout(function() { mapCommunitySelected(); }, 500);
-            console.log('hashchange event');
         }, false);
 
         function mapCommunitySelected() {
@@ -409,11 +408,11 @@
                 document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
             }
 
-             var selectedCommunityId = document.querySelector('svg > rect:target');
+            var selectedCommunityId = document.querySelector('svg > rect:target');
             var CommunityId, communityDetailsList;
-            // if(selectedCommunityId) {
-            CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
-            // }
+            if(selectedCommunityId) {
+                CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
+            }
             //else {
             //    CommunityId = hashValue;
             //}
