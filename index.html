@@ -393,14 +393,11 @@
         if(hashValue){
             asidePanel.classList.remove('collapsed');
             setTimeout(function() { mapCommunitySelected(); }, 500);
-            //$('.selectpicker[name="CommunitiesList"]').val(hashValue);
-            // $('.selectpicker').selectpicker('refresh');
-            console.log('if hashValue');
         }
 
         window.addEventListener('hashchange', function() {
             setTimeout(function() { mapCommunitySelected(); }, 500);
-            // $('.selectpicker').selectpicker('refresh');
+            console.log('hashchange event');
         }, false);
 
         function mapCommunitySelected() {
