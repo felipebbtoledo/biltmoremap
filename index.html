@@ -159,7 +159,7 @@
         <rect id="BiltmoreSquare" width="100%" height="100%" x="0" y="0" mask="url(#BiltmoreSquareMask)" />
         <foreignObject width="100%" height="100%">
             <div class="popup arrow left" xmlns="http://www.w3.org/1999/xhtml">
-                <img src="img/photo-biltmore-square.jpg" alt="Biltmore Square Condos">
+<!--                <img src="img/photo-biltmore-square.jpg" alt="Biltmore Square Condos">-->
                 <div class="caption">
                     <div class="caption-title">1701 E Colter St</div>
                     <div class="caption-text">Phoenix, AZ 85016</div>
@@ -270,7 +270,7 @@
         <rect id="TwoBiltmoreEstates" width="100%" height="100%" x="0" y="0" mask="url(#TwoBiltmoreEstatesMask)" />
         <foreignObject x="920" y="400" width="100%" height="100%">
             <div class="popup arrow left" xmlns="http://www.w3.org/1999/xhtml">
-                <img src="img/photo-two-biltmore-estates.jpg" alt="Two Biltmore Estates">
+<!--                <img src="img/photo-two-biltmore-estates.jpg" alt="Two Biltmore Estates">-->
                 <div class="caption">
                     <div class="caption-title">2 Biltmore Estate</div>
                     <div class="caption-text">Phoenix, AZ 85016</div>
@@ -295,7 +295,7 @@
         <rect id="FairwayLodge" width="100%" height="100%" x="0" y="0" mask="url(#FairwayLodgeMask)" />
         <foreignObject width="100%" height="100%">
             <div class="popup arrow right" xmlns="http://www.w3.org/1999/xhtml">
-                <img src="img/photo-fairway-lodge.jpg" alt="Fairway Lodge">
+<!--                <img src="img/photo-fairway-lodge.jpg" alt="Fairway Lodge">-->
                 <div class="caption">
                     <div class="caption-title">8 Biltmore Estates Dr</div>
                     <div class="caption-text">Phoenix, AZ 85016</div>
@@ -419,11 +419,13 @@
             // console.log(CommunityId);
             var communityIdFormatted = CommunityId;
             communityIdFormatted = communityIdFormatted.replace(/([A-Z])/g, ' $1').trim();
-            var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
-            var communityNameSelector = document.querySelector('.content-area .page-section .community-name');
-            var communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
-            var communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
-            var communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
+            const communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
+            const communityNameSelector = document.querySelector('.content-area .page-section .community-name');
+            const communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
+            const communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
+            const communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
+            const communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
+            const communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
 
             $('.selectpicker').empty();
             <!-- Google Sheets -->
@@ -456,11 +458,25 @@
                                 communityDetailsList = curRow[col+2]; //GS Community Details
                                 communityAdditionalInfoSelector.textContent = curRow[col+3]; //GS Community Additional Info
 
-                                var temp;
-                                var elements = communityDetailsList.split(/:|,/);
-                                for(var element in elements){
-                                    temp = elements[element].split(":");
-                                    communityDetailsSelector.innerHTML += '<div>'+temp[0]+'</div>';
+                                // populate community details list
+                                var tempDetailsList;
+                                var communityDetailsListElems = communityDetailsList.split(/:|,/);
+                                for(var communityDetailsListElem in communityDetailsListElems){
+                                    tempDetailsList = communityDetailsListElems[communityDetailsListElem].split(":");
+                                    communityDetailsSelector.innerHTML += '<div>'+tempDetailsList[0]+'</div>';
+                                }
+
+                                // populate community photos
+                                var tempCommPhotos;
+                                var communityPhotosListElems = communityDetailsList.split(/:|,/);
+                                for(var communityPhotosListElem in communityPhotosListElems){
+                                    const newPhoto = document.createElement('img');
+
+                                    tempCommPhotos = communityPhotosListElems[communityPhotosListElem].split(":");
+                                    newPhoto.innerHTML += '<img src="'+tempCommPhotos[0]+'" alt="" />';
+                                    communityPopup.insertBefore(newPhoto,communityPopupCaption);
+
+                                    console.log('loop within photos');
                                 }
                             }
                         }
