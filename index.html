@@ -409,7 +409,7 @@
             }
 
             var selectedCommunityId = document.querySelector('svg > rect:target');
-            var CommunityId, communityDetailsList;
+            var CommunityId, communityDetailsList, communityPhotosList;
             if(selectedCommunityId !== null) {
                 CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
             }
@@ -457,6 +457,7 @@
                                 communitySummarySelector.textContent = curRow[col+1]; //GS Community Summary
                                 communityDetailsList = curRow[col+2]; //GS Community Details
                                 communityAdditionalInfoSelector.textContent = curRow[col+3]; //GS Community Additional Info
+                                communityPhotosList = curRow[col+4]; //GS Community Photos
 
                                 // populate community details list
                                 var tempDetailsList;
@@ -468,7 +469,7 @@
 
                                 // populate community photos
                                 var tempCommPhotos;
-                                var communityPhotosListElems = communityDetailsList.split(/:|,/);
+                                var communityPhotosListElems = communityPhotosList.split(/:|,/);
                                 for(var communityPhotosListElem in communityPhotosListElems){
                                     const newPhoto = document.createElement('img');
 
