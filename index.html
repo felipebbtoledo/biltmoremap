@@ -425,6 +425,7 @@
             const communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
             const communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
             const communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
+            const communityPopupPhotos = document.querySelectorAll('svg > rect:target + foreignObject .popup > img');
             const communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
             const communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
 
@@ -453,34 +454,33 @@
 
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
-                            if(curRow[col].startsWith(communityIdFormatted)){
+                            if(curRow[col].startsWith(communityIdFormatted)) {
                                 communityNameSelector.textContent = curRow[col]; // GS Community Name
-                                communitySummarySelector.textContent = curRow[col+1]; //GS Community Summary
-                                communityDetailsList = curRow[col+2]; //GS Community Details
-                                communityAdditionalInfoSelector.textContent = curRow[col+3]; //GS Community Additional Info
-                                communityPopupCaptionTitle.textContent = curRow[col+4]; //GS Community Address
-                                communityPhotosList = curRow[col+5]; //GS Community Photos
+                                communitySummarySelector.textContent = curRow[col + 1]; //GS Community Summary
+                                communityDetailsList = curRow[col + 2]; //GS Community Details
+                                communityAdditionalInfoSelector.textContent = curRow[col + 3]; //GS Community Additional Info
+                                communityPopupCaptionTitle.textContent = curRow[col + 4]; //GS Community Address
+                                communityPhotosList = curRow[col + 5]; //GS Community Photos
 
                                 // populate community details list
                                 var tempDetailsList;
                                 var communityDetailsListElems = communityDetailsList.split(/:|,/);
-                                for(var communityDetailsListElem in communityDetailsListElems){
+                                for (var communityDetailsListElem in communityDetailsListElems) {
                                     tempDetailsList = communityDetailsListElems[communityDetailsListElem].split(":");
-                                    communityDetailsSelector.innerHTML += '<div>'+tempDetailsList[0]+'</div>';
+                                    communityDetailsSelector.innerHTML += '<div>' + tempDetailsList[0] + '</div>';
                                 }
 
                                 // populate community photos
-                                var tempCommPhotos;
+                                for (var i = communityPopupPhotos.length; i-- > 0;){
+                                    communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
+                                    console.log('remove img')
+                                }
                                 var communityPhotosListElems = communityPhotosList.split(",");
                                 for(var communityPhotosListElem in communityPhotosListElems){
                                     let newPhoto = document.createElement('img');
 
-                                    //tempCommPhotos = communityPhotosListElems[communityPhotosListElem].split(",");
-                                    //newPhoto.src = tempCommPhotos[0];
                                     newPhoto.src = communityPhotosListElems[communityPhotosListElem];
                                     communityPopup.insertBefore(newPhoto,communityPopupCaption);
-
-                                    console.log(communityPhotosListElems[communityPhotosListElem]);
                                 }
                             }
                         }
