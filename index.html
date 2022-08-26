@@ -463,7 +463,7 @@
 
                                 // populate community details list
                                 var tempDetailsList;
-                                var communityDetailsListElems = communityDetailsList.split(',');
+                                var communityDetailsListElems = communityDetailsList.split(/:|,/);
                                 for(var communityDetailsListElem in communityDetailsListElems){
                                     tempDetailsList = communityDetailsListElems[communityDetailsListElem].split(":");
                                     communityDetailsSelector.innerHTML += '<div>'+tempDetailsList[0]+'</div>';
@@ -471,7 +471,7 @@
 
                                 // populate community photos
                                 var tempCommPhotos;
-                                var communityPhotosListElems = communityPhotosList.split(/:|,/);
+                                var communityPhotosListElems = communityPhotosList.split(',');
                                 for(var communityPhotosListElem in communityPhotosListElems){
                                     const newPhoto = document.createElement('img');
 
