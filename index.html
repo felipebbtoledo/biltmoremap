@@ -474,7 +474,7 @@
                                     const newPhoto = document.createElement('img');
 
                                     tempCommPhotos = communityPhotosListElems[communityPhotosListElem].split(":");
-                                    newPhoto.innerHTML += '<img src="'+tempCommPhotos[0]+'" alt="" />';
+                                    newPhoto.src = tempCommPhotos[0];
                                     communityPopup.insertBefore(newPhoto,communityPopupCaption);
 
                                     console.log('loop within photos');
