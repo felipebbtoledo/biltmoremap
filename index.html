@@ -408,7 +408,7 @@
                 document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
             }
 
-            var selectedCommunityId = document.querySelector('svg > rect:target');
+            const selectedCommunityId = document.querySelector('svg > rect:target');
             var CommunityId, communityDetailsList, communityPhotosList;
             if(selectedCommunityId !== null) {
                 CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
@@ -426,6 +426,7 @@
             const communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
             const communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
             const communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
+            const communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
 
             $('.selectpicker').empty();
             <!-- Google Sheets -->
@@ -457,7 +458,8 @@
                                 communitySummarySelector.textContent = curRow[col+1]; //GS Community Summary
                                 communityDetailsList = curRow[col+2]; //GS Community Details
                                 communityAdditionalInfoSelector.textContent = curRow[col+3]; //GS Community Additional Info
-                                communityPhotosList = curRow[col+4]; //GS Community Photos
+                                communityPopupCaptionTitle.textContent = curRow[col+4]; //GS Community Address
+                                communityPhotosList = curRow[col+5]; //GS Community Photos
 
                                 // populate community details list
                                 var tempDetailsList;
