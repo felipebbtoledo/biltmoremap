@@ -416,7 +416,6 @@
             else {
                CommunityId = hashValue;
             }
-            // console.log(CommunityId);
             var communityIdFormatted = CommunityId;
             communityIdFormatted = communityIdFormatted.replace(/([A-Z])/g, ' $1').trim();
             const communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
@@ -471,9 +470,9 @@
                                 }
 
                                 // populate community photos
+                                console.log(communityPopupPhotos.length);
                                 for (var i = communityPopupPhotos.length; i-- > 0;){
                                     communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
-                                    console.log('remove img')
                                 }
                                 var communityPhotosListElems = communityPhotosList.split(",");
                                 for(var communityPhotosListElem in communityPhotosListElems){
