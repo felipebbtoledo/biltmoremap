@@ -471,9 +471,9 @@
 
                                 // populate community photos
                                 var tempCommPhotos;
-                                var communityPhotosListElems = communityPhotosList.split(/:|,/);
+                                var communityPhotosListElems = communityPhotosList.split(",");
                                 for(var communityPhotosListElem in communityPhotosListElems){
-                                    const newPhoto = document.createElement('img');
+                                    let newPhoto = document.createElement('img');
 
                                     //tempCommPhotos = communityPhotosListElems[communityPhotosListElem].split(",");
                                     //newPhoto.src = tempCommPhotos[0];
