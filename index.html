@@ -453,15 +453,23 @@
 
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
-                            //console.log(communityIdFormatted);
                             if(curRow[col] == communityIdFormatted) {
-                                console.log('counter');
                                 communityNameSelector.textContent = curRow[col]; // GS Community Name
-                                communitySummarySelector.textContent = curRow[col + 1]; //GS Community Summary
-                                communityDetailsList = curRow[col + 2]; //GS Community Details
-                                communityAdditionalInfoSelector.textContent = curRow[col + 3]; //GS Community Additional Info
-                                communityPopupCaptionTitle.textContent = curRow[col + 4]; //GS Community Address
-                                communityPhotosList = curRow[col + 5]; //GS Community Photos
+                                if(curRow[col + 1]) { //GS Community Summary
+                                    communitySummarySelector.textContent = curRow[col + 1];
+                                }
+                                if(curRow[col + 2]) { //GS Community Details
+                                    communityDetailsList = curRow[col + 2];
+                                }
+                                if(curRow[col + 3]) { //GS Community Additional Info
+                                    communityAdditionalInfoSelector.textContent = curRow[col + 3];
+                                }
+                                if(curRow[col + 4]) { //GS Community Address
+                                    communityPopupCaptionTitle.textContent = curRow[col + 4];
+                                }
+                                if(curRow[col + 5]) { //GS Community Photos
+                                    communityPhotosList = curRow[col + 5];
+                                }
 
                                 // populate community details list
                                 var tempDetailsList;
