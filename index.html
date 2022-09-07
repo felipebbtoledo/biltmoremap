@@ -150,7 +150,7 @@
                 <rect width="100%" height="100%" fill="white"/>
                 <polygon points="558,541,568,519,616,508,635,519,661,515,662,498,684,485,703,489,734,511,773,554,818,591,852,624,887,672,904,718,907,763,885,807,883,796,795,815,791,840,748,836,719,828,696,815,677,798,639,757,610,722,582,702,552,686,531,667,525,643,530,607,525,576,540,563,558,560" fill="black"/>
             </mask>
-            <mask id="FairwayLodgeMask">
+            <mask id="BiltmoreFairwayLodgeMask">
                 <rect width="100%" height="100%" fill="white"/>
                 <polygon points="985,637,953,616,902,602,833,583,763,536,767,513,773,504,773,482,799,462,867,479,880,491,896,500,915,493,964,522,976,562,1006,580,1005,624" fill="black"/>
             </mask>
@@ -226,10 +226,10 @@
                 </a>
             </div>
         </foreignObject>
-        <!-- /BiltmoreCourts -->
         <a xlink:href="#BiltmoreCourts">
             <polygon points="317,429,302,417,302,401,310,393,301,391,301,378,311,364,336,349,346,356,413,350,425,355,432,346,445,359,445,415,431,429,399,423,359,422" fill="transparent"/>
         </a>
+        <!-- /BiltmoreCourts -->
         <a xlink:href="#HotelVillas">
             <polygon points="540,444,507,447,499,439,489,440,480,431,472,421,467,411,466,401,469,391,473,383,486,370,509,369,520,360,528,364,600,360,600,364,609,357,627,364,636,385,626,386,625,404,620,395,609,391,597,401,572,401,556,407,553,418,552,437,543,436" fill="transparent"/>
         </a>
@@ -291,8 +291,8 @@
             <polygon points="558,541,568,519,616,508,635,519,661,515,662,498,684,485,703,489,734,511,773,554,818,591,852,624,887,672,904,718,907,763,885,807,883,796,795,815,791,840,748,836,719,828,696,815,677,798,639,757,610,722,582,702,552,686,531,667,525,643,530,607,525,576,540,563,558,560" fill="transparent"/>
         </a>
         <!-- /Two Biltmore Estates -->
-        <!-- Fairway Lodge -->
-        <rect id="FairwayLodge" width="100%" height="100%" x="0" y="0" mask="url(#FairwayLodgeMask)" />
+        <!-- Biltmore Fairway Lodge -->
+        <rect id="BiltmoreFairwayLodge" width="100%" height="100%" x="0" y="0" mask="url(#BiltmoreFairwayLodgeMask)" />
         <foreignObject width="100%" height="100%">
             <div class="popup arrow right" xmlns="http://www.w3.org/1999/xhtml">
 <!--                <img src="img/photo-fairway-lodge.jpg" alt="Fairway Lodge">-->
@@ -312,10 +312,10 @@
                 </a>
             </div>
         </foreignObject>
-        <a xlink:href="#FairwayLodge">
+        <a xlink:href="#BiltmoreFairwayLodge">
             <polygon points="985,637,953,616,902,602,833,583,763,536,767,513,773,504,773,482,799,462,867,479,880,491,896,500,915,493,964,522,976,562,1006,580,1005,624" fill="transparent"/>
         </a>
-        <!-- /Fairway Lodge -->
+        <!-- /Biltmore Fairway Lodge -->
         <a xlink:href="#Hillstone">
             <polygon points="834,1025,884,1021,920,1031,932,1054,929,1078,851,1082,830,1047" fill="transparent"/>
         </a>
@@ -346,7 +346,6 @@
     var asidePanel = document.querySelector('.aside-panel');
     var svgLinks = document.querySelectorAll('main > svg > a');
     var closeLinks = document.querySelectorAll('.popup .close');
-    // var selectPickers = document.querySelectorAll('.dropdown.bootstrap-select');
     var hash = window.location.hash;
     var hashValue = hash.split('#')[1];
     var openCloseArea = document.querySelector('.open-close-area');
@@ -444,12 +443,7 @@
                         ddlEl.textContent = curRow[0];
                         ddlEl.value = curRow[0];
                     }
-                    // if(selectedCommunityId.getAttribute('id') == curRow[0]) {
-                    //     ddlEl.setAttribute('selected', 'selected');
-                    //     console.log('selected');
-                    // }
                     communitiesDropdownSelector.appendChild(ddlEl);
-
 
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
@@ -466,7 +460,6 @@
                                 }
                                 if(curRow[col + 4] !== null) { //GS Community Address
                                     communityPopupCaptionTitle.textContent = curRow[col + 4];
-                                    // communityPopupCaptionTitle.textContent = "Community Address";
                                 }
                                 if(curRow[col + 5] !== null) { //GS Community Photos
                                     communityPhotosList = curRow[col + 5];
