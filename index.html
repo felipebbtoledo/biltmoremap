@@ -453,18 +453,13 @@
 
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
-                            // console.log('curRow[col]'+ curRow[col]+'communityIdFormatted'+communityIdFormatted);
+                            console.log(communityIdFormatted);
                             if(curRow[col].startsWith(communityIdFormatted)) {
                                 console.log('counter');
-                                // console.log('GS Community Name:'+curRow[col]);
                                 communityNameSelector.textContent = curRow[col]; // GS Community Name
-                                // console.log('GS Community Summary:'+curRow[col + 1]);
                                 communitySummarySelector.textContent = curRow[col + 1]; //GS Community Summary
-                                // console.log('GS Community Details:'+curRow[col + 2]);
                                 communityDetailsList = curRow[col + 2]; //GS Community Details
-                                // console.log('GS Community Additional Info:'+curRow[col + 3]);
                                 communityAdditionalInfoSelector.textContent = curRow[col + 3]; //GS Community Additional Info
-                                // console.log('GS Community Address:'+curRow[col + 4]);
                                 communityPopupCaptionTitle.textContent = curRow[col + 4]; //GS Community Address
                                 communityPhotosList = curRow[col + 5]; //GS Community Photos
 
