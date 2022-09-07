@@ -470,16 +470,18 @@
                                 }
 
                                 // populate community photos
-                                console.log(communityPopupPhotos.length);
+                                //console.log(communityPopupPhotos.length);
                                 for (var i = communityPopupPhotos.length; i-- > 0;){
                                     communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
                                 }
-                                var communityPhotosListElems = communityPhotosList.split(",");
-                                for(var communityPhotosListElem in communityPhotosListElems){
-                                    let newPhoto = document.createElement('img');
+                                if(communityPhotosList) {
+                                    var communityPhotosListElems = communityPhotosList.split(",");
+                                    for(var communityPhotosListElem in communityPhotosListElems){
+                                        let newPhoto = document.createElement('img');
 
-                                    newPhoto.src = communityPhotosListElems[communityPhotosListElem];
-                                    communityPopup.insertBefore(newPhoto,communityPopupCaption);
+                                        newPhoto.src = communityPhotosListElems[communityPhotosListElem];
+                                        communityPopup.insertBefore(newPhoto,communityPopupCaption);
+                                    }
                                 }
                             }
                         }
