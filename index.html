@@ -455,20 +455,20 @@
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
                             if(curRow[col] == communityIdFormatted) {
                                 communityNameSelector.textContent = curRow[col]; // GS Community Name
-                                if(curRow[col + 1]) { //GS Community Summary
+                                if(curRow[col + 1] !== null) { //GS Community Summary
                                     communitySummarySelector.textContent = curRow[col + 1];
                                 }
-                                if(curRow[col + 2]) { //GS Community Details
+                                if(curRow[col + 2] !== null) { //GS Community Details
                                     communityDetailsList = curRow[col + 2];
                                 }
-                                if(curRow[col + 3]) { //GS Community Additional Info
+                                if(curRow[col + 3] !== null) { //GS Community Additional Info
                                     communityAdditionalInfoSelector.textContent = curRow[col + 3];
                                 }
-                                if(curRow[col + 4]) { //GS Community Address
-                                    // communityPopupCaptionTitle.textContent = curRow[col + 4];
-                                    communityPopupCaptionTitle.textContent = "Community Address";
+                                if(curRow[col + 4] !== null) { //GS Community Address
+                                    communityPopupCaptionTitle.textContent = curRow[col + 4];
+                                    // communityPopupCaptionTitle.textContent = "Community Address";
                                 }
-                                if(curRow[col + 5]) { //GS Community Photos
+                                if(curRow[col + 5] !== null) { //GS Community Photos
                                     communityPhotosList = curRow[col + 5];
                                 }
 
