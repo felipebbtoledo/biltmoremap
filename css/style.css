@@ -397,7 +397,7 @@ main {
 }
 .popup img {
     height: auto;
-    max-width: 100%;
+    width: 100%;
 }
 .selectpicker + .btn {
     border:1px solid var(--gray-color);
@@ -445,9 +445,9 @@ svg > rect:target + foreignObject + a polygon {
     fill-opacity: 0!important;
     stroke-opacity: 1;
 }
-svg > #FairwayLodge + foreignObject {
+svg > #BiltmoreFairwayLodge + foreignObject {
     x:120;
-    y:220;
+    y:290;
 }
 svg > #BiltmoreSquare + foreignObject {
     x:300;
