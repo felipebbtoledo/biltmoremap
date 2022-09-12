@@ -470,8 +470,12 @@ svg > #Optima + foreignObject {
    y:630;
 }
 svg > #VillageOnTheLakes + foreignObject {
-    x:220;
-    y:500;
+    x:460;
+    y:540;
+}
+svg > #BiltmoreGreens + foreignObject {
+    x:430;
+    y:130;
 }
 @media (max-width:1024.98px){
     .aside-panel {
