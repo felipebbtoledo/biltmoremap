@@ -579,7 +579,10 @@
                                 }
 
                                 // populate community photos
-                                if(!communityPopupPhotos.length) {
+                                if(communityPopupPhotos.length) {
+                                    communityPopup.style.opacity = '1';
+                                }
+                                else {
                                     communityPopup.style.opacity = '0';
                                 }
                                 for (var i = communityPopupPhotos.length; i-- > 0;){
