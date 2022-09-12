@@ -519,7 +519,6 @@
             if(communityIdFormatted) {
                 communityIdFormatted = communityIdFormatted.replace(/([A-Z])/g, ' $1').trim();
             }
-            console.log('communityIdFormatted'+communityIdFormatted);
             const communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
             const communityNameSelector = document.querySelector('.content-area .page-section .community-name');
             const communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
@@ -580,7 +579,9 @@
                                 }
 
                                 // populate community photos
-                                console.log(communityPopupPhotos.length);
+                                if(!communityPopupPhotos.length) {
+                                    communityPopup.style.opacity = '0';
+                                }
                                 for (var i = communityPopupPhotos.length; i-- > 0;){
                                     communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
                                 }
