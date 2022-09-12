@@ -548,9 +548,9 @@
 
                                 // populate community details list
                                 var tempDetailsList;
+                                communityDetailsSelector.innerHTML = '';
                                 if(communityDetailsList) {
                                     var communityDetailsListElems = communityDetailsList.split(/:|;/);
-                                    communityDetailsSelector.innerHTML = '';
                                     for (var communityDetailsListElem in communityDetailsListElems) {
                                         tempDetailsList = communityDetailsListElems[communityDetailsListElem].split(":");
                                         communityDetailsSelector.innerHTML += '<div>' + tempDetailsList[0] + '</div>';
