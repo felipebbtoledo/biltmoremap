@@ -461,6 +461,10 @@ svg > #\32 211 + foreignObject {
     x:230;
     y:540;
 }
+svg > #EsplanadePlace + foreignObject {
+   x:380;
+   y:630;
+}
 svg > #Optima + foreignObject {
    x:270;
    y:630;
