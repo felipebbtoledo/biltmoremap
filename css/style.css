@@ -144,10 +144,15 @@ body {
 .aside-panel img {
     max-width: 100%;
 }
+.aside-panel.collapsed .page-section {
+    opacity: 0;
+}
 .aside-panel .page-section {
+    opacity: 1;
     position: relative;
     padding-top: 100px;
     padding-bottom: 70px;
+    transition: opacity 2s;
 }
 .aside-panel .page-section .community-details {
     display: flex;
