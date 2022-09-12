@@ -469,6 +469,10 @@ svg > #Optima + foreignObject {
    x:270;
    y:630;
 }
+svg > #VillageOnTheLakes + foreignObject {
+    x:220;
+    y:500;
+}
 @media (max-width:1024.98px){
     .aside-panel {
         display: none;
