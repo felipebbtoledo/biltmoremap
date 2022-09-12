@@ -442,7 +442,9 @@
                CommunityId = hashValue;
             }
             var communityIdFormatted = CommunityId;
-            communityIdFormatted = communityIdFormatted.replace(/([A-Z])/g, ' $1').trim();
+            if(communityIdFormatted) {
+                communityIdFormatted = communityIdFormatted.replace(/([A-Z])/g, ' $1').trim();
+            }
             const communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
             const communityNameSelector = document.querySelector('.content-area .page-section .community-name');
             const communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
@@ -494,7 +496,8 @@
                                 // populate community details list
                                 var tempDetailsList;
                                 if(communityDetailsList) {
-                                var communityDetailsListElems = communityDetailsList.split(/:|;/);
+                                    var communityDetailsListElems = communityDetailsList.split(/:|;/);
+                                    communityDetailsSelector.innerHTML = '';
                                     for (var communityDetailsListElem in communityDetailsListElems) {
                                         tempDetailsList = communityDetailsListElems[communityDetailsListElem].split(":");
                                         communityDetailsSelector.innerHTML += '<div>' + tempDetailsList[0] + '</div>';
