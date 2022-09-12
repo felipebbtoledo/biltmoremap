@@ -137,8 +137,8 @@
             <mask id="OptimaMask">
                 <rect width="100%" height="100%" fill="white"/>
                 <polygon points="528,1210,533,1229,531,1254,539,1274,671,1274,676,1233,668,1206,651,1172,636,1172,636,1145,556,1146,555,1169,534,1168" fill="black"/>
-            <mask id="BiltmoreSquareMask">
             </mask>
+            <mask id="BiltmoreSquareMask">
                 <rect width="100%" height="100%" fill="white"/>
                 <polygon points="1,396,21,367,31,367,50,372,50,357,71,331,79,326,122,344,198,340,215,344,227,332,235,328,279,342,279,380,291,385,289,421,228,446,195,433,190,425,174,417,128,418,117,404,104,417,55,412,46,430,1,421" fill="black"/>
             </mask>
@@ -548,8 +548,8 @@
 
                                 // populate community details list
                                 var tempDetailsList;
-                                communityDetailsSelector.innerHTML = '';
                                 if(communityDetailsList) {
+                                    communityDetailsSelector.innerHTML = '';
                                     var communityDetailsListElems = communityDetailsList.split(/:|;/);
                                     for (var communityDetailsListElem in communityDetailsListElems) {
                                         tempDetailsList = communityDetailsListElems[communityDetailsListElem].split(":");
