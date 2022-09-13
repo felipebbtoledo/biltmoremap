@@ -477,6 +477,10 @@ svg > #BiltmoreGreens + foreignObject {
     x:430;
     y:130;
 }
+svg > #Meridian + foreignObject {
+    x:470;
+    y:600;
+}
 @media (max-width:1024.98px){
     .aside-panel {
         display: none;

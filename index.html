@@ -170,6 +170,10 @@
                 <rect width="100%" height="100%" fill="white"/>
                 <polygon points="1213,370,1227,363,1253,356,1253,335,1251,323,1253,297,1225,294,1228,280,1216,264,1192,272,1178,290,1183,306,1154,306,1170,297,1167,277,1152,262,1136,268,1123,284,1119,299,1110,294,1113,280,1103,270,1082,264,1071,281,1071,300,1063,310,1060,363" fill="black"/>
             </mask>
+            <mask id="MeridianMask">
+                <rect width="100%" height="100%" fill="white"/>
+                <polygon points="1310,740,1320,761,1320,780,1329,795,1329,811,1323,817,1321,807,1205,807,1202,815,1152,818,1116,804,1116,788,1126,772,1152,766,1165,788,1165,725,1272,725,1270,773,1278,764,1288,747" fill="black"/>
+            </mask>
         </defs>
         <!-- BiltmoreSquare -->
         <rect id="BiltmoreSquare" width="100%" height="100%" x="0" y="0" mask="url(#BiltmoreSquareMask)" />
@@ -313,9 +317,29 @@
             <polygon points="1310,740,1320,761,1320,780,1329,795,1329,811,1323,817,1321,807,1205,807,1202,815,1152,818,1116,804,1116,788,1126,772,1152,766,1165,788,1165,725,1272,725,1270,773,1278,764,1288,747" fill="transparent"/>
         </a>
         <!-- /VillageOnTheLakes -->
+        <!-- Meridian -->
+        <rect id="Meridian" width="100%" height="100%" x="0" y="0" mask="url(#MeridianMask)" />
+        <foreignObject width="100%" height="100%">
+            <div class="popup arrow right" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="caption">
+                    <div class="caption-title"></div>
+                    <div class="buttons">
+                        <a class="btn btn-inverted" href="#communityinfo">Community Info</a>
+                        <a class="btn btn-green" href="#forsale">For sale</a>
+                        <a class="btn btn-blue" href="#forlease">For lease</a>
+                        <a class="btn btn-orange" href="#comingsoon">Coming soon</a>
+                        <a class="btn btn-purple" href="#recentlysold">Recently sold</a>
+                    </div>
+                </div>
+                <a class="close" href="#">
+                    <span>&times;</span>
+                </a>
+            </div>
+        </foreignObject>
         <a xlink:href="#Meridian">
             <polygon points="1304,947,1314,912,1340,877,1345,835,1320,810,1203,809,1193,819,1139,815,1142,864,1157,890,1190,893,1209,918,1206,944" fill="transparent"/>
         </a>
+        <!-- /Meridian -->
         <a xlink:href="#BiltmoreTerrace">
             <polygon points="1129,844,1145,875,1148,898,1186,894,1206,923,1202,946,1183,948,1183,962,1148,964,1082,974,1079,992,1062,987,1024,954,1023,906,1044,893,1049,871,1074,865,1088,844" fill="transparent"/>
         </a>
@@ -564,12 +588,10 @@
                                     communityPopupCaptionTitle.textContent = curRow[col + 4];
                                 }
                                 if(curRow[col + 5]) { //GS Community Photos
-                                    console.log('if');
                                     communityPhotosList = curRow[col + 5];
                                     communityPopup.style.opacity = '1';
                                 }
                                 if(!curRow[col + 5]) { //GS Community Photos is empty
-                                    console.log('not col5');
                                     communityPopup.style.opacity = '0';
                                 }
 
