@@ -565,6 +565,7 @@
                                 }
                                 if(curRow[col + 5] !== null) { //GS Community Photos
                                     communityPhotosList = curRow[col + 5];
+                                    communityPopup.style.opacity = '0';
                                 }
 
                                 // populate community details list
@@ -579,13 +580,6 @@
                                 }
 
                                 // populate community photos
-                                console.log(communityPopupPhotos.length);
-                                if(communityPopupPhotos.length) {
-                                    communityPopup.style.opacity = '1';
-                                }
-                                else {
-                                    communityPopup.style.opacity = '0';
-                                }
                                 for (var i = communityPopupPhotos.length; i-- > 0;){
                                     communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
                                 }
