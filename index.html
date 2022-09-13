@@ -565,10 +565,12 @@
                                 }
                                 console.log(curRow[col + 5]);
                                 if(curRow[col + 5] !== null) { //GS Community Photos
+                                    console.log('!== null');
                                     communityPhotosList = curRow[col + 5];
                                     communityPopup.style.opacity = '1';
                                 }
                                 else {
+                                    console.log('else');
                                     communityPopup.style.opacity = '0';
                                 }
 
