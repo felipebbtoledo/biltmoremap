@@ -474,12 +474,12 @@ svg > #VillageOnTheLakes + foreignObject {
     y:540;
 }
 svg > #BiltmoreGreens + foreignObject {
-    x:430;
+    x:420;
     y:130;
 }
 svg > #Meridian + foreignObject {
-    x:470;
-    y:600;
+    x:490;
+    y:630;
 }
 @media (max-width:1024.98px){
     .aside-panel {
