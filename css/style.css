@@ -430,9 +430,9 @@ svg > rect:target + foreignObject {
     opacity: 1;
     pointer-events: auto;
 }
-svg > rect:target + foreignObject .popup {
+/*svg > rect:target + foreignObject .popup {
     opacity: 1;
-}
+}*/
 svg > rect:target + foreignObject ~ a {
     pointer-events: none;
 }
