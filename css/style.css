@@ -450,6 +450,10 @@ svg > #BiltmoreFairwayLodge + foreignObject {
     x:120;
     y:290;
 }
+svg > #TwoBiltmoreEstates + foreignObject {
+    x:920;
+    y:400;
+}
 svg > #BiltmoreSquare + foreignObject {
     x:300;
     y:150;
