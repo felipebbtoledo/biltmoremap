@@ -346,6 +346,7 @@ main {
     color:var(--light-color);
 }
 .popup .caption {
+    display: none;
     padding: 15px;
 }
 .popup .caption .buttons {
@@ -498,7 +499,6 @@ svg > #BiltmoreTerrace + foreignObject {
         width: 320px;
     }
     .popup .caption {
-        display: none;
         text-align: center;
     }
     .popup .caption .caption-title {
