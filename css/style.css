@@ -510,6 +510,10 @@ svg > #BiltmoreHotelVillas + foreignObject {
     x:640;
     y:180;
 }
+svg > #TheCloisters + foreignObject {
+    x:30;
+    y:240;
+}
 @media (max-width:1024.98px){
     .aside-panel {
         display: none;
