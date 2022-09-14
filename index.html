@@ -190,6 +190,10 @@
                 <rect width="100%" height="100%" fill="white"/>
                 <polygon points="17,519,38,517,99,513,103,567,90,580,65,625,45,634,28,640,15,629,0,631,1,522,14,530" fill="black"/>
             </mask>
+            <mask id="BiltmoreHotelVillasMask">
+                <rect width="100%" height="100%" fill="white"/>
+                <polygon points="540,444,507,447,499,439,489,440,480,431,472,421,467,411,466,401,469,391,473,383,486,370,509,369,520,360,528,364,600,360,600,364,609,357,627,364,636,385,626,386,625,404,620,395,609,391,597,401,572,401,556,407,553,418,552,437,543,436" fill="black"/>
+            </mask>
         </defs>
         <!-- BiltmoreSquare -->
         <rect id="BiltmoreSquare" width="100%" height="100%" x="0" y="0" mask="url(#BiltmoreSquareMask)" />
@@ -263,9 +267,29 @@
             <polygon points="317,429,302,417,302,401,310,393,301,391,301,378,311,364,336,349,346,356,413,350,425,355,432,346,445,359,445,415,431,429,399,423,359,422" fill="transparent"/>
         </a>
         <!-- /BiltmoreCourts -->
-        <a xlink:href="#HotelVillas">
+        <!-- BiltmoreHotelVillas -->
+        <rect id="BiltmoreHotelVillas" width="100%" height="100%" x="0" y="0" mask="url(#BiltmoreHotelVillasMask)" />
+        <foreignObject width="100%" height="100%">
+            <div class="popup arrow left" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="caption">
+                    <div class="caption-title"></div>
+                    <div class="buttons">
+                        <a class="btn btn-inverted" href="">Community Info</a>
+                        <a class="btn btn-green" href="">For sale</a>
+                        <a class="btn btn-blue" href="">For lease</a>
+                        <a class="btn btn-orange" href="">Coming soon</a>
+                        <a class="btn btn-purple" href="">Recently sold</a>
+                    </div>
+                </div>
+                <a class="close" href="#">
+                    <span>&times;</span>
+                </a>
+            </div>
+        </foreignObject>
+        <a xlink:href="#BiltmoreHotelVillas">
             <polygon points="540,444,507,447,499,439,489,440,480,431,472,421,467,411,466,401,469,391,473,383,486,370,509,369,520,360,528,364,600,360,600,364,609,357,627,364,636,385,626,386,625,404,620,395,609,391,597,401,572,401,556,407,553,418,552,437,543,436" fill="transparent"/>
         </a>
+        <!-- /BiltmoreHotelVillas -->
         <a xlink:href="#BiltmoreGates">
             <polygon points="829,302,1023,294,1014,286,1017,277,1005,264,999,254,999,205,896,207,897,268,890,271,888,255,869,227,829,236" fill="transparent"/>
         </a>

@@ -502,6 +502,10 @@ svg > #HeightsOfTheBiltmore + foreignObject {
     x:110;
     y:370;
 }
+svg > #BiltmoreHotelVillas + foreignObject {
+    x:640;
+    y:180;
+}
 @media (max-width:1024.98px){
     .aside-panel {
         display: none;
