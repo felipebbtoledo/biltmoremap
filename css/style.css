@@ -488,7 +488,11 @@ svg > #BiltmoreTerrace + foreignObject {
 }
 svg > #BiltmoreCircleEstates + foreignObject {
     x:450;
-    y:630;
+    y:120;
+}
+svg > #Taliverde + foreignObject {
+    x:230;
+    y:440;
 }
 @media (max-width:1024.98px){
     .aside-panel {
