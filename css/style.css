@@ -514,6 +514,10 @@ svg > #TheCloisters + foreignObject {
     x:30;
     y:240;
 }
+svg > #BiltmoreShores + foreignObject {
+    x:30;
+    y:240;
+}
 @media (max-width:1024.98px){
     .aside-panel {
         display: none;
