@@ -954,12 +954,12 @@
                                         slideshowSlide.classList.add('mySlides','fading');
 
                                         for(var communityPhotosListElem in communityPhotosListElems){
-                                            console.log('photo loop');
+                                            console.log(communityPhotosListElems[communityPhotosListElem]);
                                             newPhoto.src = communityPhotosListElems[communityPhotosListElem];
                                             newPhoto.setAttribute('alt',curRow[col]);
                                             slideshowSlide.appendChild(newPhoto);
-                                            slideshowContainer.appendChild(slideshowSlide);
                                         }
+                                        slideshowContainer.appendChild(slideshowSlide);
                                         communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
                                         slideshow();
                                     }
