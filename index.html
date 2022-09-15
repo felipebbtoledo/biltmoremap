@@ -941,7 +941,6 @@
                                 }
                                 if(communityPhotosList) {
                                     var communityPhotosListElems = communityPhotosList.split(",");
-                                    var newPhoto = document.createElement('img');
 
                                     // slideshow photos to be displayed
                                     if(communityPhotosListElems.length > 1) {
@@ -954,8 +953,8 @@
 
                                         for(var communityPhotosListElem in communityPhotosListElems){
                                             let slideshowSlide = document.createElement('div');
+                                            let newPhoto = document.createElement('img');
                                             slideshowSlide.classList.add('mySlides','fading');
-
                                             newPhoto.src = communityPhotosListElems[communityPhotosListElem];
                                             newPhoto.setAttribute('alt',curRow[col]);
                                             slideshowSlide.appendChild(newPhoto);
@@ -966,6 +965,7 @@
                                     }
                                     // single photo to be displayed
                                     else {
+                                        let newPhoto = document.createElement('img');
                                         newPhoto.src = communityPhotosList;
                                         newPhoto.setAttribute('alt',curRow[col]);
                                         communityPopup.insertBefore(newPhoto,communityPopupCaption);
