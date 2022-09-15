@@ -786,8 +786,7 @@
 
         document.querySelector('select[name="CommunitiesList"]').onchange = function(event) {
             if(event.target.value !== 'Communities'){
-                setTimeout(function() { mapCommunitySelected(); }, 500);
-                console.log('onchange');
+                setTimeout(function() { mapCommunitySelected(); }, 250);
             }
         }
 
