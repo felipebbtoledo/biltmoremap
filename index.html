@@ -702,6 +702,7 @@
         }
 
         window.addEventListener('hashchange', function() {
+            document.querySelector('.aside-panel .page-section').style.opacity = '0';
             setTimeout(function() { mapCommunitySelected(); }, 500);
         }, false);
 
