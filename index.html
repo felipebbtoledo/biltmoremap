@@ -839,6 +839,7 @@
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
                             if(curRow[col] == communityIdFormatted) {
+                                console.log('counter');
                                 communityNameSelector.textContent = curRow[col]; // GS Community Name
                                 if(curRow[col + 1]) { //GS Community Summary
                                     communitySummarySelector.textContent = curRow[col + 1];
