@@ -950,10 +950,11 @@
 
                                         slideshowContainer.classList.add('slideshow-container');
                                         slideshowContainer.innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>';
-                                        slideshowSlide.classList.add('mySlides','fading');
+
 
                                         for(var communityPhotosListElem in communityPhotosListElems){
                                             let slideshowSlide = document.createElement('div');
+                                            slideshowSlide.classList.add('mySlides','fading');
 
                                             newPhoto.src = communityPhotosListElems[communityPhotosListElem];
                                             newPhoto.setAttribute('alt',curRow[col]);
