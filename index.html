@@ -873,9 +873,9 @@
                                 }
 
                                 // populate community photos
-                                // for (var i = communityPopupPhotos.length; i-- > 0;){
-                                //     communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
-                                // }
+                                for (let i = communityPopupPhotos.length; i-- > 0;){
+                                    communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
+                                }
                                 if(communityPhotosList) {
                                     var communityPhotosListElems = communityPhotosList.split(",");
                                     for(var communityPhotosListElem in communityPhotosListElems){
