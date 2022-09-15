@@ -784,6 +784,11 @@
             }, 500);
         }
 
+        document.querySelector('select[name="CommunitiesList"]').onchange = function() {
+            setTimeout(function() { mapCommunitySelected(); }, 500);
+            console.log('onchange');
+        }
+
         // window.addEventListener('hashchange', function() {
         //     setTimeout(function() { mapCommunitySelected(); }, 500);
         // }, false);
