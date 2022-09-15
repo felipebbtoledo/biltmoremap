@@ -954,6 +954,7 @@
                                         slideshowSlide.classList.add('mySlides','fading');
 
                                         for(var communityPhotosListElem in communityPhotosListElems){
+                                            console.log('photo loop');
                                             newPhoto.src = communityPhotosListElems[communityPhotosListElem];
                                             newPhoto.setAttribute('alt',curRow[col]);
                                             slideshowSlide.appendChild(newPhoto);
