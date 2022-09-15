@@ -646,12 +646,12 @@ svg > #AltaVistaPark + foreignObject {
 }
 
 /* Fading animation */
-.slideshow-container .fade {
+.slideshow-container .fading {
     animation-name: fade;
     animation-duration: 1.5s;
 }
 
-@keyframes fade {
+@keyframes fading {
     from {opacity: .4}
     to {opacity: 1}
 }
