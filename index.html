@@ -872,9 +872,11 @@
                                     communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
                                 }
                                 if(communityPhotosList) {
+                                    console.log('has comm photos');
                                     var communityPhotosListElems = communityPhotosList.split(",");
                                     for(var communityPhotosListElem in communityPhotosListElems){
                                         let newPhoto = document.createElement('img');
+                                        console.log(communityPhotosListElems[communityPhotosListElem]);
 
                                         newPhoto.src = communityPhotosListElems[communityPhotosListElem];
                                         communityPopup.insertBefore(newPhoto,communityPopupCaption);
