@@ -775,6 +775,7 @@
 
         // if hash is not empty, display aside panel
         if(hashValue){
+            console.log('if hashValue');
             asidePanel.classList.remove('collapsed');
             setTimeout(function() {
                 mapCommunitySelected();
@@ -783,6 +784,7 @@
         }
 
         window.addEventListener('hashchange', function() {
+            console.log('window hashchange');
             setTimeout(function() { mapCommunitySelected(); }, 500);
         }, false);
 
