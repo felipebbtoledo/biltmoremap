@@ -63,11 +63,11 @@
             <div class="page-section">
                 <div class="container">
                     <h5 class="community-name"></h5>
-                    <h6>Community Summary</h6>
+<!--                    <h6>Community Summary</h6>-->
                     <p class="community-summary"></p>
-                    <h6>Community Details</h6>
+<!--                    <h6>Community Details</h6>-->
                     <div class="community-details"></div>
-                    <h6>Community Additional Info</h6>
+<!--                    <h6>Community Additional Info</h6>-->
                     <p class="community-additional-info"></p>
                     <!-- Follow your favorite properties form -->
                     <form name="formFollowFavorite" action="" method="get">
@@ -848,6 +848,9 @@
                             if(curRow[col] == communityIdFormatted) {
                                 communityNameSelector.textContent = curRow[col]; // GS Community Name
                                 if(curRow[col + 1]) { //GS Community Summary
+                                    let communitySummaryTitle = document.createElement('h6');
+                                    communitySummaryTitle.innerHTML = 'Community Summary';
+                                    communitySummarySelector.insertBefore(communitySummaryTitle,communitySummarySelector);
                                     communitySummarySelector.textContent = curRow[col + 1];
                                 }
                                 if(curRow[col + 2]) { //GS Community Details
