@@ -791,9 +791,21 @@
 
             const hash = window.location.hash;
             const hashValue = hash.split('#')[1];
+            const communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
+            const communityNameSelector = document.querySelector('.content-area .page-section .community-name');
+            const communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
+            const communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
+            const communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
+            const communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
+            const communityPopupPhotos = document.querySelectorAll('svg > rect:target + foreignObject .popup > img');
+            const communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
+            const communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
 
             if(document.querySelector('svg > rect:target + foreignObject')){
                 document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
+                for (let i = communityPopupPhotos.length; i-- > 0;){
+                    communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
+                }
             }
 
             const selectedCommunityId = document.querySelector('svg > rect:target');
@@ -808,15 +820,6 @@
             if(communityIdFormatted) {
                 communityIdFormatted = communityIdFormatted.replace(/([A-Z])/g, ' $1').trim();
             }
-            const communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
-            const communityNameSelector = document.querySelector('.content-area .page-section .community-name');
-            const communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
-            const communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
-            const communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
-            const communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
-            const communityPopupPhotos = document.querySelectorAll('svg > rect:target + foreignObject .popup > img');
-            const communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
-            const communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
 
             $('.selectpicker').empty();
             <!-- Google Sheets -->
@@ -873,10 +876,10 @@
                                 }
 
                                 // populate community photos
-                                console.log('communityPopupPhotos.length'+communityPopupPhotos.length);
-                                for (let i = communityPopupPhotos.length; i-- > 0;){
-                                    communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
-                                }
+                                // console.log('communityPopupPhotos.length'+communityPopupPhotos.length);
+                                // for (let i = communityPopupPhotos.length; i-- > 0;){
+                                //     communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
+                                // }
                                 if(communityPhotosList) {
                                     var communityPhotosListElems = communityPhotosList.split(",");
                                     for(var communityPhotosListElem in communityPhotosListElems){
