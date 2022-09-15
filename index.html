@@ -674,13 +674,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
-    var asidePanel = document.querySelector('.aside-panel');
-    var svgLinks = document.querySelectorAll('main > svg > a');
-    var closeLinks = document.querySelectorAll('.popup .close');
+    const asidePanel = document.querySelector('.aside-panel');
+    const svgLinks = document.querySelectorAll('main > svg > a');
+    const closeLinks = document.querySelectorAll('.popup .close');
     var hash = window.location.hash;
     var hashValue = hash.split('#')[1];
-    var openCloseArea = document.querySelector('.open-close-area');
-    var popupButtons = document.querySelectorAll('.popup .buttons .btn');
+    const openCloseArea = document.querySelector('.open-close-area');
+    const popupButtons = document.querySelectorAll('.popup .buttons .btn');
 
     document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -726,16 +726,14 @@
         }
 
         window.addEventListener('hashchange', function() {
+            document.querySelector('.aside-panel .page-section').style.opacity = '0';
             setTimeout(function() { mapCommunitySelected(); }, 500);
         }, false);
 
         function mapCommunitySelected() {
 
-            const asidePanelPageSection = document.querySelector('.aside-panel .page-section');
             const hash = window.location.hash;
             const hashValue = hash.split('#')[1];
-
-            asidePanelPageSection.style.opacity = '0';
 
             if(document.querySelector('svg > rect:target + foreignObject')){
                 document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
@@ -849,7 +847,7 @@
             }
             function parseCSV(g){for(var c=[],e=!1,a=0,b=0,f=0;f<g.length;f++){var d=g[f],h=g[f+1];c[a]=c[a]||[];c[a][b]=c[a][b]||"";'"'==d&&e&&'"'==h?(c[a][b]+=d,++f):'"'==d?e=!e:","!=d||e?"\r"!=d||"\n"!=h||e?"\n"!=d||e?"\r"!=d||e?c[a][b]+=d:(++a,b=0):(++a,b=0):(++a,b=0,++f):++b}return c}
             <!-- /Google Sheets -->
-            asidePanelPageSection.style.opacity = '1';
+            document.querySelector('.aside-panel .page-section').style.opacity = '1';
         } // /mapCommunitySelected
     });
 </script>
