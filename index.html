@@ -881,6 +881,7 @@
                                 // }
                                 if(communityPhotosList) {
                                     var communityPhotosListElems = communityPhotosList.split(",");
+                                    console.log(communityPhotosListElems);
                                     for(var communityPhotosListElem in communityPhotosListElems){
                                         let newPhoto = document.createElement('img');
                                         newPhoto.src = communityPhotosListElems[communityPhotosListElem];
