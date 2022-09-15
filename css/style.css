@@ -143,6 +143,7 @@ body {
 }
 .aside-panel.collapsed .page-section {
     opacity: 0;
+    transition: opacity 1s ease-in-out 1s;
 }
 .aside-panel img {
     max-width: 100%;
@@ -152,7 +153,7 @@ body {
     padding-top: 100px;
     padding-bottom: 70px;
     opacity: 1;
-    transition: opacity 2s ease-out 3s;
+    transition: opacity 1s ease-in-out 1s;
 }
 .aside-panel .page-section .community-details {
     display: flex;
