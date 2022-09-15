@@ -760,10 +760,10 @@
         for (let i = 0; i < svgLinks.length; i++) {
             svgLinks[i].addEventListener("click", function() {
                 asidePanel.classList.remove('collapsed');
-                // setTimeout(function() {
-                //     mapCommunitySelected();
-                    // document.querySelector('.aside-panel .page-section').style.opacity = '1';
-                // }, 500);
+                setTimeout(function() {
+                    mapCommunitySelected();
+                    document.querySelector('.aside-panel .page-section').style.opacity = '1';
+                }, 500);
             });
         }
 
