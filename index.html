@@ -784,11 +784,12 @@
             }, 500);
         }
 
-        document.querySelectorAll('select[name="CommunitiesList"] .dropdown-menu.inner.show .dropdown-item').forEach(function(el) {
-            el.addEventListener('click', function(e) {
+        var CommunitiesListValue = document.querySelector('select[name="CommunitiesList"]').value;
+        document.querySelector('select[name="CommunitiesList"]').onchange = function(event) {
+            if(!CommunitiesListValue == event.target.value){
                 setTimeout(function() { mapCommunitySelected(); }, 500);
-            });
-        });
+            }
+        }
 
         // window.addEventListener('hashchange', function() {
         //     setTimeout(function() { mapCommunitySelected(); }, 500);
