@@ -786,9 +786,10 @@
 
         var CommunitiesListValue = document.querySelector('select[name="CommunitiesList"]').value;
         document.querySelector('select[name="CommunitiesList"]').onchange = function(event) {
-            if(!CommunitiesListValue == event.target.value){
-                setTimeout(function() { mapCommunitySelected(); }, 500);
-            }
+            console.log(CommunitiesListValue + event.target.value);
+            // if(!CommunitiesListValue == event.target.value){
+            //     setTimeout(function() { mapCommunitySelected(); }, 500);
+            // }
         }
 
         // window.addEventListener('hashchange', function() {
