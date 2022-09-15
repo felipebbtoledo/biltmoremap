@@ -775,19 +775,18 @@
             });
         }
 
-        // if hash is not empty, display aside panel
-        // if(hashValue){
-        //     asidePanel.classList.remove('collapsed');
-        //     setTimeout(function() {
-        //         mapCommunitySelected();
-        //         // document.querySelector('.aside-panel .page-section').style.opacity = '1';
-        //     }, 500);
-        // }
+        if hash is not empty, display aside panel
+        if(hashValue){
+            asidePanel.classList.remove('collapsed');
+            setTimeout(function() {
+                mapCommunitySelected();
+                document.querySelector('.aside-panel .page-section').style.opacity = '1';
+            }, 500);
+        }
 
-        window.addEventListener('hashchange', function() {
-            //const popupImages = document.querySelectorAll('svg > rect:target + foreignObject .popup > img');
-            setTimeout(function() { mapCommunitySelected(); }, 500);
-        }, false);
+        // window.addEventListener('hashchange', function() {
+        //     setTimeout(function() { mapCommunitySelected(); }, 500);
+        // }, false);
 
         function mapCommunitySelected() {
 
