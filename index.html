@@ -803,9 +803,6 @@
 
             if(document.querySelector('svg > rect:target + foreignObject')){
                 document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
-                for (let i = communityPopupPhotos.length; i-- > 0;){
-                    communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
-                }
             }
 
             const selectedCommunityId = document.querySelector('svg > rect:target');
@@ -876,8 +873,10 @@
                                 }
 
                                 // populate community photos
-                                // console.log('communityPopupPhotos.length'+communityPopupPhotos.length);
-                                // for (let i = communityPopupPhotos.length; i-- > 0;){
+                                if(communityPopupPhotos.length) {
+                                    communityPopupPhotos.forEach(e => e.remove());
+                                }
+                                // for (var i = communityPopupPhotos.length; i-- > 0;){
                                 //     communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
                                 // }
                                 if(communityPhotosList) {
