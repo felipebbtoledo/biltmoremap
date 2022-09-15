@@ -762,6 +762,7 @@
                 asidePanel.classList.remove('collapsed');
                 setTimeout(function() {
                     mapCommunitySelected();
+                    slideshow();
                     document.querySelector('.aside-panel .page-section').style.opacity = '1';
                 }, 500);
             });
@@ -780,13 +781,17 @@
             asidePanel.classList.remove('collapsed');
             setTimeout(function() {
                 mapCommunitySelected();
+                slideshow();
                 document.querySelector('.aside-panel .page-section').style.opacity = '1';
             }, 500);
         }
 
         document.querySelector('select[name="CommunitiesList"]').onchange = function(event) {
             if(event.target.value !== 'Communities'){
-                setTimeout(function() { mapCommunitySelected(); }, 250);
+                setTimeout(function() {
+                    mapCommunitySelected();
+                    slideshow();
+                }, 250);
             }
         }
 
@@ -961,7 +966,6 @@
                                             slideshowContainer.appendChild(slideshowSlide);
                                         }
                                         communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
-                                        slideshow();
                                     }
                                     // single photo to be displayed
                                     else {
