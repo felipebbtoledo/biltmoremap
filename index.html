@@ -789,23 +789,23 @@
 
         function mapCommunitySelected() {
 
-            const hash = window.location.hash;
-            const hashValue = hash.split('#')[1];
-            const communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
-            const communityNameSelector = document.querySelector('.content-area .page-section .community-name');
-            const communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
-            const communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
-            const communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
-            const communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
-            const communityPopupPhotos = document.querySelectorAll('svg > rect:target + foreignObject .popup > img');
-            const communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
-            const communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
+            var hash = window.location.hash;
+            var hashValue = hash.split('#')[1];
+            var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
+            var communityNameSelector = document.querySelector('.content-area .page-section .community-name');
+            var communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
+            var communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
+            var communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
+            var communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
+            var communityPopupPhotos = document.querySelectorAll('svg > rect:target + foreignObject .popup > img');
+            var communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
+            var communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
 
             if(document.querySelector('svg > rect:target + foreignObject')){
                 document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
             }
 
-            const selectedCommunityId = document.querySelector('svg > rect:target');
+            var selectedCommunityId = document.querySelector('svg > rect:target');
             var CommunityId, communityDetailsList, communityPhotosList;
             if(selectedCommunityId !== null) {
                 CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
@@ -881,10 +881,10 @@
                                 //     communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
                                 // }
                                 if(communityPhotosList) {
-                                    const communityPhotosListElems = communityPhotosList.split(",");
+                                    var communityPhotosListElems = communityPhotosList.split(",");
                                     // console.log(communityPhotosListElems);
-                                    for(const communityPhotosListElem in communityPhotosListElems){
-                                        console.log(communityPhotosListElems[communityPhotosListElem]);
+                                    for(var communityPhotosListElem in communityPhotosListElems){
+                                        // console.log(communityPhotosListElems[communityPhotosListElem]);
                                         let newPhoto = document.createElement('img');
                                         newPhoto.src = communityPhotosListElems[communityPhotosListElem];
                                         newPhoto.setAttribute('alt',curRow[col]);
