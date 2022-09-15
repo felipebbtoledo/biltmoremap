@@ -913,10 +913,24 @@
                                 }
                                 if(communityPhotosList) {
                                     var communityPhotosListElems = communityPhotosList.split(",");
-                                    console.log(communityPhotosListElems.length);
-                                    for(var communityPhotosListElem in communityPhotosListElems){
-                                        let newPhoto = document.createElement('img');
-                                        newPhoto.src = communityPhotosListElems[communityPhotosListElem];
+                                    var newPhoto = document.createElement('img');
+
+                                    if(communityPhotosListElems.length > 1) {
+                                        let slideshowContainer = document.createElement('div');
+                                        let slideshowSlide = document.createElement('div');
+                                        slideshowContainer.classList.add('slideshow-container');
+                                        slideshowContainer.innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>';
+                                        slideshowSlide.classList.add('mySlides');
+
+                                        for(var communityPhotosListElem in communityPhotosListElems){
+                                            newPhoto.src = communityPhotosListElems[communityPhotosListElem];
+                                            newPhoto.setAttribute('alt',curRow[col]);
+                                            slideshowSlide.appendChild(newPhoto);
+                                            slideshowContainer.appendChild(slideshowSlide);
+                                        }
+                                    }
+                                    else {
+                                        newPhoto.src = communityPhotosList;
                                         newPhoto.setAttribute('alt',curRow[col]);
                                         communityPopup.insertBefore(newPhoto,communityPopupCaption);
                                     }
