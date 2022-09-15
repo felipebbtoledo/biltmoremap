@@ -197,6 +197,9 @@ body {
 .dropdown-item, .dropdown-item:focus, .dropdown-item:hover {
     color: var(--accent-color);
 }
+.fa-angle-left:before {
+    font-weight: bold;
+}
 form label {
     font-size: .875rem;
     font-weight: 700;
