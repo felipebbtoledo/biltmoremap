@@ -762,7 +762,6 @@
                 asidePanel.classList.remove('collapsed');
                 setTimeout(function() {
                     mapCommunitySelected();
-                    slideshow();
                     document.querySelector('.aside-panel .page-section').style.opacity = '1';
                 }, 500);
             });
@@ -781,7 +780,6 @@
             asidePanel.classList.remove('collapsed');
             setTimeout(function() {
                 mapCommunitySelected();
-                slideshow();
                 document.querySelector('.aside-panel .page-section').style.opacity = '1';
             }, 500);
         }
@@ -790,7 +788,6 @@
             if(event.target.value !== 'Communities'){
                 setTimeout(function() {
                     mapCommunitySelected();
-                    slideshow();
                 }, 250);
             }
         }
@@ -966,6 +963,7 @@
                                             slideshowContainer.appendChild(slideshowSlide);
                                         }
                                         communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
+                                        slideshow();
                                     }
                                     // single photo to be displayed
                                     else {
