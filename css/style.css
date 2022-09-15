@@ -528,6 +528,14 @@ svg > #BiltmoreMountainEstates + foreignObject {
     x:630;
     y:190;
 }
+svg > #LincolnHills + foreignObject {
+    x:1010;
+    y:160;
+}
+svg > #AltaVistaPark + foreignObject {
+    x:590;
+    y:180;
+}
 @media (max-width:1024.98px){
     .aside-panel {
         display: none;
