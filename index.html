@@ -882,9 +882,7 @@
                                 // }
                                 if(communityPhotosList) {
                                     var communityPhotosListElems = communityPhotosList.split(",");
-                                    // console.log(communityPhotosListElems);
                                     for(var communityPhotosListElem in communityPhotosListElems){
-                                        // console.log(communityPhotosListElems[communityPhotosListElem]);
                                         let newPhoto = document.createElement('img');
                                         newPhoto.src = communityPhotosListElems[communityPhotosListElem];
                                         newPhoto.setAttribute('alt',curRow[col]);
