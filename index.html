@@ -792,36 +792,37 @@
             }
         }
 
-        window.addEventListener('hashchange', function() {
+        // window.addEventListener('hashchange', function() {
         //     setTimeout(function() { mapCommunitySelected(); }, 500);
-            // Slideshow function
-            setTimeout(function() {
-                let slideIndex = 1;
-                showSlides(slideIndex);
+        // }, false);
 
-                // Next/previous controls
-                function plusSlides(n) {
-                    showSlides(slideIndex += n);
-                }
+        // Slideshow function
+        function slideshow() {
+            let slideIndex = 1;
+            showSlides(slideIndex);
 
-                // Thumbnail image controls
-                function currentSlide(n) {
-                    showSlides(slideIndex = n);
-                }
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
 
-                function showSlides(n) {
-                    let i;
-                    let slides = document.getElementsByClassName("mySlides");
-                    if (n > slides.length) {slideIndex = 1}
-                    if (n < 1) {slideIndex = slides.length}
-                    for (i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                    }
-                    slides[slideIndex-1].style.display = "block";
+            // Thumbnail image controls
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
                 }
-            }, 500);
-            // End Slideshow function
-        }, false);
+                slides[slideIndex-1].style.display = "block";
+            }
+        }
+        // End Slideshow function
 
         function mapCommunitySelected() {
 
@@ -962,6 +963,7 @@
                                             slideshowContainer.appendChild(slideshowSlide);
                                         }
                                         communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
+                                        slideshow();
                                     }
                                     // single photo to be displayed
                                     else {
