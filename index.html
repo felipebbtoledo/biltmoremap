@@ -725,6 +725,34 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
+    // Slideshow function
+    // function slideshow() {
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+    //}
+    // End Slideshow function
+
     var asidePanel = document.querySelector('.aside-panel');
     var svgLinks = document.querySelectorAll('main > svg > a');
     var closeLinks = document.querySelectorAll('.popup .close');
@@ -965,34 +993,6 @@
             function parseCSV(g){for(var c=[],e=!1,a=0,b=0,f=0;f<g.length;f++){var d=g[f],h=g[f+1];c[a]=c[a]||[];c[a][b]=c[a][b]||"";'"'==d&&e&&'"'==h?(c[a][b]+=d,++f):'"'==d?e=!e:","!=d||e?"\r"!=d||"\n"!=h||e?"\n"!=d||e?"\r"!=d||e?c[a][b]+=d:(++a,b=0):(++a,b=0):(++a,b=0,++f):++b}return c}
             <!-- /Google Sheets -->
         } // /mapCommunitySelected
-
-        // Slideshow function
-        // function slideshow() {
-            let slideIndex = 1;
-            showSlides(slideIndex);
-
-            // Next/previous controls
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-
-            // Thumbnail image controls
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                let i;
-                let slides = document.getElementsByClassName("mySlides");
-                if (n > slides.length) {slideIndex = 1}
-                if (n < 1) {slideIndex = slides.length}
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                slides[slideIndex-1].style.display = "block";
-            }
-        //}
-        // End Slideshow function
     });
 </script>
 </body>
