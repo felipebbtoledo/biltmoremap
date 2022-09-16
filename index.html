@@ -921,38 +921,37 @@
                                     if(communityPhotosListElems.length > 1) {
 
                                         // Slideshow function
-                                        //function slideshow() {
-                                        let slideIndex = 1;
-                                        showSlides(slideIndex);
+                                        function slideshow() {
+                                            let slideIndex = 1;
+                                            showSlides(slideIndex);
 
-                                        // Next/previous controls
-                                        function plusSlides(n) {
-                                            showSlides(slideIndex += n);
-                                        }
-
-                                        // Thumbnail image controls
-                                        function currentSlide(n) {
-                                            showSlides(slideIndex = n);
-                                        }
-
-                                        function showSlides(n) {
-                                            let i;
-                                            let slides = document.getElementsByClassName("mySlides");
-                                            if (n > slides.length) {slideIndex = 1}
-                                            if (n < 1) {slideIndex = slides.length}
-                                            for (i = 0; i < slides.length; i++) {
-                                                slides[i].style.display = "none";
+                                            // Next/previous controls
+                                            function plusSlides(n) {
+                                                showSlides(slideIndex += n);
                                             }
-                                            slides[slideIndex-1].style.display = "block";
+
+                                            // Thumbnail image controls
+                                            function currentSlide(n) {
+                                                showSlides(slideIndex = n);
+                                            }
+
+                                            function showSlides(n) {
+                                                let i;
+                                                let slides = document.getElementsByClassName("mySlides");
+                                                if (n > slides.length) {slideIndex = 1}
+                                                if (n < 1) {slideIndex = slides.length}
+                                                for (i = 0; i < slides.length; i++) {
+                                                    slides[i].style.display = "none";
+                                                }
+                                                slides[slideIndex-1].style.display = "block";
+                                            }
                                         }
-                                        //}
                                         // End Slideshow function
 
                                         let slideshowContainer = document.createElement('div');
 
                                         slideshowContainer.classList.add('slideshow-container');
                                         slideshowContainer.innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>';
-
 
                                         for(var communityPhotosListElem in communityPhotosListElems){
                                             let slideshowSlide = document.createElement('div');
@@ -964,6 +963,7 @@
                                             slideshowContainer.appendChild(slideshowSlide);
                                         }
                                         communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
+                                        slideshow();
                                     }
                                     // single photo to be displayed
                                     else {
