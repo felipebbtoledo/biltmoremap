@@ -954,22 +954,23 @@
 
                                     // slideshow photos to be displayed
                                     if(communityPhotosListElems.length > 1) {
+                                        // append slideshow-container
+                                        if(!document.querySelectorAll('.slideshow-container').length) {
+                                            let slideshowContainer = document.createElement('div');
+                                            slideshowContainer.classList.add('slideshow-container');
+                                            slideshowContainer.innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>';
 
-                                        let slideshowContainer = document.createElement('div');
-
-                                        slideshowContainer.classList.add('slideshow-container');
-                                        slideshowContainer.innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>';
-
-                                        for(var communityPhotosListElem in communityPhotosListElems){
-                                            let slideshowSlide = document.createElement('div');
-                                            let newPhoto = document.createElement('img');
-                                            slideshowSlide.classList.add('mySlides','fading');
-                                            newPhoto.src = communityPhotosListElems[communityPhotosListElem];
-                                            newPhoto.setAttribute('alt',curRow[col]);
-                                            slideshowSlide.appendChild(newPhoto);
-                                            slideshowContainer.appendChild(slideshowSlide);
+                                            for(var communityPhotosListElem in communityPhotosListElems){
+                                                let slideshowSlide = document.createElement('div');
+                                                let newPhoto = document.createElement('img');
+                                                slideshowSlide.classList.add('mySlides','fading');
+                                                newPhoto.src = communityPhotosListElems[communityPhotosListElem];
+                                                newPhoto.setAttribute('alt',curRow[col]);
+                                                slideshowSlide.appendChild(newPhoto);
+                                                slideshowContainer.appendChild(slideshowSlide);
+                                            }
+                                            communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
                                         }
-                                        communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
                                         showSlides(slideIndex);
                                     }
                                     // single photo to be displayed
