@@ -752,6 +752,7 @@
 
     // mobile only
     if(document.documentElement.clientWidth < 1025){
+        console.log('mobile only');
         var bodyHeight = document.documentElement.scrollHeight;
         bodyHeight = parseInt(bodyHeight);
         document.querySelector('body').style.height = bodyHeight;
