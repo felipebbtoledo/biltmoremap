@@ -548,9 +548,6 @@ svg > #AltaVistaPark + foreignObject {
     y:180;
 }
 @media (max-width:1024.98px){
-    html, body {
-        overflow-y: hidden;
-    }
     .aside-panel {
         display: none;
     }
@@ -559,8 +556,16 @@ svg > #AltaVistaPark + foreignObject {
         width: 1300px;
     }
     .popup {
-        min-height: 320px;
-        width: 320px;
+        bottom: 35%;
+         min-height: 320px;
+        position: fixed;
+        right:0;
+         /*width: 320px;*/
+        width: 100vw;
+        top: auto;
+     }
+    .popup.arrow:before {
+        display: none;
     }
     .popup .caption {
         text-align: center;
