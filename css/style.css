@@ -584,6 +584,38 @@ svg > #AltaVistaPark + foreignObject {
         x:370;
         y:460;
     }
+    svg > #\32 211 + foreignObject {
+        x:320;
+        y:430;
+    }
+    svg > #Optima + foreignObject {
+        x:370;
+        y:520;
+    }
+    svg > #EsplanadePlace + foreignObject {
+        x:530;
+        y:510;
+    }
+    svg > #VillageOnTheLakes + foreignObject {
+        x:650;
+        y:480;
+    }
+    svg > #BiltmoreGreens + foreignObject {
+        x:600;
+        y:40;
+    }
+    svg > #AltaVistaPark + foreignObject {
+        x:770;
+        y:230;
+    }
+    svg > BiltmoreHillsideVillas + foreignObject {
+        x:550;
+        y:40;
+    }
+    svg > #LincolnHills + foreignObject {
+        x:1160;
+        y:170;
+    }
     /*svg > rect:target + foreignObject {*/
     /*  x:0;*/
     /*  y:0;*/
