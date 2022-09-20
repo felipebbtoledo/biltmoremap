@@ -548,6 +548,9 @@ svg > #AltaVistaPark + foreignObject {
     y:180;
 }
 @media (max-width:1024.98px){
+    html, body {
+        overflow-y: hidden;
+    }
     .aside-panel {
         display: none;
     }
