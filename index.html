@@ -750,6 +750,14 @@
     }
     // End Slideshow function
 
+    // mobile only
+    if(document.documentElement.clientWidth < 1025){
+        var bodyHeight = document.documentElement.scrollHeight;
+        document.querySelector('body').style.height = parseInt(bodyHeight);
+        document.querySelector('html').style.height = parseInt(bodyHeight);
+    }
+    // mobile only
+
     var asidePanel = document.querySelector('.aside-panel');
     var svgLinks = document.querySelectorAll('main > svg > a');
     var closeLinks = document.querySelectorAll('.popup .close');
