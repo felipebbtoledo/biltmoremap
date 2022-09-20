@@ -616,6 +616,10 @@ svg > #AltaVistaPark + foreignObject {
         x:1160;
         y:170;
     }
+    svg > #Taliverde + foreignObject {
+        x:290;
+        y:490;
+    }
     /*svg > rect:target + foreignObject {*/
     /*  x:0;*/
     /*  y:0;*/
