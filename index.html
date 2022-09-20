@@ -753,8 +753,9 @@
     // mobile only
     if(document.documentElement.clientWidth < 1025){
         var bodyHeight = document.documentElement.scrollHeight;
-        document.querySelector('body').style.height = parseInt(bodyHeight);
-        document.querySelector('html').style.height = parseInt(bodyHeight);
+        bodyHeight = parseInt(bodyHeight);
+        document.querySelector('body').style.height = bodyHeight;
+        document.querySelector('html').style.height = bodyHeight;
     }
     // mobile only
 
