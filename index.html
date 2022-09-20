@@ -774,7 +774,7 @@
         for (let i = 0; i < popupButtons.length; i++) {
             popupButtons[i].addEventListener("click", function() {
                 if(window.outerWidth < 1025) {
-                    document.querySelector('svg > rect:target + foreignObject .popup').style.opacity = '0';
+                    //document.querySelector('svg > rect:target + foreignObject .popup').style.opacity = '0';
                     document.querySelector('svg > rect:target + foreignObject + a').scrollIntoView();
                 }
             });
