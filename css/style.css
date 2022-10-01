@@ -155,6 +155,15 @@ body {
     opacity: 1;
     transition: opacity 1s ease-in-out 1s;
 }
+.aside-panel .page-section .community-links {
+    list-style-type: none;
+    text-align: center;
+}
+
+.aside-panel .page-section .community-links li {
+    display: inline-block;
+}
+
 .aside-panel .page-section .community-summary-title,
 .aside-panel .page-section .community-summary,
 .aside-panel .page-section .community-details-title,
