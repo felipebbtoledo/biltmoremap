@@ -943,13 +943,15 @@
                                 }
                                 if(curRow[col + 6]) {
                                     var communityLinksList = curRow[col + 6];
+                                    var linksIndex = 0;
                                     let tempLinksList;
                                     communityLinksSelector.innerHTML = '';
                                     var communityLinksListElems = communityLinksList.split(/:(.*)|;/);
                                     for (var communityLinksListElem in communityLinksListElems) {
-                                        console.log(communityLinksListElems[communityLinksListElem]);
-                                        tempLinksList = communityLinksListElems[communityLinksListElem].split(":");
+                                        console.log(linksIndex+communityLinksListElems[communityLinksListElem]);
+                                        // tempLinksList = communityLinksListElems[communityLinksListElem].split(":");
                                         communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
+                                        linksIndex++;
                                     }
                                 }
 
