@@ -946,10 +946,10 @@
                                     var linksIndex = 0;
                                     let tempLinksList;
                                     communityLinksSelector.innerHTML = '';
-                                    var communityLinksListElems = communityLinksList.split(/:(.*)/s).filter(x => x);
+                                    var communityLinksListElems = communityLinksList.split(";").filter(x => x);
                                     for (var communityLinksListElem in communityLinksListElems) {
 
-                                        tempLinksList = communityLinksListElems[communityLinksListElem].split(";");
+                                        tempLinksList = communityLinksListElems[communityLinksListElem].split(/:(.*)/s);
                                         console.log(tempLinksList[0] +tempLinksList[1]);
                                         if (linksIndex % 2 === 0) {
                                             //even elements are here, you can access it by box
