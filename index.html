@@ -943,23 +943,12 @@
                                 }
                                 if(curRow[col + 6]) {
                                     var communityLinksList = curRow[col + 6];
-                                    var linksIndex = 0;
                                     let tempLinksList;
                                     communityLinksSelector.innerHTML = '';
                                     var communityLinksListElems = communityLinksList.split(";").filter(x => x);
                                     for (var communityLinksListElem in communityLinksListElems) {
-
                                         tempLinksList = communityLinksListElems[communityLinksListElem].split(/:(.*)/s);
-                                        console.log(tempLinksList[0] +tempLinksList[1]);
-                                        if (linksIndex % 2 === 0) {
-                                            //even elements are here, you can access it by box
-                                            communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
-                                        } else {
-                                            //odd elements are here, you can access it by box
-                                        }
-
-
-                                        linksIndex++;
+                                        communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
                                     }
                                 }
 
