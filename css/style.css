@@ -156,12 +156,13 @@ body {
     transition: opacity 1s ease-in-out 1s;
 }
 .aside-panel .page-section .community-links {
+    padding: 0;
     list-style-type: none;
-    text-align: center;
 }
 
 .aside-panel .page-section .community-links li {
     display: inline-block;
+    font-size: .875rem;
 }
 
 .aside-panel .page-section .community-summary-title,
@@ -650,6 +651,9 @@ svg > #AltaVistaPark + foreignObject {
 @media (min-width: 1025px) and (max-width: 1440px) {
     :root {
         --aside-panel-width: 36vw;
+    }
+    .aside-panel .page-section .community-links li {
+        font-size:.75rem;
     }
 }
 /* Slideshow */
