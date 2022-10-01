@@ -946,11 +946,18 @@
                                     var linksIndex = 0;
                                     let tempLinksList;
                                     communityLinksSelector.innerHTML = '';
-                                    var communityLinksListElems = communityLinksList.split(/:(.*)|;/).filter(x => x);
+                                    var communityLinksListElems = communityLinksList.split(/:(.*)/s).filter(x => x);
                                     for (var communityLinksListElem in communityLinksListElems) {
                                         console.log(linksIndex + communityLinksListElems[communityLinksListElem]);
-                                        // tempLinksList = communityLinksListElems[communityLinksListElem].split(":");
-                                        // communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
+                                        tempLinksList = communityLinksListElems[communityLinksListElem].split(";");
+                                        if (linksIndex % 2 === 0) {
+                                            //even elements are here, you can access it by box
+                                            communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
+                                        } else {
+                                            //odd elements are here, you can access it by box
+                                        }
+
+
                                         linksIndex++;
                                     }
                                 }
