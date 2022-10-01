@@ -945,7 +945,7 @@
                                     var communityLinksList = curRow[col + 6];
                                     let tempLinksList;
                                     communityLinksSelector.innerHTML = '';
-                                    var communityLinksListElems = communityLinksList.split(/:(.*)|;/);
+                                    var communityLinksListElems = communityLinksList.split(/:|;/);
                                     for (var communityLinksListElem in communityLinksListElems) {
                                         tempLinksList = communityLinksListElems[communityLinksListElem].split(":");
                                         communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
