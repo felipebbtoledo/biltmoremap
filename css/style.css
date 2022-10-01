@@ -163,8 +163,11 @@ body {
 .aside-panel .page-section .community-links li {
     display: inline-block;
     font-size: .875rem;
+    padding-left: .5rem;
 }
-
+.aside-panel .page-section .community-links li:first-of-type {
+    padding: 0;
+}
 .aside-panel .page-section .community-summary-title,
 .aside-panel .page-section .community-summary,
 .aside-panel .page-section .community-details-title,
