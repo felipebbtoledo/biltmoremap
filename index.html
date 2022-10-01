@@ -948,9 +948,9 @@
                                     communityLinksSelector.innerHTML = '';
                                     var communityLinksListElems = communityLinksList.split(/:(.*)|;/);
                                     for (var communityLinksListElem in communityLinksListElems) {
-                                        console.log(linksIndex+communityLinksListElems[communityLinksListElem]);
+                                        console.log(linksIndex + communityLinksListElems[communityLinksListElem]);
                                         // tempLinksList = communityLinksListElems[communityLinksListElem].split(":");
-                                        communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
+                                        // communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
                                         linksIndex++;
                                     }
                                 }
