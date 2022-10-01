@@ -63,6 +63,7 @@
             <div class="page-section">
                 <div class="container">
                     <h5 class="community-name"></h5>
+                    <ul class="community-links"></ul>
                     <h6 class="community-summary-title">Community Summary</h6>
                     <p class="community-summary"></p>
                     <h6 class="community-details-title">Community Details</h6>
@@ -838,6 +839,7 @@
             var hashValue = hash.split('#')[1];
             var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
             var communityNameSelector = document.querySelector('.content-area .page-section .community-name');
+            var communityLinksSelector = document.querySelector('.content-area .page-section .community-links');
             var communitySummaryTitleSelector = document.querySelector('.content-area .page-section .community-summary-title');
             var communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
             var communityDetailsTitleSelector = document.querySelector('.content-area .page-section .community-details-title');
@@ -939,10 +941,20 @@
                                         communityPopup.style.opacity = '0';
                                     }
                                 }
+                                if(curRow[col + 6]) {
+                                    var communityLinksList = curRow[col + 6];
+                                    let tempLinksList;
+                                    communityLinksSelector.innerHTML = '';
+                                    var communityLinksListElems = communityLinksList.split(/:(.*)|;/);
+                                    for (var communityLinksListElem in communityLinksListElems) {
+                                        tempLinksList = communityLinksListElems[communityLinksListElem].split(":");
+                                        communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
+                                    }
+                                }
 
                                 // populate community details list
-                                var tempDetailsList;
                                 if(communityDetailsList) {
+                                    let tempDetailsList;
                                     communityDetailsSelector.innerHTML = '';
                                     var communityDetailsListElems = communityDetailsList.split(/:|;/);
                                     for (var communityDetailsListElem in communityDetailsListElems) {
