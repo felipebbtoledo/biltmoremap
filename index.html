@@ -941,6 +941,7 @@
                                         communityPopup.style.opacity = '0';
                                     }
                                 }
+                                // GS Community Links
                                 if(curRow[col + 6]) {
                                     var communityLinksList = curRow[col + 6];
                                     let tempLinksList;
@@ -948,7 +949,7 @@
                                     var communityLinksListElems = communityLinksList.split(";").filter(x => x);
                                     for (var communityLinksListElem in communityLinksListElems) {
                                         tempLinksList = communityLinksListElems[communityLinksListElem].split(/:(.*)/s);
-                                        communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
+                                        communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'" target="_blank"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
                                     }
                                 }
 
