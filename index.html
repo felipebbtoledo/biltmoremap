@@ -948,8 +948,9 @@
                                     communityLinksSelector.innerHTML = '';
                                     var communityLinksListElems = communityLinksList.split(/:(.*)/s).filter(x => x);
                                     for (var communityLinksListElem in communityLinksListElems) {
-                                        console.log(tempLinksList[0] +tempLinksList[1]);
+
                                         tempLinksList = communityLinksListElems[communityLinksListElem].split(";");
+                                        console.log(tempLinksList[0] +tempLinksList[1]);
                                         if (linksIndex % 2 === 0) {
                                             //even elements are here, you can access it by box
                                             communityLinksSelector.innerHTML += '<li><a href="'+ tempLinksList[1] +'"><i class="fa fa-tag"></i>' + tempLinksList[0] + '</a></li>';
