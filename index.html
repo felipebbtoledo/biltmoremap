@@ -167,6 +167,10 @@
                 <rect width="100%" height="100%" fill="white"/>
                 <polygon points="1310,740,1320,761,1320,780,1329,795,1329,811,1323,817,1321,807,1205,807,1202,815,1152,818,1116,804,1116,788,1126,772,1152,766,1165,788,1165,725,1272,725,1270,773,1278,764,1288,747" fill="black"/>
             </mask>
+            <mask id="BiltmoreGatesMask">
+                <rect width="100%" height="100%" fill="white"/>
+                <polygon points="829,302,1023,294,1014,286,1017,277,1005,264,999,254,999,205,896,207,897,268,890,271,888,255,869,227,829,236" fill="black"/>
+            </mask>
             <mask id="BiltmoreGreensMask">
                 <rect width="100%" height="100%" fill="white"/>
                 <polygon points="1213,370,1227,363,1253,356,1253,335,1251,323,1253,297,1225,294,1228,280,1216,264,1192,272,1178,290,1183,306,1154,306,1170,297,1167,277,1152,262,1136,268,1123,284,1119,299,1110,294,1113,280,1103,270,1082,264,1071,281,1071,300,1063,310,1060,363" fill="black"/>
@@ -315,9 +319,27 @@
         </a>
         <!-- /BiltmoreHotelVillas -->
         <!-- Biltmore Gates -->
-<!--        <a xlink:href="#BiltmoreGates">-->
-<!--            <polygon points="829,302,1023,294,1014,286,1017,277,1005,264,999,254,999,205,896,207,897,268,890,271,888,255,869,227,829,236" fill="transparent"/>-->
-<!--        </a>-->
+        <rect id="BiltmoreGates" width="100%" height="100%" x="0" y="0" mask="url(#BiltmoreGatesMask)" />
+        <foreignObject width="100%" height="100%">
+            <div class="popup arrow right" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="caption">
+                    <div class="caption-title"></div>
+                    <div class="buttons">
+                        <a class="btn btn-inverted" href="">Community Info</a>
+                        <a class="btn btn-green" href="">For sale</a>
+                        <a class="btn btn-blue" href="">For lease</a>
+                        <a class="btn btn-orange" href="">Coming soon</a>
+                        <a class="btn btn-purple" href="">Recently sold</a>
+                    </div>
+                </div>
+                <a class="close" href="#">
+                    <span>&times;</span>
+                </a>
+            </div>
+        </foreignObject>
+        <a xlink:href="#BiltmoreGates">
+            <polygon points="829,302,1023,294,1014,286,1017,277,1005,264,999,254,999,205,896,207,897,268,890,271,888,255,869,227,829,236" fill="transparent"/>
+        </a>
         <!-- /Biltmore Gates -->
         <!-- BiltmoreHillsideVillas -->
         <rect id="BiltmoreHillsideVillas" width="100%" height="100%" x="0" y="0" mask="url(#BiltmoreHillsideVillasMask)" />
