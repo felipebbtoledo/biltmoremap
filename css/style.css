@@ -639,6 +639,10 @@ svg > #AltaVistaPark + foreignObject {
         x:290;
         y:490;
     }
+    svg > #BiltmoreGates + foreignObject {
+        x:260;
+        y:50;
+    }
     /*svg > rect:target + foreignObject {*/
     /*  x:0;*/
     /*  y:0;*/

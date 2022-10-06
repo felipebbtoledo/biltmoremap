@@ -798,7 +798,7 @@
             popupButtons[i].addEventListener("click", function() {
                 if(window.outerWidth < 1025) {
                     document.querySelector('svg > rect:target + foreignObject .popup').style.opacity = '0';
-                    //document.querySelector('svg > rect:target + foreignObject + a').scrollIntoView();
+                    document.querySelector('svg > rect:target + foreignObject + a').scrollIntoView();
                 }
             });
         }
