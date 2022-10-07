@@ -544,21 +544,21 @@ svg > #HeightsOfTheBiltmore + foreignObject {
     x:110;
     y:370;
 }
-svg > #BiltmoreHotelVillas + foreignObject {
-    x:640;
-    y:180;
+svg > #BiltmoreHillsideVillas + foreignObject {
+    x:360;
+    y:0;
 }
 svg > #TheCloisters + foreignObject {
     x:30;
-    y:240;
+    y:290;
 }
 svg > #BiltmoreShores + foreignObject {
-    x:400;
-    y:490;
+    x:370;
+    y:480;
 }
 svg > #BiltmoreMountainEstates + foreignObject {
     x:630;
-    y:190;
+    y:200;
 }
 svg > #LincolnHills + foreignObject {
     x:1010;
