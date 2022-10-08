@@ -166,11 +166,19 @@ body {
 
 .aside-panel .page-section .community-links li {
     display: inline-block;
-    font-size: .875rem;
-    font-weight: bold;
 }
 .aside-panel .page-section .community-links li:first-of-type {
     padding: 0;
+}
+.aside-panel .page-section .community-links li a {
+    background: var(--accent-color);
+    border: 0;
+    border-radius: 0;
+    color: var(--light-color);
+    display: inline-block;
+    font-family: var(--secondary-font);
+    font-size: .875rem;
+    font-weight: bold;
 }
 .aside-panel .page-section .community-summary-title,
 .aside-panel .page-section .community-summary,
@@ -179,6 +187,9 @@ body {
 .aside-panel .page-section .community-additional-info-title,
 .aside-panel .page-section .community-additional-info {
     display: none;
+}
+.aside-panel .page-section .community-details-title {
+    color:green;
 }
 .aside-panel .page-section .community-details {
     display: flex;
@@ -598,7 +609,6 @@ svg > #AltaVistaPark + foreignObject {
         position:absolute;
         left:0;
         top:0;
-        user-select: none;
     }
     svg #FairwayLodge + foreignObject {
         x:400;
