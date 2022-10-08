@@ -180,6 +180,10 @@ body {
     font-size: .875rem;
     font-weight: bold;
     padding: 0.375rem 0.75rem;
+    text-decoration: none;
+}
+.aside-panel .page-section .community-links li a:hover {
+    background: var(--accent-hover-color)
 }
 .aside-panel .page-section .community-summary-title,
 .aside-panel .page-section .community-summary,
