@@ -179,6 +179,7 @@ body {
     font-family: var(--secondary-font);
     font-size: .875rem;
     font-weight: bold;
+    padding: 0.375rem 0.75rem;
 }
 .aside-panel .page-section .community-summary-title,
 .aside-panel .page-section .community-summary,
@@ -188,7 +189,7 @@ body {
 .aside-panel .page-section .community-additional-info {
     display: none;
 }
-.aside-panel .page-section .community-details-title {
+.aside-panel .page-section h6 {
     color:green;
 }
 .aside-panel .page-section .community-details {
