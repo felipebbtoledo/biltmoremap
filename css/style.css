@@ -594,6 +594,12 @@ svg > #AltaVistaPark + foreignObject {
     .popup .caption .caption-text, .popup .caption .buttons {
         display: block;
     }
+    svg {
+        position:absolute;
+        left:0;
+        top:0;
+        user-select: none;
+    }
     svg #FairwayLodge + foreignObject {
         x:400;
         y:250;
