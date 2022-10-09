@@ -476,6 +476,7 @@ svg > a polygon {
     stroke-opacity: 0;
 }
 svg > foreignObject {
+    display:none;
     opacity: 0;
     pointer-events: none;
 }
@@ -490,6 +491,7 @@ svg > rect:target {
     pointer-events: auto;
 }
 svg > rect:target + foreignObject {
+    display: block;
     opacity: 1;
     pointer-events: auto;
 }
