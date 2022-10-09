@@ -192,7 +192,7 @@ body {
     background:var(--purple-color);
 }
 .aside-panel .page-section .community-links li a:hover {
-    opacity: .95;
+    filter: brightness(85%);
 }
 .aside-panel .page-section .community-summary-title,
 .aside-panel .page-section .community-summary,
@@ -410,6 +410,9 @@ main {
 }
 .popup .caption .buttons {
     display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 .popup .caption .buttons .btn {
     border: 2px solid var(--light-gray-color);
