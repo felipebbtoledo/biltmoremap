@@ -476,8 +476,6 @@ svg > a polygon {
     stroke-opacity: 0;
 }
 svg > foreignObject {
-    x:0!important;
-    y:0!important;
     opacity: 0;
     pointer-events: none;
 }
