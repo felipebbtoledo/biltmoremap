@@ -784,7 +784,7 @@
 
     var asidePanel = document.querySelector('.aside-panel');
     var svgLinks = document.querySelectorAll('main > svg > a');
-    var popupCloseLinks = document.querySelector('.popup .close');
+    var popupCloseLinks = document.querySelectorAll('.popup .close');
     var hash = window.location.hash;
     var hashValue = hash.split('#')[1];
     var openCloseArea = document.querySelector('.open-close-area');
@@ -829,8 +829,6 @@
             popupCloseLinks[i].addEventListener("click", function() {
                 asidePanel.classList.add('collapsed');
                 document.querySelector('.aside-panel .page-section').style.opacity = '0';
-                console.log('close clicked'+document.querySelector('.popup[style]').length);
-                document.querySelector('.popup[style]').removeAttribute('style');
             });
         }
 
