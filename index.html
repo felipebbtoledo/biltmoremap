@@ -970,7 +970,7 @@
                                         let tempLinksList;
                                         communityLinksSelector.innerHTML = '';
                                         communityPopupButtonsSelector.innerHTML = '';
-                                        // communityPopupButtonsSelector.innerHTML += '<li><a href="#" class="btn">Community Info</a></li>';
+                                        communityPopupButtonsSelector.innerHTML += '<li><a href="#" class="btn d-none">Community Info</a></li>';
                                         var communityLinksListElems = communityLinksList.split(";").filter(x => x);
                                         for (var communityLinksListElem in communityLinksListElems) {
                                             tempLinksList = communityLinksListElems[communityLinksListElem].split(/:(.*)/s);
