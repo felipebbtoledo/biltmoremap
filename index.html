@@ -803,9 +803,10 @@
         }
 
         openCloseArea.addEventListener("click", function() {
+            let currentPopup = document.querySelector('svg > rect:target + foreignObject .popup');
             asidePanel.classList.add('collapsed');
             document.querySelector('.aside-panel .page-section').style.opacity = '0';
-            this.style.opacity = '0';
+            currentPopup.style.opacity = '0';
         });
 
         // toggle aside panel by area clicking
