@@ -631,7 +631,7 @@ svg > #AltaVistaPark + foreignObject {
     .popup {
         min-height: 320px;
         /*position: fixed;*/
-        max-width: 90vw;
+        width: 90vw;
      }
     .popup.arrow:before, .popup.hide-arrow:before {
         display: none;
