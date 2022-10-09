@@ -787,8 +787,9 @@
     var closeLinks = document.querySelectorAll('.popup .close');
     var hash = window.location.hash;
     var hashValue = hash.split('#')[1];
-    var openCloseArea = document.querySelector('.popup .open-close-area');
+    var openCloseArea = document.querySelector('.open-close-area');
     var popupButtons = document.querySelectorAll('.popup .buttons .btn');
+    var currentPopup = document.querySelector('.popup[style]');
 
     document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -829,9 +830,7 @@
             closeLinks[i].addEventListener("click", function() {
                 asidePanel.classList.add('collapsed');
                 document.querySelector('.aside-panel .page-section').style.opacity = '0';
-                let currentPopup = document.querySelector('.popup[style]');
-                currentPopup.removeAttribute('style');
-                // setTimeout(function(){currentPopup.removeAttribute('style')}, 1000);
+                currentPopup.removeAttribute('style')
             });
         }
 
