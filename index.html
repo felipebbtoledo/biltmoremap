@@ -787,8 +787,8 @@
     var closeLinks = document.querySelectorAll('.popup .close');
     var hash = window.location.hash;
     var hashValue = hash.split('#')[1];
-    var openCloseArea = document.querySelector('.open-close-area');
-    var popupButtons = document.querySelectorAll('.popup .buttons .btn');
+    var openCloseArea = document.querySelector('.popup[style] .open-close-area');
+    var popupButtons = document.querySelectorAll('.popup[style] .buttons .btn');
 
     document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -805,7 +805,6 @@
         openCloseArea.addEventListener("click", function() {
             asidePanel.classList.add('collapsed');
             document.querySelector('.aside-panel .page-section').style.opacity = '0';
-            document.querySelectorAll('svg > rect + foreignObject .popup').forEach(elem => elem.removeAttribute('style'));
         });
 
         // toggle aside panel by area clicking
@@ -830,6 +829,9 @@
             closeLinks[i].addEventListener("click", function() {
                 asidePanel.classList.add('collapsed');
                 document.querySelector('.aside-panel .page-section').style.opacity = '0';
+                let currentPopup = document.querySelector('.popup[style]');
+                currentPopup.removeAttribute('style');
+                // setTimeout(function(){currentPopup.removeAttribute('style')}, 1000);
             });
         }
 
