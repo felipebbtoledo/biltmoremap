@@ -829,6 +829,7 @@
             popupCloseLinks[i].addEventListener("click", function() {
                 asidePanel.classList.add('collapsed');
                 document.querySelector('.aside-panel .page-section').style.opacity = '0';
+                console.log('close clicked'+document.querySelector('.popup[style]').length);
                 document.querySelector('.popup[style]').removeAttribute('style');
             });
         }
