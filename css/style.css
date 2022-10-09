@@ -706,7 +706,7 @@ svg > #AltaVistaPark + foreignObject {
 }
 /* Slideshow */
 .slideshow-container {
-    max-width: 100%;
+    /*max-width: 100%;*/
     position: relative;
     margin: auto;
 }
