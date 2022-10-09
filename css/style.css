@@ -599,27 +599,6 @@ svg > #AltaVistaPark + foreignObject {
     x:590;
     y:180;
 }
-@media (max-width:375px) {
-    .popup {
-        min-height: 320px;
-        position: fixed;
-        width: 330px;
-    }
-}
-@media (max-width:400px) {
-    .popup {
-        min-height: 320px;
-        position: fixed;
-        width: 360px;
-    }
-}
-@media (max-width:600px) {
-    .popup {
-        min-height: 320px;
-        position: fixed;
-        width: 540px;
-    }
-}
 @media (max-width:1024.98px){
     .aside-panel {
         display: none;
@@ -629,9 +608,10 @@ svg > #AltaVistaPark + foreignObject {
         width: 1300px;
     }
     .popup {
+        max-width: 90vw;
         min-height: 320px;
-        /*position: fixed;*/
-        width: 90vw;
+        position: relative;
+        width: 100%;
      }
     .popup.arrow:before, .popup.hide-arrow:before {
         display: none;
