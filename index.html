@@ -784,7 +784,7 @@
 
     var asidePanel = document.querySelector('.aside-panel');
     var svgLinks = document.querySelectorAll('main > svg > a');
-    var popupCloseLink = document.querySelector('.popup[style] .close');
+    var popupCloseLinks = document.querySelector('.popup .close');
     var hash = window.location.hash;
     var hashValue = hash.split('#')[1];
     var openCloseArea = document.querySelector('.open-close-area');
@@ -825,14 +825,13 @@
         }
 
         // close link in the popup to close aside panel
-        // for (let i = 0; i < closeLinks.length; i++) {
-        //     closeLinks[i].addEventListener("click", function() {
-        popupCloseLink.addEventListener("click", function() {
-            asidePanel.classList.add('collapsed');
-            document.querySelector('.aside-panel .page-section').style.opacity = '0';
-            document.querySelector('.popup[style]').removeAttribute('style');
-        });
-        // }
+        for (let i = 0; i < popupCloseLinks.length; i++) {
+            popupCloseLinks[i].addEventListener("click", function() {
+                asidePanel.classList.add('collapsed');
+                document.querySelector('.aside-panel .page-section').style.opacity = '0';
+                document.querySelector('.popup[style]').removeAttribute('style');
+            });
+        }
 
         // if hash is not empty, display aside panel
         if(hashValue){
