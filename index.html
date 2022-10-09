@@ -805,7 +805,7 @@
         openCloseArea.addEventListener("click", function() {
             asidePanel.classList.add('collapsed');
             document.querySelector('.aside-panel .page-section').style.opacity = '0';
-            this.parentNode.style.opacity = '0';
+            document.querySelectorAll('svg > rect:target + foreignObject .popup').forEach(elem => elem.removeAttribute('style'));
         });
 
         // toggle aside panel by area clicking
