@@ -830,8 +830,11 @@
 
         $(document).on('click', '.popup[style] .buttons .btn-comm-info', function (e) {
             let commInfoContent = asidePanel.querySelector('.page-section');
+            let slideShowContainer = document.querySelector('.popup[style] .slideshow-container');
             document.querySelector('.popup[style] img').remove();
-            document.querySelector('.popup[style] .slideshow-container').remove();
+            if(slideShowContainer) {
+                document.querySelector('.popup[style] .slideshow-container').remove();
+            }
             document.querySelector('.popup[style] .comm-info').innerHTML = commInfoContent.innerHTML;
             console.log(commInfoContent.innerHTML);
         });
