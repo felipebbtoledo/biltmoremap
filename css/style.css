@@ -617,6 +617,9 @@ svg > #AltaVistaPark + foreignObject {
     .popup.arrow:before, .popup.hide-arrow:before {
         display: none;
     }
+    .popup .comm-info:not(:empty) ~ div {
+        display:none;
+    }
     .popup .caption {
         display: block;
         text-align: center;
