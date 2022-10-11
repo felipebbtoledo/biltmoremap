@@ -205,21 +205,26 @@ body {
 .aside-panel .page-section h6 {
     color:green;
 }
-.aside-panel .page-section .community-details {
+.aside-panel .page-section .community-details,
+.popup .comm-info .community-details {
     display: flex;
     flex-flow: row wrap;
 }
-.aside-panel .page-section .community-details > div {
+.aside-panel .page-section .community-details > div,
+.popup .comm-info .community-details > div {
     border-bottom: 1px solid var(--light-gray-color);
     flex:0 0 66.666667%;
     max-width:66.666667%;
     padding: .5rem 0;
 }
 .aside-panel .page-section .community-details > div:nth-child(1),
-.aside-panel .page-section .community-details > div:nth-child(2){
+.aside-panel .page-section .community-details > div:nth-child(2),
+.popup .comm-info .community-details > div:nth-child(1),
+.popup .comm-info .community-details > div:nth-child(2) {
     border-top: 1px solid var(--light-gray-color);
 }
-.aside-panel .page-section .community-details > div:nth-child(odd) {
+.aside-panel .page-section .community-details > div:nth-child(odd),
+.popup .comm-info .community-details > div:nth-child(odd) {
     color: var(--dark-gray-color);
     flex:0 0 33.333333%;
     font-weight: 700;
@@ -614,11 +619,13 @@ svg > #AltaVistaPark + foreignObject {
         /*width: 100%;*/
         width: 90vw;
      }
-    .popup.arrow:before, .popup.hide-arrow:before {
+    .popup.arrow:before, .popup.hide-arrow:before,
+    .popup .comm-info:not(:empty) ~ div,
+    .popup .comm-info .community-links {
         display: none;
     }
-    .popup .comm-info:not(:empty) ~ div {
-        display:none;
+    .popup .comm-info > .container {
+        padding: 15px;
     }
     .popup .caption {
         display: block;
