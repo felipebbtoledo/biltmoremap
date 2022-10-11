@@ -810,6 +810,7 @@
         $(document).on('click', '.popup[style] .buttons .btn-comm-info', function (e) {
             let commInfoContent = asidePanel.querySelector('.page-section');
             document.querySelector('.popup[style] img').remove();
+            document.querySelector('.popup[style] .slideshow-container').remove();
             document.querySelector('.popup[style] .caption').innerHTML = commInfoContent.innerHTML;
         });
 
