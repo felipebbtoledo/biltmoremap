@@ -807,7 +807,7 @@
             document.querySelector('.aside-panel .page-section').style.opacity = '0';
         });
 
-        $(document).on('click', '.popup[style] .buttons .btn-reverse', function (e) {
+        $(document).on('click', '.popup[style] .buttons .btn-comm-info', function (e) {
             let commInfoContent = asidePanel.querySelector('.page-section');
             document.querySelector('.popup[style] img').remove();
             document.querySelector('.popup[style] .caption').innerHTML = commInfoContent.innerHTML;
@@ -981,7 +981,7 @@
                                         let tempLinksList;
                                         communityLinksSelector.innerHTML = '';
                                         communityPopupButtonsSelector.innerHTML = '';
-                                        communityPopupButtonsSelector.innerHTML += '<li><a href="#" class="btn btn-inverse">Community Info</a></li>';
+                                        communityPopupButtonsSelector.innerHTML += '<li><a class="btn btn-comm-info">Community Info</a></li>';
                                         var communityLinksListElems = communityLinksList.split(";").filter(x => x);
                                         for (var communityLinksListElem in communityLinksListElems) {
                                             tempLinksList = communityLinksListElems[communityLinksListElem].split(/:(.*)/s);
