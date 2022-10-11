@@ -808,10 +808,11 @@
             document.querySelector('.aside-panel .page-section').style.opacity = '0';
         });
 
-        // popupCommunityButton.addEventListener("click", function() {
-        //     let commInfoContent = asidePanel.querySelector('.page-section');
-        //
-        // });
+        popupCommunityButton.addEventListener("click", function() {
+            let commInfoContent = asidePanel.querySelector('.page-section');
+            document.querySelector('.popup[style] img').remove();
+            document.querySelector('.popup[style] .caption').innerHTML = commInfoContent.innerHTML;
+        });
 
         // toggle aside panel by area clicking
         $(document).on('click', '.bootstrap-select', function (e) {
