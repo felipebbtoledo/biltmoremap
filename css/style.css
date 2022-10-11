@@ -624,6 +624,10 @@ svg > #AltaVistaPark + foreignObject {
     .popup .comm-info .community-links {
         display: none;
     }
+    .popup .comm-info {
+         overflow: auto;
+         height: 100%;
+     }
     .popup .comm-info > .container {
         padding: 15px;
     }
