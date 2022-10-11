@@ -806,7 +806,6 @@
         openCloseArea.addEventListener("click", function() {
             asidePanel.classList.add('collapsed');
             document.querySelector('.aside-panel .page-section').style.opacity = '0';
-            document.querySelectorAll('.popup[style]').forEach(item => item.removeAttribute('style'));
         });
 
         // popupCommunityButton.addEventListener("click", function() {
@@ -818,6 +817,11 @@
         $(document).on('click', '.bootstrap-select', function (e) {
             let pickedVal = $(this).find('.dropdown-toggle').attr('title');
             window.location.href = '#'+ pickedVal.replace(/ +/g, "");
+        });
+
+        // remove style attribute from popup
+        $(document).on('click', '.popup[style] .close', function (e) {
+            document.querySelectorAll('.popup[style]').forEach(item => item.removeAttribute('style'));
         });
 
         // refresh aside panel communities dropdown
