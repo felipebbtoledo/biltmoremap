@@ -460,6 +460,7 @@ main {
     text-decoration: none;
     top: -10px;
     width: 2rem;
+    z-index: 1;
 }
 .popup .close:hover {
     background: var(--accent-hover-color);
