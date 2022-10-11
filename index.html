@@ -844,7 +844,7 @@
         // remove style attribute from popup
         $(document).on('click', '.popup[style] .close', function (e) {
             document.querySelectorAll('.popup[style]').forEach(item => {
-                item.querySelector('comm-info').innerHTML='';
+                item.querySelector('.comm-info').innerHTML='';
                 item.removeAttribute('style');
             });
         });
