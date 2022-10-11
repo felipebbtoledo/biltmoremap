@@ -136,6 +136,7 @@ body {
     color: var(--dark-color);
 }
 .aside-panel .header .logo img {
+    margin: 5px 0px;
     max-height: 50px;
 }
 .aside-panel.collapsed .header {
