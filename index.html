@@ -1018,8 +1018,8 @@
                                         var communityLinksListElems = communityLinksList.split(";").filter(x => x);
                                         for (var communityLinksListElem in communityLinksListElems) {
                                             tempLinksList = communityLinksListElems[communityLinksListElem].split(/:(.*)/s);
-                                            communityLinksSelector.innerHTML += '<li><a href="' + tempLinksList[1] + '" target="_blank">' + tempLinksList[0] + '</a></li>';
-                                            communityPopupButtonsSelector.innerHTML += '<li><a href="' + tempLinksList[1] + '" class="btn" target="_blank">' + tempLinksList[0] + '</a></li>';
+                                            communityLinksSelector.innerHTML += '<li><a href="' + tempLinksList[1] + '">' + tempLinksList[0] + '</a></li>';
+                                            communityPopupButtonsSelector.innerHTML += '<li><a href="' + tempLinksList[1] + '" class="btn">' + tempLinksList[0] + '</a></li>';
                                         }
                                     }
                                 }
