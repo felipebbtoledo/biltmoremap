@@ -230,6 +230,7 @@ body {
     flex:0 0 33.333333%;
     font-weight: 700;
     max-width:33.333333%;
+    padding-right:.5rem
 }
 .btn {
     border: 0;
