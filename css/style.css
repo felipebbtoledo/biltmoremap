@@ -476,7 +476,8 @@ main {
 }
 svg {
     height:100%;
-    width:100%;
+    min-width:100%;
+    width:auto;
 }
 svg > a polygon {
     stroke: var(--gray-color);
