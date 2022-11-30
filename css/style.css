@@ -261,6 +261,9 @@ form label {
     font-size: .875rem;
     font-weight: 700;
 }
+form input {
+    font-family: var(--primary-font);
+}
 .form-communities-search .btn {
     text-transform: uppercase;
 }

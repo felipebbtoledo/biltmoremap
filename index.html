@@ -83,7 +83,7 @@
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="" autocomplete="off">
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-4">
+                            <div class="col-sm-12 col-md-4 px-0">
                                 <div class="form-group">
                                     <label for="phoneNumber">Phone Number</label>
                                     <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" value="" autocomplete="off">
@@ -95,14 +95,14 @@
                                     <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" autocomplete="off">
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6">
+                            <div class="col-sm-12 col-md-6 pr-2">
                                 <div class="form-group has-icon has-label">
                                     <label for="notifyMeLocation">Notify me based on</label>
                                     <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off">
                                     <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6">
+                            <div class="col-sm-12 col-md-6 pl-2">
                                 <div class="form-group">
                                     <label>Property For</label>
                                     <select name="for" class="selectpicker" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select">
@@ -118,7 +118,7 @@
                         <div class="row">
                             <div class="container-fluid">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href=""><small><i class="fa fa-plus-circle"></i> Add other communities to keep track of</small></a>
+                                    <a><small><i class="fa fa-plus-circle"></i> Add other communities to keep track of</small></a>
                                     <button type="submit" id="formFollowFavoriteSubmit" class="btn btn-submit pull-right">Submit</button>
                                 </div>
                             </div>
@@ -815,6 +815,12 @@
     var popupButtons = document.querySelectorAll('.popup .buttons .btn');
 
     document.addEventListener("DOMContentLoaded", function(event) {
+
+        // phone number formatting
+        document.getElementById('phoneNumber').addEventListener('input', function (e) {
+            var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
 
         // hide popup by button clicking
         for (let i = 0; i < popupButtons.length; i++) {
