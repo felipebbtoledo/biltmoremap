@@ -480,7 +480,9 @@ main {
 svg {
     height:100%;
     width:auto;
-    @media not all and (min-resolution: 0.001dpcm) {
+}
+@media not all and (min-resolution: 0.001dpcm) { /* Safari only */
+    svg {
         min-width:100%;
     }
 }
