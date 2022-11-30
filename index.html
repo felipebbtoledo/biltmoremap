@@ -80,32 +80,32 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="" autocomplete="off">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-4 px-0">
                                 <div class="form-group">
                                     <label for="phoneNumber">Phone Number</label>
-                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" value="" autocomplete="off">
+                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" value="" autocomplete="off" minlength="12" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" autocomplete="off">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" autocomplete="off" onblur="checkEmail(this.value)" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 pr-2">
                                 <div class="form-group has-icon has-label">
                                     <label for="notifyMeLocation">Notify me based on</label>
-                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off">
+                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>
                                     <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 pl-2">
                                 <div class="form-group">
                                     <label>Property For</label>
-                                    <select name="for" class="selectpicker" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select">
+                                    <select name="for" class="selectpicker" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select" required>
                                         <option value="">Property For</option>
                                         <option value="sale">For sale</option>
                                         <option value="lease">For lease</option>
@@ -815,6 +815,14 @@
     var popupButtons = document.querySelectorAll('.popup .buttons .btn');
 
     document.addEventListener("DOMContentLoaded", function(event) {
+
+        // email field validation
+        function checkEmail(str) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if(!re.test(str)){
+                alert("Please enter a valid email address");
+            }
+        }
 
         // phone number formatting
         document.getElementById('phoneNumber').addEventListener('input', function (e) {
