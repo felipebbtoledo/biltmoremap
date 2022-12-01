@@ -273,6 +273,16 @@ form label {
     font-family: var(--primary-font);
     font-size: .875rem;
 }
+.form-field-error {
+    position: relative;
+}
+.form-field-error::after {
+    content: attr(error-message);
+    color: red;
+    left:0;
+    position:absolute;
+    top:100%;
+}
 .form-group.has-icon {
     position: relative;
 }
