@@ -967,15 +967,19 @@
 
                     // populate the Communities dropdown list
                     var ddlEl = document.createElement("option");
+                    var ddlEl2 = document.createElement("option");
                     if(curRow[0].startsWith("Community")) {
                         ddlEl.textContent = "Communities";
+                        ddlEl2.textContent = "Communities";
                     }
                     else {
                         ddlEl.textContent = curRow[0];
+                        ddlEl2.textContent = curRow[0];
                         ddlEl.value = curRow[0];
+                        ddlEl2.value = curRow[0];
                     }
-                    communitiesDropdownNotifyMe.appendChild(ddlEl);
                     communitiesDropdownSelector.appendChild(ddlEl);
+                    communitiesDropdownNotifyMe.appendChild(ddlEl2);
 
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
