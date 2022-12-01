@@ -92,7 +92,7 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" autocomplete="off" onblur="checkEmail(this.value)" required>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" autocomplete="off" onblur="checkEmail(this)" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 pr-2">
@@ -809,7 +809,7 @@
     // email field validation
     function checkEmail(str) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if(!re.test(str)){
+        if(!re.test(str.value)){
             this.classList.add('field-error');
         }
     }
