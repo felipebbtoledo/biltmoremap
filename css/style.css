@@ -279,8 +279,12 @@ form label {
 .form-field-error::after {
     content: attr(error-message);
     color: red;
+    font-size: .75rem;
     left:0;
+    line-height: 1;
+    padding-top: .25rem;
     position:absolute;
+    right: 0;
     top:100%;
 }
 .form-group.has-icon {
