@@ -289,7 +289,7 @@ form label {
     line-height:1;
     padding-top:.25rem;
     position:absolute;
-    right:0;
+    right:-10px;
     top:100%;
     z-index:1;
 }
