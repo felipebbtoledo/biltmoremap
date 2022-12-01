@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-lg-6 col-xl-5">
                             <div class="form-group m-0">
-                                <select name="CommunitiesList" class="selectpicker" data-live-search="true" data-width="100%">
+                                <select name="CommunitiesList" id="CommunitiesList" class="selectpicker" data-live-search="true" data-width="100%">
 <!--                                    <option>Communities</option>-->
                                 </select>
                             </div>
@@ -908,7 +908,7 @@
             }, 500);
         }
 
-        document.querySelector('select[name="CommunitiesList"]').onchange = function(event) {
+        document.querySelector('#CommunitiesList').onchange = function(event) {
             if(event.target.value !== 'Communities'){
                 setTimeout(function() {
                     mapCommunitySelected();
