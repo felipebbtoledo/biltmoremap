@@ -276,16 +276,22 @@ form label {
 .form-group {
     position: relative;
 }
+.form-field-error > label {
+    color:red;
+}
 .form-field-error::after {
-    content: attr(error-message);
-    color: red;
-    font-size: .75rem;
+    background: var(--light-color);
+    content:attr(error-message);
+    color:red;
+    display:block;
+    font-size:.75rem;
     left:0;
-    line-height: 1;
-    padding-top: .25rem;
+    line-height:1;
+    padding-top:.25rem;
     position:absolute;
-    right: 0;
+    right:0;
     top:100%;
+    z-index:1;
 }
 .form-group.has-icon {
     position: relative;
