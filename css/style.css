@@ -267,7 +267,7 @@ form label {
 .form-control {
     border-radius: 0;
 }
-.form-control[type="text"], .form-control[type="email"], .form-control[type="password"] {
+.form-control[type="text"], .form-control[type="email"], .form-control[type="password"], select.form-control {
     border-color: var(--gray-color);
     color: var(--dark-color);
     font-family: var(--primary-font);
