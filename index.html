@@ -812,6 +812,10 @@
         if(!re.test(str.value)){
             str.parentNode.classList.add('form-field-error');
         }
+        else {
+            if(str.parentNode.classList.contains('form-field-error'))
+            str.parentNode.classList.remove('form-field-error');
+        }
     }
 
     var asidePanel = document.querySelector('.aside-panel');
