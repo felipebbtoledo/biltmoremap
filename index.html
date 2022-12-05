@@ -885,7 +885,7 @@
             svgLinks[i].addEventListener("click", function() {
                 asidePanel.classList.remove('collapsed');
                 setTimeout(function() {
-                    mapCommunitySelected();
+                    // mapCommunitySelected();
                     document.querySelector('.aside-panel .page-section').style.opacity = '1';
                 }, 500);
             });
@@ -967,7 +967,6 @@
             getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv",
             function thenAfter(contents, didError){
                 for (var row=0; row < contents.length; row=row+1|0) { //loop through rows
-                    console.log('looping');
                     var curRow = contents[row];
 
                     // populate the Communities dropdown list
