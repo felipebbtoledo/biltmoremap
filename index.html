@@ -908,20 +908,21 @@
             }, 500);
         }
 
-        // document.querySelector('#CommunitiesList').onchange = function(event) {
-        //     if(event.target.value !== 'Communities'){
-        //         setTimeout(function() {
-        //             mapCommunitySelected();
-        //         }, 250);
-        //     }
-        // }
-
         // window.addEventListener('hashchange', function() {
         //     setTimeout(function() { slideshow(); }, 500);
         // }, false);
 
 
         function mapCommunitySelected() {
+
+            // watch CommunitiesList change to reload it
+            document.querySelector('#CommunitiesList').onchange = function(event) {
+                if(event.target.value !== 'Communities'){
+                    setTimeout(function() {
+                        mapCommunitySelected();
+                    }, 250);
+                }
+            }
 
             console.log('mapCommunitySelected call');
 
