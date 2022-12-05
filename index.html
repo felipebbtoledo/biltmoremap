@@ -899,13 +899,13 @@
         }
 
         // watch CommunitiesList change to reload it
-        document.querySelector('#CommunitiesList').onclick = function(event) {
-            if(event.target.value !== 'Communities'){
-                setTimeout(function() {
-                    mapCommunitySelected();
-                }, 250);
-            }
-        }
+        // document.querySelector('#CommunitiesList').onchange = function(event) {
+        //     if(event.target.value !== 'Communities'){
+        //         setTimeout(function() {
+        //             mapCommunitySelected();
+        //         }, 250);
+        //     }
+        // }
 
         // if hash is not empty, display aside panel
         if(hashValue){
@@ -916,9 +916,10 @@
             }, 500);
         }
 
-        // window.addEventListener('hashchange', function() {
-        //     setTimeout(function() { slideshow(); }, 500);
-        // }, false);
+        window.addEventListener('hashchange', function() {
+            // setTimeout(function() { slideshow(); }, 500);
+            setTimeout(function() { mapCommunitySelected(); }, 250);
+        }, false);
 
 
         function mapCommunitySelected() {
