@@ -963,7 +963,7 @@
 
             // items to reset
             $('.selectpicker:not(#propertyFor)').empty();
-            //document.querySelectorAll('.popup img').forEach(item => item.remove());
+            document.querySelectorAll('.popup img').forEach(item => item.remove());
             <!-- Google Sheets -->
             "use strict";
 
@@ -1109,12 +1109,12 @@
                                     // single photo to be displayed
                                     else {
                                         const activePopup = document.querySelectorAll('.popup[style] img');
-                                        if(activePopup.length < 2){
+                                        //if(activePopup.length < 2){
                                             let newPhoto = document.createElement('img');
                                             newPhoto.src = communityPhotosList;
                                             newPhoto.setAttribute('alt',curRow[col]);
                                             communityPopup.insertBefore(newPhoto,communityPopupCaption);
-                                        }
+                                        //}
                                     }
                                 }
                             }
