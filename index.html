@@ -996,10 +996,12 @@
                     for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
                         if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
                             if(curRow[col] == communityIdFormatted) {
-                                communityNameSelector.textContent = curRow[col]; // GS Community Name
+                                // communityNameSelector.textContent = curRow[col]; // GS Community Name
+                                communityNameSelector.innerText = curRow[col]; // GS Community Name
                                 //GS Community Summary
                                 if(curRow[col + 1]) {
-                                    communitySummarySelector.textContent = curRow[col + 1];
+                                    // communitySummarySelector.textContent = curRow[col + 1];
+                                    communitySummarySelector.innerText = curRow[col + 1];
                                     communitySummaryTitleSelector.style.display = 'block';
                                     communitySummarySelector.style.display = 'block';
                                 }
@@ -1019,7 +1021,8 @@
                                 }
                                 //GS Community Additional Info
                                 if(curRow[col + 3]) {
-                                    communityAdditionalInfoSelector.textContent = curRow[col + 3];
+                                    // communityAdditionalInfoSelector.textContent = curRow[col + 3];
+                                    communityAdditionalInfoSelector.innerText = curRow[col + 3];
                                     communityAdditionalInfoTitleSelector.style.display = 'block';
                                     communityAdditionalInfoSelector.style.display = 'block';
                                 }
@@ -1030,7 +1033,8 @@
                                 //GS Community Address
                                 if(curRow[col + 4]) {
                                     communityPopupCaption.style.display = 'block';
-                                    communityPopupCaptionTitle.textContent = curRow[col + 4];
+                                    // communityPopupCaptionTitle.textContent = curRow[col + 4];
+                                    communityPopupCaptionTitle.innerText = curRow[col + 4];
                                 }
                                 //GS Community Photos
                                 if(curRow[col + 5]) {
