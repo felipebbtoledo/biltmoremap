@@ -1107,13 +1107,10 @@
                                     }
                                     // single photo to be displayed
                                     else {
-                                        const activePopup = document.querySelectorAll('.popup[style] img');
-                                        //if(activePopup.length < 2){
-                                            let newPhoto = document.createElement('img');
-                                            newPhoto.src = communityPhotosList;
-                                            newPhoto.setAttribute('alt',curRow[col]);
-                                            communityPopup.insertBefore(newPhoto,communityPopupCaption);
-                                        //}
+                                        let newPhoto = document.createElement('img');
+                                        newPhoto.src = communityPhotosList;
+                                        newPhoto.setAttribute('alt',curRow[col]);
+                                        communityPopup.insertBefore(newPhoto,communityPopupCaption);
                                     }
                                 }
                             }
