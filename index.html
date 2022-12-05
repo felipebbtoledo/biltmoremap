@@ -1082,7 +1082,7 @@
                                 }
                                 if(communityPhotosList) {
                                     var communityPhotosListElems = communityPhotosList.split(",");
-
+                                    console.log(communityPhotosListElems.length);
                                     // slideshow photos to be displayed
                                     if(communityPhotosListElems.length > 1) {
                                         // append slideshow-container
@@ -1117,7 +1117,7 @@
                     }
                 }
                 $('.selectpicker').selectpicker('refresh').trigger('change');
-                if (didError) alert("failed to HTTP get");
+                if (didError) console.log("failed to HTTP get");
             });
             function getGoogleSheetByEditURL(url, then) {
                 var xhr = new XMLHttpRequest;
