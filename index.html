@@ -100,7 +100,7 @@
                                 <div class="form-group has-icon has-label">
                                     <label for="CommunitiesListNotifyMe">Notify me based on</label>
 <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
-                                    <select name="CommunitiesListNotifyMe" id="CommunitiesListNotifyMe" class="selectpicker" data-live-search="true" data-width="100%">
+                                    <select name="CommunitiesListNotifyMe" id="CommunitiesListNotifyMe">
                                         <!--                                    <option>Communities</option>-->
                                     </select>
 <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
@@ -1105,7 +1105,7 @@
                         }
                     }
                 }
-                $('#CommunitiesList').selectpicker('refresh').trigger('change');
+                $('.selectpicker').selectpicker('refresh').trigger('change');
                 if (didError) alert("failed to HTTP get");
             });
             function getGoogleSheetByEditURL(url, then) {
