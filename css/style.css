@@ -636,6 +636,10 @@ svg > #AltaVistaPark + foreignObject {
     x:590;
     y:180;
 }
+svg > #BiltmoreHotelVillas + foreignObject {
+    x:640px;
+    y:190px;
+}
 @media (max-width:1024.98px){
     .aside-panel {
         display: none;
