@@ -334,6 +334,7 @@ main {
     background-position: right top;
     background-repeat: no-repeat;
     background-size: contain;
+    position:relative;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -492,6 +493,7 @@ main {
     background: var(--accent-hover-color);
 }
 .popup img {
+    display: block;
     height: auto;
     width: 100%;
 }
