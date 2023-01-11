@@ -330,9 +330,10 @@ h5, h6 {
     text-transform: uppercase;
 }
 main {
-    background-image: url("/img/map-january-2023.jpg");
+    background-image: url("../img/map-january-2023.jpg");
+    background-position: right top;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: contain;
     display: flex;
     align-items: flex-start;
     justify-content: center;
