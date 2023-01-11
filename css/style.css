@@ -330,10 +330,10 @@ h5, h6 {
     text-transform: uppercase;
 }
 main {
-    /*background-image: url("../img/map-january-2023.jpg");*/
-    /*background-position: right top;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: contain;*/
+    background-image: url("../img/map-january-2023.jpg");
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: contain;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -649,7 +649,7 @@ svg > #BiltmoreHotelVillas + foreignObject {
         display: none;
     }
     main {
-        height: auto;
+        height: 1005px;
         width: 1300px;
     }
     .popup {
