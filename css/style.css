@@ -654,7 +654,7 @@ svg > #BiltmoreHotelVillas + foreignObject {
     }
     .popup {
         max-width: 90vw;
-        min-height: 320px;
+        /*min-height: 320px;*/
         position: fixed;
         /*width: 100%;*/
         width: 90vw;
