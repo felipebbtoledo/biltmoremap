@@ -659,7 +659,7 @@ svg > #BiltmoreHotelVillas + foreignObject {
         /*min-height: 320px;*/
         position: fixed;
         /*width: 100%;*/
-        /*width: 90vw;*/
+        width: 90vw;
      }
     .popup.arrow:before, .popup.hide-arrow:before,
     .popup .comm-info:empty,
