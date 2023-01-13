@@ -537,16 +537,17 @@ svg > svg:target rect {
     pointer-events: auto;
 }
 /*svg > rect:target + foreignObject, */
-svg > svg:target + foreignObject {
+/*svg > svg:target + foreignObject {*/
+svg > svg:target foreignObject {
     display: block;
     opacity: 1;
     pointer-events: auto;
 }
-/*svg > rect:target + foreignObject .popup {
+svg > svg:target foreignObject .popup {
     opacity: 1;
-}*/
+}
 /*svg > rect:target + foreignObject ~ a, */
-svg > svg:target + foreignObject ~ a {
+svg > svg:target ~ a {
     pointer-events: none;
 }
 /*svg > rect:not(:target) ~ a:hover polygon, */
@@ -556,7 +557,7 @@ svg > svg:not(:target) ~ a:hover polygon {
     stroke-opacity: 1;
 }
 /*svg > rect:target + foreignObject + a polygon, */
-svg > svg:target + foreignObject + a polygon {
+svg > svg:target + a polygon {
     fill-opacity: 0!important;
     stroke-opacity: 1;
 }
