@@ -874,7 +874,8 @@
         for (let i = 0; i < popupButtons.length; i++) {
             popupButtons[i].addEventListener("click", function() {
                 if(window.outerWidth < 1025) {
-                    document.querySelector('svg > rect:target + foreignObject .popup').style.opacity = '0';
+                    // document.querySelector('svg > rect:target + foreignObject .popup').style.opacity = '0';
+                    document.querySelector('svg > svg:target foreignObject .popup').style.opacity = '0';
                     //document.querySelector('svg > rect:target + foreignObject + a').scrollIntoView();
                 }
             });
@@ -984,20 +985,29 @@
             var communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
             var communityAdditionalInfoTitleSelector = document.querySelector('.content-area .page-section .community-additional-info-title');
             var communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
-            var communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
-            var communityPopupPhotos = document.querySelectorAll('svg > rect:target + foreignObject .popup > img');
-            var communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
-            var communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
-            var communityPopupButtonsSelector = document.querySelector('svg > rect:target + foreignObject .popup .caption .buttons');
+            // var communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
+            var communityPopup = document.querySelector('svg > svg:target foreignObject .popup');
+            // var communityPopupPhotos = document.querySelectorAll('svg > rect:target + foreignObject .popup > img');
+            var communityPopupPhotos = document.querySelectorAll('svg > svg:target foreignObject .popup > img');
+            // var communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
+            var communityPopupCaption = document.querySelector('svg > svg:target foreignObject .popup .caption');
+            // var communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
+            var communityPopupCaptionTitle = document.querySelector('svg > svg:target foreignObject .popup .caption .caption-title');
+            // var communityPopupButtonsSelector = document.querySelector('svg > rect:target + foreignObject .popup .caption .buttons');
+            var communityPopupButtonsSelector = document.querySelector('svg > svg:target foreignObject .popup .caption .buttons');
 
-            if(document.querySelector('svg > rect:target + foreignObject')){
-                document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
+            // if(document.querySelector('svg > rect:target + foreignObject')){
+            if(document.querySelector('svg > svg:target foreignObject')){
+                // document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
+                document.querySelector('svg > svg:target foreignObject').scrollIntoView();
             }
 
-            var selectedCommunityId = document.querySelector('svg > rect:target');
+            // var selectedCommunityId = document.querySelector('svg > rect:target');
+            var selectedCommunityId = document.querySelector('svg > svg:target');
             var CommunityId, communityDetailsList, communityPhotosList;
             if(selectedCommunityId !== null) {
-                CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
+                // CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
+                CommunityId = document.querySelector('svg > svg:target').getAttribute('id');
             }
             else {
                CommunityId = hashValue;
