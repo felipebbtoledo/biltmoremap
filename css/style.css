@@ -520,17 +520,20 @@ svg > foreignObject {
     opacity: 0;
     pointer-events: none;
 }
-svg > rect, svg > svg {
+/*svg > rect, */
+svg > svg {
     fill: var(--dark-color);
     opacity: 0;
     transition: opacity 300ms;
     pointer-events: none;
 }
-svg > rect:target, svg > svg:target {
+/*svg > rect:target, */
+svg > svg:target {
     opacity: 0.66;
     pointer-events: auto;
 }
-svg > rect:target + foreignObject, svg > svg:target + foreignObject {
+/*svg > rect:target + foreignObject, */
+svg > svg:target + foreignObject {
     display: block;
     opacity: 1;
     pointer-events: auto;
@@ -538,15 +541,18 @@ svg > rect:target + foreignObject, svg > svg:target + foreignObject {
 /*svg > rect:target + foreignObject .popup {
     opacity: 1;
 }*/
-svg > rect:target + foreignObject ~ a, svg > svg:target + foreignObject ~ a {
+/*svg > rect:target + foreignObject ~ a, */
+svg > svg:target + foreignObject ~ a {
     pointer-events: none;
 }
-svg > rect:not(:target) ~ a:hover polygon, svg > svg:not(:target) ~ a:hover polygon {
+/*svg > rect:not(:target) ~ a:hover polygon, */
+svg > svg:not(:target) ~ a:hover polygon {
     fill:var(--dark-color);
     fill-opacity: .33;
     stroke-opacity: 1;
 }
-svg > rect:target + foreignObject + a polygon, svg > svg:target + foreignObject + a polygon {
+/*svg > rect:target + foreignObject + a polygon, */
+svg > svg:target + foreignObject + a polygon {
     fill-opacity: 0!important;
     stroke-opacity: 1;
 }
