@@ -528,7 +528,7 @@ svg > svg {
     pointer-events: none;
 }
 /*svg > rect:target, */
-svg > svg:target {
+svg > svg:target, svg > svg:target rect {
     opacity: 0.66;
     pointer-events: auto;
 }
