@@ -528,8 +528,12 @@ svg > svg {
     pointer-events: none;
 }
 /*svg > rect:target, */
-svg > svg:target, svg > svg:target rect {
-    opacity: 0.66;
+svg > svg:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+svg > svg:target rect {
+    opacity: 0.85;
     pointer-events: auto;
 }
 /*svg > rect:target + foreignObject, */
