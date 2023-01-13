@@ -520,7 +520,7 @@ svg > foreignObject {
     opacity: 0;
     pointer-events: none;
 }
-/*svg > rect, */
+svg > rect,
 svg > svg {
     fill: var(--dark-color);
     opacity: 0;
