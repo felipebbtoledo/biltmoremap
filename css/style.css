@@ -527,7 +527,7 @@ svg > rect {
     pointer-events: none;
 }
 svg > rect:target {
-    opacity: 1;
+    opacity: .66;
     pointer-events: auto;
 }
 svg > rect:target + foreignObject {
