@@ -534,6 +534,7 @@ svg > rect:target + foreignObject {
     display: block;
     opacity: 1;
     pointer-events: auto;
+    position: relative;
 }
 /*svg > rect:target + foreignObject .popup {
     opacity: 1;
@@ -558,18 +559,18 @@ svg > #TwoBiltmoreEstates + foreignObject {
     x:920;
     y:400;
 }
-svg > #BiltmoreSquare + foreignObject {
-    x:290;
-    y:160;
+svg > #BiltmoreSquare + foreignObject .popup {
+    left:var(--aside-panel-width) + 290px;
+    top:160px;
 }
 svg > #BiltmoreCourts + foreignObject {
     x:460;
     y:190;
 }
 svg > #\32 211 + foreignObject {
-                   x:230;
-                   y:540;
-               }
+   x:230;
+   y:540;
+}
 svg > #EsplanadePlace + foreignObject {
     x:450;
     y:630;
