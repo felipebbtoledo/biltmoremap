@@ -139,6 +139,7 @@
         <!-- /CONTENT AREA -->
     </div>
     <svg width="100%" height="100%" viewBox="0 0 1650 1275">
+        <defs></defs>
 <!--        <mask>-->
 <!--            <rect width="100%" height="100%" fill="white" />-->
 <!--        </mask>-->
@@ -821,7 +822,7 @@
         for (let i = 0; i < svgLinks.length; i++) {
             svgLinks[i].addEventListener("click", function() {
 
-                const mainSvg = document.querySelector('main > svg');
+                const svgDefs = document.querySelector('main > svg defs');
                 const previousRect = svgLinks[i].previousSibling.previousSibling.previousSibling.previousSibling;
                 const linkId = svgLinks[i].getAttribute('href').split("#")[1];
                 const linkPolygon = svgLinks[i].querySelector('polygon').cloneNode(false);
@@ -831,7 +832,7 @@
                 dynamicMask.innerHTML = '<rect width="100%" height="100%" fill="white"></rect>';
                 linkPolygon.setAttribute('fill','black');
                 dynamicMask.appendChild(linkPolygon);
-                mainSvg.appendChild(dynamicMask);
+                svgDefs.appendChild(dynamicMask);
                 previousRect.setAttribute('mask','url(#'+linkId+'Mask)');
 
                 asidePanel.classList.remove('collapsed');
