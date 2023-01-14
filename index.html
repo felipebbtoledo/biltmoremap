@@ -821,17 +821,14 @@
         for (let i = 0; i < svgLinks.length; i++) {
             svgLinks[i].addEventListener("click", function() {
 
-                const mainSvg = document.querySelector('main > svg');
                 const previousRect = svgLinks[i].previousSibling.previousSibling.previousSibling.previousSibling;
                 const linkId = svgLinks[i].getAttribute('href').split("#")[1];
                 const linkPolygon = svgLinks[i].querySelector('polygon').cloneNode(false);
-                const dynamicMask = document.createElement('mask');
+                const dynamicMask = document.querySelector('svg > mask');
 
                 dynamicMask.setAttribute('id',linkId+'Mask');
-                dynamicMask.innerHTML = '<rect width="100%" height="100%" fill="white"></rect>';
                 linkPolygon.setAttribute('fill','black');
                 dynamicMask.appendChild(linkPolygon);
-                mainSvg.appendChild(dynamicMask);
                 previousRect.setAttribute('mask','url(#'+linkId+'Mask)');
 
                 asidePanel.classList.remove('collapsed');
