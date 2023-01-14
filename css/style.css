@@ -559,9 +559,9 @@ svg > #TwoBiltmoreEstates + foreignObject {
     x:920;
     y:400;
 }
-svg > #BiltmoreSquare + foreignObject .popup {
-    left:var(--aside-panel-width);/*290px*/
-    top:160px;
+svg > #BiltmoreSquare + foreignObject {
+    x:290;
+    y:160;
 }
 svg > #BiltmoreCourts + foreignObject {
     x:460;
