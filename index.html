@@ -877,8 +877,6 @@
             const dynamicMask = document.querySelector('main > svg > mask')
             const dynamicMaskPolygon = document.querySelector('main > svg > mask polygon');
 
-            dynamicMask.setAttribute('id',hashId)+'Mask';
-
             if(dynamicMaskPolygon){
                 dynamicMaskPolygon.remove();
             }
@@ -890,6 +888,7 @@
                     //const previousRect = item.previousSibling.previousSibling.previousSibling.previousSibling;
 
                     linkPolygonClone.setAttribute('fill','black');
+                    dynamicMask.setAttribute('id',hashId+'Mask');
                     dynamicMask.appendChild(linkPolygonClone);
                     //previousRect.setAttribute('mask','url(#'+hashId+'Mask)');
                 }
