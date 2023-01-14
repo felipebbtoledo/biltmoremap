@@ -922,7 +922,7 @@
                 const linkPolygon = svgLinks[i].querySelector('polygon').cloneNode(false);
                 const dynamicMask = document.querySelector('svg > mask');
 
-                dynamicMask.setAttribute('id','#'+linkId);
+                dynamicMask.setAttribute('id','#'+linkId+'Mask');
                 dynamicMask.appendChild(linkPolygon);
 
                 asidePanel.classList.remove('collapsed');
