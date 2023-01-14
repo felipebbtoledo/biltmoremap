@@ -878,7 +878,9 @@
             const dynamicMaskPolygon = document.querySelector('main > svg > mask polygon');
 
             dynamicMask.setAttribute('id',hashId);
-            dynamicMaskPolygon.remove();
+            if(dynamicMaskPolygon){
+                dynamicMaskPolygon.remove();
+            }
 
             document.querySelectorAll('main > svg > a').forEach(item => {
                 if(item.getAttribute('href').includes(hashId)){
