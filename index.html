@@ -882,6 +882,9 @@
         openCloseArea.addEventListener("click", function() {
             asidePanel.classList.add('collapsed');
             document.querySelector('.aside-panel .page-section').style.opacity = '0';
+            const maskPolygon = document.querySelector('svg > mask polygon');
+            maskPolygon.remove();
+            console.log('removed polygon');
         });
 
         $(document).on('click', '.popup[style] .buttons .btn-comm-info', function (e) {
@@ -916,7 +919,7 @@
             svgLinks[i].addEventListener("click", function() {
                 console.log('svg link click');
                 const linkId = svgLinks[i].getAttribute('href').split("#")[1];
-                const linkPolygon = svgLinks[i].querySelector('polygon');
+                const linkPolygon = svgLinks[i].querySelector('polygon').cloneNode(false);
                 const dynamicMask = document.querySelector('svg > mask');
 
                 dynamicMask.setAttribute('id','#'+linkId);
@@ -936,6 +939,9 @@
             popupCloseLinks[i].addEventListener("click", function() {
                 asidePanel.classList.add('collapsed');
                 document.querySelector('.aside-panel .page-section').style.opacity = '0';
+                const maskPolygon = document.querySelector('svg > mask polygon');
+                maskPolygon.remove();
+                console.log('removed polygon');
             });
         }
 
@@ -974,6 +980,9 @@
             if (!window.innerDocClick) {
                 asidePanel.classList.add('collapsed');
                 document.querySelector('.aside-panel .page-section').style.opacity = '0';
+                const maskPolygon = document.querySelector('svg > mask polygon');
+                maskPolygon.remove();
+                console.log('removed polygon');
             }
         }
 
