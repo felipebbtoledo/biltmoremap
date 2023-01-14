@@ -871,6 +871,12 @@
         window.addEventListener('hashchange', function() {
             // setTimeout(function() { slideshow(); }, 500);
             setTimeout(function() { mapCommunitySelected(); }, 250);
+
+            const dynamicMask = document.querySelector('main > svg > mask')
+            const dynamicMaskPolygon = document.querySelector('main > svg > mask polygon');
+
+            dynamicMask.setAttribute('id','hashValue');
+            dynamicMaskPolygon.remove();
         }, false);
 
         document.onmouseover = function() { //User's mouse is inside the page.
@@ -885,8 +891,6 @@
             if (!window.innerDocClick) {
                 asidePanel.classList.add('collapsed');
                 document.querySelector('.aside-panel .page-section').style.opacity = '0';
-                const dynamicMaskPolygon = document.querySelector('main > svg > mask polygon');
-                dynamicMaskPolygon.remove();
             }
         }
 
