@@ -140,6 +140,9 @@
     </div>
     <!--    <svg width="100%" height="100%" viewBox="0 0 1650 1275">-->
     <svg viewBox="0 0 1650 1275">
+        <mask>
+            <rect width="100%" height="100%" fill="white" />
+        </mask>
         <image href="img/map-january-2023.jpg" xlink:href="img/map-january-2023.jpg" x="0" y="0" height="100%" width="100%" preserveAspectRatio="none" />
         <!--        <defs>-->
         <!--            <mask id="OptimaMask">-->
@@ -911,7 +914,16 @@
         // refresh aside panel communities dropdown
         for (let i = 0; i < svgLinks.length; i++) {
             svgLinks[i].addEventListener("click", function() {
+                console.log('svg link click');
+                const linkId = svgLinks[i].getAttribute('href').split("#")[1];
+                const linkPolygon = svgLinks[i].querySelector('polygon');
+                const dynamicMask = document.querySelector('svg > mask');
+
+                dynamicMask.setAttribute('id','#'+linkId);
+                dynamicMask.appendChild(linkPolygon);
+
                 asidePanel.classList.remove('collapsed');
+
                 setTimeout(function() {
                     //mapCommunitySelected();
                     document.querySelector('.aside-panel .page-section').style.opacity = '1';
