@@ -882,15 +882,15 @@
             }
 
             document.querySelectorAll('main > svg > a').forEach(item => {
-                if(item.getAttribute('href').includes(hashId)){
+                if(hashId.length && item.getAttribute('href').includes(hashId)){
                     const linkPolygon = item.querySelector('polygon');
                     const linkPolygonClone = linkPolygon.cloneNode(false);
-                    //const previousRect = item.previousSibling.previousSibling.previousSibling.previousSibling;
+                    const previousRect = item.previousSibling.previousSibling.previousSibling.previousSibling;
 
                     linkPolygonClone.setAttribute('fill','black');
                     dynamicMask.setAttribute('id',hashId+'Mask');
                     dynamicMask.appendChild(linkPolygonClone);
-                    //previousRect.setAttribute('mask','url(#'+hashId+'Mask)');
+                    previousRect.setAttribute('mask','url(#'+hashId+'Mask)');
                 }
             });
         }, false);
