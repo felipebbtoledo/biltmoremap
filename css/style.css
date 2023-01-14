@@ -527,7 +527,7 @@ svg > rect {
     pointer-events: none;
 }
 svg > rect:target {
-    opacity: .66;
+    opacity: 0.66;
     pointer-events: auto;
 }
 svg > rect:target + foreignObject {
@@ -535,9 +535,9 @@ svg > rect:target + foreignObject {
     opacity: 1;
     pointer-events: auto;
 }
-svg > rect:target + foreignObject .popup {
+/*svg > rect:target + foreignObject .popup {
     opacity: 1;
-}
+}*/
 svg > rect:target + foreignObject ~ a {
     pointer-events: none;
 }
@@ -567,16 +567,16 @@ svg > #BiltmoreCourts + foreignObject {
     y:190;
 }
 svg > #\32 211 + foreignObject {
-    x:230;
-    y:540;
-}
+                   x:230;
+                   y:540;
+               }
 svg > #EsplanadePlace + foreignObject {
-   x:450;
-   y:630;
+    x:450;
+    y:630;
 }
 svg > #Optima + foreignObject {
-   x:270;
-   y:630;
+    x:270;
+    y:630;
 }
 svg > #VillageOnTheLakes + foreignObject {
     x:470;
@@ -661,7 +661,7 @@ svg > #BiltmoreHotelVillas + foreignObject {
         position: fixed;
         /*width: 100%;*/
         width: 90vw;
-     }
+    }
     .popup.arrow:before, .popup.hide-arrow:before,
     .popup .comm-info:empty,
     .popup .comm-info:not(:empty) ~ div,
@@ -669,9 +669,9 @@ svg > #BiltmoreHotelVillas + foreignObject {
         display: none!important;
     }
     .popup .comm-info {
-         overflow: auto;
-         height: 100vh;
-     }
+        overflow: auto;
+        height: 100vh;
+    }
     .popup .comm-info > .container {
         padding: 15px;
     }
@@ -702,9 +702,9 @@ svg > #BiltmoreHotelVillas + foreignObject {
         y:460;
     }
     svg > #\32 211 + foreignObject {
-        x:320;
-        y:430;
-    }
+                       x:320;
+                       y:430;
+                   }
     svg > #Optima + foreignObject {
         x:370;
         y:520;
