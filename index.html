@@ -821,15 +821,15 @@
         for (let i = 0; i < svgLinks.length; i++) {
             svgLinks[i].addEventListener("click", function() {
 
-                const previousRect = svgLinks[i].previousSibling.previousSibling.previousSibling.previousSibling;
-                const linkId = svgLinks[i].getAttribute('href').split("#")[1];
-                const linkPolygon = svgLinks[i].querySelector('polygon').cloneNode(false);
-                const dynamicMask = document.querySelector('svg > mask');
-
-                dynamicMask.setAttribute('id',linkId+'Mask');
-                linkPolygon.setAttribute('fill','black');
-                dynamicMask.appendChild(linkPolygon);
-                previousRect.setAttribute('mask','url(#'+linkId+'Mask)');
+                // const previousRect = svgLinks[i].previousSibling.previousSibling.previousSibling.previousSibling;
+                // const linkId = svgLinks[i].getAttribute('href').split("#")[1];
+                // const linkPolygon = svgLinks[i].querySelector('polygon').cloneNode(false);
+                // const dynamicMask = document.querySelector('svg > mask');
+                //
+                // dynamicMask.setAttribute('id',linkId+'Mask');
+                // linkPolygon.setAttribute('fill','black');
+                // dynamicMask.appendChild(linkPolygon);
+                // previousRect.setAttribute('mask','url(#'+linkId+'Mask)');
 
                 asidePanel.classList.remove('collapsed');
 
@@ -872,11 +872,25 @@
             // setTimeout(function() { slideshow(); }, 500);
             setTimeout(function() { mapCommunitySelected(); }, 250);
 
+            // function to set dynamic mask on hash change
+            const hashId = window.location.hash.substr(1);
             const dynamicMask = document.querySelector('main > svg > mask')
             const dynamicMaskPolygon = document.querySelector('main > svg > mask polygon');
 
-            dynamicMask.setAttribute('id','hashValue');
+            dynamicMask.setAttribute('id',hashValue);
             dynamicMaskPolygon.remove();
+
+            document.querySelectorAll('main > svg > a').forEach(item => {
+                if(item.getAttribute('href').includes(hashId)){
+                    const linkPolygon = item.querySelector('polygon');
+                    const linkPolygonClone = linkPolygon.cloneNode(false);
+                    const previousRect = item.previousSibling.previousSibling.previousSibling.previousSibling;
+
+                    linkPolygonClone.setAttribute('fill','black');
+                    dynamicMask.appendChild(linkPolygonClone);
+                    previousRect.setAttribute('mask','url(#'+linkId+'Mask)');
+                }
+            });
         }, false);
 
         document.onmouseover = function() { //User's mouse is inside the page.
