@@ -353,6 +353,18 @@ main {
     top: 20px;
     z-index: 1;
 }
+@media not all and (min-resolution: 0.001dpcm) {  /* Safari only */
+    .popup {
+        left:50%;
+        margin-left:-25vw;
+        margin-top:-25vw;
+        position:fixed;
+        top:50%;
+    }
+    .popup.arrow:before {
+        display: none!important;
+    }
+}
 .popup.arrow:before {
     content:'';
     display:block;
