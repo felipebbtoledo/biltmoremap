@@ -355,11 +355,11 @@ main {
 }
 @media not all and (min-resolution: 0.001dpcm) {  /* Safari only */
     .popup {
-        left:50%;
-        margin-left:-25vw;
-        margin-top:-25vw;
+        /*left:50%;*/
+        /*margin-left:-25vw;*/
+        /*margin-top:-25vw;*/
         position:fixed;
-        top:50%;
+        /*top:50%;*/
     }
     .popup.arrow:before {
         display: none!important;
