@@ -865,6 +865,9 @@
             setTimeout(function() {
                 //mapCommunitySelected();
                 document.querySelector('.aside-panel .page-section').style.opacity = '1';
+                if(document.documentElement.clientWidth < 1025) {
+                    document.querySelector('svg > rect:target + foreignObject .popup').scrollIntoView();
+                }
             }, 500);
         }
 
