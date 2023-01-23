@@ -527,29 +527,33 @@ mask > polygon ~ polygon {
     line-height: 1.5;
     margin-bottom: 1.5rem;
 }
+/* Animations to fade the thankyou_message in and out */
 .thankyou_message.sent {
     visibility: visible!important;
-    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-    However, delay the fade out process for 10 seconds */
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 10s;
-    animation: fadein 0.5s, fadeout 0.5s 10s;
+    -moz-animation: fadeInOut 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: fadeInOut 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: fadeInOut 0s ease-in 5s forwards;
+    /* Opera */
+    animation: fadeInOut 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
 }
 /* Animations to fade the thankyou_message in and out */
-@-webkit-keyframes fadein {
-    from {top: 0; opacity: 0;}
-    to {top: 60px; opacity: 1;}
+@keyframes fadeInOut {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
 }
-@keyframes fadein {
-    from {top: 0; opacity: 0;}
-    to {top: 60px; opacity: 1;}
-}
-@-webkit-keyframes fadeout {
-    from {top: 60px; opacity: 1;}
-    to {top: 0; opacity: 0;}
-}
-@keyframes fadeout {
-    from {top: 60px; opacity: 1;}
-    to {top: 0; opacity: 0;}
+@-webkit-keyframes fadeInOut {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
 }
 /* End animations to fade the thankyou_message in and out */
 .selectpicker + .btn {
