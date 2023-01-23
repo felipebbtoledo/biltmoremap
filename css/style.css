@@ -519,7 +519,7 @@ mask > polygon ~ polygon {
     /*opacity:0;*/
     position:fixed;
     top:60px;
-    visibility: hidden;
+    visibility: hidden!important;
     width: var(--aside-panel-width);
     z-index: 1;
 }
@@ -528,7 +528,7 @@ mask > polygon ~ polygon {
     margin-bottom: 1.5rem;
 }
 .thankyou_message.sent {
-    visibility: visible;
+    visibility: visible!important;
     /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
     However, delay the fade out process for 3 seconds */
     -webkit-animation: fadein 0.5s, fadeout 0.5s 3s;
