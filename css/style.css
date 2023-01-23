@@ -534,14 +534,14 @@ mask > polygon ~ polygon {
     animation: cssAnimation 5s forwards;
 }
 @keyframes cssAnimation {
-    0%   {opacity: 1;visibility: visible!important}
-    90%  {opacity: 1;visibility: visible!important}
-    100% {opacity: 0;visibility: hidden!important;}
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0; pointer-events: none;}
 }
 @-webkit-keyframes cssAnimation {
-    0%   {opacity: 1;visibility: visible!important}
-    90%  {opacity: 1;visibility: visible!important}
-    100% {opacity: 0;visibility: hidden!important;}
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0; pointer-events: none;}
 }
 /* End animations to fade the thankyou_message in and out */
 .selectpicker + .btn {
