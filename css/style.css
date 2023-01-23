@@ -509,6 +509,13 @@ main {
     height: auto;
     width: 100%;
 }
+.thankyou_message {
+    height:100%;
+    left:0;
+    opacity:1;
+    position:absolute;
+    top:200px;
+}
 .selectpicker + .btn {
     border:1px solid var(--gray-color);
 }
