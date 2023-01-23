@@ -530,9 +530,9 @@ mask > polygon ~ polygon {
 .thankyou_message.sent {
     visibility: visible!important;
     /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-    However, delay the fade out process for 3 seconds */
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 3s;
-    animation: fadein 0.5s, fadeout 0.5s 3s;
+    However, delay the fade out process for 10 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 10s;
+    animation: fadein 0.5s, fadeout 0.5s 10s;
 }
 /* Animations to fade the thankyou_message in and out */
 @-webkit-keyframes fadein {
