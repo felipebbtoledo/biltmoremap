@@ -339,6 +339,10 @@ main {
     align-items: flex-start;
     justify-content: flex-start;
 }
+/* Hide more than one polygon */
+mask > polygon ~ polygon {
+    opacity:0!important
+}
 .popup {
     background-color: var(--light-color);
     border: 1px solid var(--light-color);
