@@ -530,30 +530,18 @@ mask > polygon ~ polygon {
 /* Animations to fade the thankyou_message in and out */
 .thankyou_message.sent {
     visibility: visible!important;
-    -moz-animation: fadeInOut 0s ease-in 5s forwards;
-    /* Firefox */
-    -webkit-animation: fadeInOut 0s ease-in 5s forwards;
-    /* Safari and Chrome */
-    -o-animation: fadeInOut 0s ease-in 5s forwards;
-    /* Opera */
-    animation: fadeInOut 0s ease-in 5s forwards;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+    -webkit-animation: cssAnimation 5s forwards;
+    animation: cssAnimation 5s forwards;
 }
-/* Animations to fade the thankyou_message in and out */
-@keyframes fadeInOut {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
 }
-@-webkit-keyframes fadeInOut {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
 }
 /* End animations to fade the thankyou_message in and out */
 .selectpicker + .btn {
