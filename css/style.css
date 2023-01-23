@@ -512,10 +512,42 @@ main {
 .thankyou_message {
     height:100%;
     left:0;
-    opacity:1;
-    position:absolute;
-    top:200px;
+    /*opacity:0;*/
+    position:fixed;
+    top:60px;
+    visibility: hidden;
+    width: var(--aside-panel-width);
+    z-index: 1;
 }
+.thankyou_message h6 {
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+.thankyou_message.sent {
+    visibility: visible;
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 3 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 3s;
+    animation: fadein 0.5s, fadeout 0.5s 3s;
+}
+/* Animations to fade the thankyou_message in and out */
+@-webkit-keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 60px; opacity: 1;}
+}
+@keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 60px; opacity: 1;}
+}
+@-webkit-keyframes fadeout {
+    from {top: 60px; opacity: 1;}
+    to {top: 0; opacity: 0;}
+}
+@keyframes fadeout {
+    from {top: 60px; opacity: 1;}
+    to {top: 0; opacity: 0;}
+}
+/* End animations to fade the thankyou_message in and out */
 .selectpicker + .btn {
     border:1px solid var(--gray-color);
 }
