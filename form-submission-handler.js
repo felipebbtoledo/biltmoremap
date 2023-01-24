@@ -96,10 +96,10 @@
   };
   document.addEventListener("DOMContentLoaded", loaded, false);
 
-  function disableAllButtons(form) {
-    var buttons = form.querySelectorAll("button");
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].disabled = true;
-    }
-  }
+  // function disableAllButtons(form) {
+  //   var buttons = form.querySelectorAll("button");
+  //   for (var i = 0; i < buttons.length; i++) {
+  //     buttons[i].disabled = true;
+  //   }
+  // }
 })();
