@@ -74,7 +74,8 @@
                     <h6 class="community-additional-info-title">Community Additional Info</h6>
                     <p class="community-additional-info"></p>
                     <!-- Follow your favorite properties form -->
-                    <form class="gform" data-email="phil@thetibigroup.com" method="POST"
+<!--                    <form class="gform" data-email="phil@thetibigroup.com" method="POST"-->
+                    <form class="gform" data-email="analisegrafica@gmail.com" method="POST"
                           action="https://script.google.com/macros/s/AKfycbzgOBGKHdAe6jRBvHrNaDwhZdGLWXlVevGmW_59wVveQtFUXC6iUgia64kWFbt8D40R/exec">
                         <h6>Follow your favorite properties</h6>
                         <p>Be notified and kept up to date the moment a property within this Community becomes available or any status changes.</p>
@@ -97,7 +98,7 @@
                                     <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" autocomplete="off" onblur="checkEmail(this)" required>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 pr-2">
+                            <div class="col-sm-12 col-md-6 pr-2 clone-me">
                                 <div class="form-group has-icon has-label">
                                     <label for="notify_me">Notify me based on</label>
                                     <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
@@ -106,7 +107,7 @@
                                     <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 pl-2">
+                            <div class="col-sm-12 col-md-6 pl-2 clone-me">
                                 <div class="form-group">
                                     <label>Property For</label>
                                     <select name="property_for" class="form-control" id="property_for" required>
@@ -122,7 +123,7 @@
                         <div class="row">
                             <div class="container-fluid">
                                 <div class="d-flex justify-content-between align-items-center">
-<!--                                    <a href="javascript:void(0)"><small><i class="fa fa-plus-circle"></i> Add other communities to track</small></a>-->
+                                    <a href="javascript:void(0)" class="other-communities-link"><small><i class="fa fa-plus-circle"></i> Add other communities to track</small></a>
                                     <button type="submit" id="formFollowFavoriteSubmit" class="btn btn-submit pull-right">Submit</button>
                                 </div>
                             </div>
@@ -777,6 +778,19 @@
     var popupButtons = document.querySelectorAll('.popup .buttons .btn');
 
     document.addEventListener("DOMContentLoaded", function(event) {
+
+        // Add other communities to track in the form
+        document.querySelector('.other-communities-link').addEventListener('click', function(){
+            const rowsContainer = document.querySelector('.gform .row-inputs');
+            rowsContainer.querySelectorAll('.clone-me').forEach((item, index) => {
+                // Clone it
+                let cloned = item.cloneNode(true);
+                // Add an increment number to label and input (so it's unique)
+                // cloned.querySelector('.form-control').setAttribute('id', `anything${index}`);
+                // Append
+                rowsContainer.append(cloned);
+            })
+        });
 
         // phone number formatting
         document.getElementById('phone').addEventListener('input', function (e) {
