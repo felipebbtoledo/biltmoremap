@@ -98,27 +98,27 @@
                                     <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" autocomplete="off" onblur="checkEmail(this)" required>
                                 </div>
                             </div>
-                            <div class="clone-me">
-                                <div class="col-sm-12 col-md-6 pr-2">
-                                    <div class="form-group has-icon has-label">
-                                        <label for="notify_me_based_on">Notify me based on</label>
-                                        <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
-                                        <select class="form-control" name="notify_me_based_on" id="notify_me_based_on">
-                                        </select>
-                                        <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
-                                    </div>
+                        </div>
+                        <div class="row row-inputs clone-me">
+                            <div class="col-sm-12 col-md-6 pr-2">
+                                <div class="form-group has-icon has-label">
+                                    <label for="notify_me_based_on">Notify me based on</label>
+                                    <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
+                                    <select class="form-control" name="notify_me_based_on" id="notify_me_based_on">
+                                    </select>
+                                    <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
                                 </div>
-                                <div class="col-sm-12 col-md-6 pl-2">
-                                    <div class="form-group">
-                                        <label>Property For</label>
-                                        <select name="property_for" class="form-control" id="property_for" required>
-                                            <option value="" disabled selected>Select</option>
-                                            <option value="sale">For sale</option>
-                                            <option value="lease">For lease</option>
-                                            <option value="coming soon">Coming soon</option>
-                                            <option value="recently sold">Recently sold</option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 pl-2">
+                                <div class="form-group">
+                                    <label>Property For</label>
+                                    <select name="property_for" class="form-control" id="property_for" required>
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="sale">For sale</option>
+                                        <option value="lease">For lease</option>
+                                        <option value="coming soon">Coming soon</option>
+                                        <option value="recently sold">Recently sold</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -797,6 +797,7 @@
 
                     // Append
                     rowsContainer.append(cloned);
+
                 // }
             });
 
