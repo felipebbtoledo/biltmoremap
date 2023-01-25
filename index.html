@@ -787,8 +787,8 @@
                 let cloned = item.cloneNode(true);
                 // Add an increment number to input (so it's unique)
                 let clonedInput = item.querySelector('.form-control');
-                clonedInput.setAttribute('id', clonedInput.getAttribute('id')+${index});
-                clonedInput.setAttribute('name',clonedInput.getAttribute('name')+${index});
+                clonedInput.setAttribute('id', clonedInput.getAttribute('id')+index);
+                clonedInput.setAttribute('name',clonedInput.getAttribute('name')+index);
                 // Append
                 rowsContainer.append(cloned);
             })
