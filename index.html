@@ -783,15 +783,18 @@
         document.querySelector('.other-communities-link').addEventListener('click', function(){
             const rowsContainer = document.querySelector('.gform .row-inputs');
             rowsContainer.querySelectorAll('.clone-me').forEach((item, index) => {
-                // Clone it
-                let cloned = item.cloneNode(true);
-                // Add an increment number to input (so it's unique)
-                let clonedInput = item.querySelector('.form-control');
-                clonedInput.setAttribute('id', clonedInput.getAttribute('id')+index);
-                clonedInput.setAttribute('name',clonedInput.getAttribute('name')+index);
-                // Append
-                rowsContainer.append(cloned);
-            })
+                if (index < 3) {
+                    // Clone it
+                    let cloned = item.cloneNode(true);
+                    // Add an increment number to input (so it's unique)
+                    let clonedInput = item.querySelector('.form-control');
+                    clonedInput.setAttribute('id', clonedInput.getAttribute('id') + index);
+                    clonedInput.setAttribute('name', clonedInput.getAttribute('name') + index);
+                    // Append
+                    rowsContainer.append(cloned);
+                }
+            });
+
         });
 
         // phone number formatting
