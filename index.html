@@ -793,15 +793,12 @@
                     // console.log('id:'+elm.getAttribute('id')+'name:'+elm.getAttribute('name'));
                     // if(Number(elm.getAttribute('id'))) {
                     let idAttribute = elm.getAttribute('id');
-                    let newIdAttributeWord = idAttribute.substring(0, idAttribute.length - 1);
-                    let newIdNumber = idAttribute.split('on',2);
-                        elm.setAttribute('id',  newIdAttributeWord + parseInt(newIdNumber) + 1);
-
                     let nameAttribute = elm.getAttribute('name');
-                    let newNameAttributeWord = nameAttribute.substring(0, nameAttribute.length - 1);
-                    let newNameNumber = nameAttribute.split('on',2);
-                    elm.setAttribute('name',  newNameAttributeWord + parseInt(newNameNumber) + 1);
-                        // elm.setAttribute('name', parseInt(elm.getAttribute('name')) + 1);
+                    let newIdAttributeWord = idAttribute.substring(0, idAttribute.length - 1);
+                    let newAttributeName = nameAttribute.substring(0, nameAttribute.length - 1);
+                    let newIdNumber = idAttribute.substr(newAttributeName.length - 1);
+                        elm.setAttribute('id',  newIdAttributeWord + Number(newIdNumber + 1));
+                        elm.setAttribute('name', parseInt(elm.getAttribute('name')) + 1);
                     // }
                     // else {
                     //     elm.setAttribute('id', elm.getAttribute('id') + index);
