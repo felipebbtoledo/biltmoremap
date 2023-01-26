@@ -99,20 +99,89 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-inputs clone-me">
+                        <div class="row row-inputs">
                             <div class="col-sm-12 col-md-6 pr-2">
                                 <div class="form-group has-icon has-label">
-                                    <label for="notify_me_based_on">Notify me based on</label>
+                                    <label for="notify_me_based_on1">Notify me based on</label>
                                     <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
-                                    <select class="form-control" name="notify_me_based_on" id="notify_me_based_on">
+                                    <select class="form-control" name="notify_me_based_on1" id="notify_me_based_on1">
                                     </select>
                                     <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 pl-2">
                                 <div class="form-group">
-                                    <label>Property For</label>
-                                    <select name="property_for" class="form-control" id="property_for" required>
+                                    <label for="property_for1">Property For</label>
+                                    <select name="property_for1" class="form-control" id="property_for1" required>
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="sale">For sale</option>
+                                        <option value="lease">For lease</option>
+                                        <option value="coming soon">Coming soon</option>
+                                        <option value="recently sold">Recently sold</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-inputs d-none">
+                            <div class="col-sm-12 col-md-6 pr-2">
+                                <div class="form-group has-icon has-label">
+                                    <label for="notify_me_based_on2">Notify me based on</label>
+                                    <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
+                                    <select class="form-control" name="notify_me_based_on2" id="notify_me_based_on2">
+                                    </select>
+                                    <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 pl-2">
+                                <div class="form-group">
+                                    <label for="property_for2">Property For</label>
+                                    <select name="property_for2" class="form-control" id="property_for2">
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="sale">For sale</option>
+                                        <option value="lease">For lease</option>
+                                        <option value="coming soon">Coming soon</option>
+                                        <option value="recently sold">Recently sold</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-inputs d-none">
+                            <div class="col-sm-12 col-md-6 pr-2">
+                                <div class="form-group has-icon has-label">
+                                    <label for="notify_me_based_on3">Notify me based on</label>
+                                    <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
+                                    <select class="form-control" name="notify_me_based_on3" id="notify_me_based_on3">
+                                    </select>
+                                    <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 pl-2">
+                                <div class="form-group">
+                                    <label for="property_for3">Property For</label>
+                                    <select name="property_for3" class="form-control" id="property_for3">
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="sale">For sale</option>
+                                        <option value="lease">For lease</option>
+                                        <option value="coming soon">Coming soon</option>
+                                        <option value="recently sold">Recently sold</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-inputs d-none">
+                            <div class="col-sm-12 col-md-6 pr-2">
+                                <div class="form-group has-icon has-label">
+                                    <label for="notify_me_based_on4">Notify me based on</label>
+                                    <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
+                                    <select class="form-control" name="notify_me_based_on4" id="notify_me_based_on4">
+                                    </select>
+                                    <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 pl-2">
+                                <div class="form-group">
+                                    <label for="property_for4">Property For</label>
+                                    <select name="property_for4" class="form-control" id="property_for4">
                                         <option value="" disabled selected>Select</option>
                                         <option value="sale">For sale</option>
                                         <option value="lease">For lease</option>
@@ -783,25 +852,26 @@
 
         // Add other communities to track in the form
         document.querySelector('.other-communities-link').addEventListener('click', function(){
-            const gForm = document.querySelector('.gform');
-            gForm.querySelectorAll('.clone-me').forEach((item) => {
+            console.log(document.querySelector('.gfrom .row-inputs.d-none:first-of-type'));
+            // const gForm = document.querySelector('.gform');
+            // gForm.querySelectorAll('.clone-me').forEach((item) => {
                 // Clone it
-                let cloned = item.cloneNode(true);
+                // let cloned = item.cloneNode(true);
                 // Add an increment number to input (so it's unique)
-                item.querySelectorAll('.form-control').forEach((elm, index) => {
+                // item.querySelectorAll('.form-control').forEach((elm, index) => {
                     // console.log('id:'+elm.getAttribute('id')+'name:'+elm.getAttribute('name'));
                     // if(Number(elm.getAttribute('id'))) {
                     //     elm.setAttribute('id', Number(elm.getAttribute('id')) + 1);
                     //     elm.setAttribute('name', Number(elm.getAttribute('name')) + 1);
                     // }
                     // else {
-                        elm.setAttribute('id', elm.getAttribute('id') + index);
-                        elm.setAttribute('name', elm.getAttribute('name') + index);
+                    //     elm.setAttribute('id', elm.getAttribute('id') + index);
+                    //     elm.setAttribute('name', elm.getAttribute('name') + index);
                     // }
-                });
+                // });
                 // Append
-                const lastRow = gForm.querySelector('.row:not(.row-inputs)');
-                lastRow.parentNode.insertBefore(cloned,lastRow);
+                // const lastRow = gForm.querySelector('.row:not(.row-inputs)');
+                // lastRow.parentNode.insertBefore(cloned,lastRow);
 
                 // document.querySelectorAll('.clone-me').forEach((el, index) => {
                 //     if(index >= 1){
@@ -964,7 +1034,7 @@
             var hash = window.location.hash;
             var hashValue = hash.split('#')[1];
             var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
-            var communitiesDropdownNotifyMe = document.querySelector('select[name="notify_me_based_on"]');
+            var communitiesDropdownNotifyMe = document.querySelector('select[name="notify_me_based_on1"]');
             var communityNameSelector = document.querySelector('.content-area .page-section .community-name');
             var communityLinksSelector = document.querySelector('.content-area .page-section .community-links');
             var communitySummaryTitleSelector = document.querySelector('.content-area .page-section .community-summary-title');
@@ -997,7 +1067,7 @@
             }
 
             // items to reset
-            $('.selectpicker:not(#property_for)').empty();
+            $('.selectpicker:not([id*="property_for"])').empty();
             <!-- Google Sheets -->
             "use strict";
 
