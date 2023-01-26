@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-inputs">
+                        <div class="row row-inputs clone-me">
                             <div class="col-sm-12 col-md-6 pr-2">
                                 <div class="form-group has-icon has-label">
                                     <label for="notify_me_based_on1">Notify me based on</label>
@@ -113,75 +113,6 @@
                                 <div class="form-group">
                                     <label for="property_for1">Property For</label>
                                     <select name="property_for1" class="form-control" id="property_for1" required>
-                                        <option value="" disabled selected>Select</option>
-                                        <option value="sale">For sale</option>
-                                        <option value="lease">For lease</option>
-                                        <option value="coming soon">Coming soon</option>
-                                        <option value="recently sold">Recently sold</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-inputs d-none">
-                            <div class="col-sm-12 col-md-6 pr-2">
-                                <div class="form-group has-icon has-label">
-                                    <label for="notify_me_based_on2">Notify me based on</label>
-                                    <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
-                                    <select class="form-control" name="notify_me_based_on2" id="notify_me_based_on2">
-                                    </select>
-                                    <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 pl-2">
-                                <div class="form-group">
-                                    <label for="property_for2">Property For</label>
-                                    <select name="property_for2" class="form-control" id="property_for2">
-                                        <option value="" disabled selected>Select</option>
-                                        <option value="sale">For sale</option>
-                                        <option value="lease">For lease</option>
-                                        <option value="coming soon">Coming soon</option>
-                                        <option value="recently sold">Recently sold</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-inputs d-none">
-                            <div class="col-sm-12 col-md-6 pr-2">
-                                <div class="form-group has-icon has-label">
-                                    <label for="notify_me_based_on3">Notify me based on</label>
-                                    <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
-                                    <select class="form-control" name="notify_me_based_on3" id="notify_me_based_on3">
-                                    </select>
-                                    <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 pl-2">
-                                <div class="form-group">
-                                    <label for="property_for3">Property For</label>
-                                    <select name="property_for3" class="form-control" id="property_for3">
-                                        <option value="" disabled selected>Select</option>
-                                        <option value="sale">For sale</option>
-                                        <option value="lease">For lease</option>
-                                        <option value="coming soon">Coming soon</option>
-                                        <option value="recently sold">Recently sold</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-inputs d-none">
-                            <div class="col-sm-12 col-md-6 pr-2">
-                                <div class="form-group has-icon has-label">
-                                    <label for="notify_me_based_on4">Notify me based on</label>
-                                    <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
-                                    <select class="form-control" name="notify_me_based_on4" id="notify_me_based_on4">
-                                    </select>
-                                    <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 pl-2">
-                                <div class="form-group">
-                                    <label for="property_for4">Property For</label>
-                                    <select name="property_for4" class="form-control" id="property_for4">
                                         <option value="" disabled selected>Select</option>
                                         <option value="sale">For sale</option>
                                         <option value="lease">For lease</option>
@@ -852,34 +783,30 @@
 
         // Add other communities to track in the form
         document.querySelector('.other-communities-link').addEventListener('click', function(){
-            const nextRow = document.querySelector('.gform .row-inputs.d-none');
-            nextRow.classList.remove('d-none');
-            // const gForm = document.querySelector('.gform');
-            // gForm.querySelectorAll('.clone-me').forEach((item) => {
+
+            const gForm = document.querySelector('.gform');
+            gForm.querySelectorAll('.clone-me').forEach((item) => {
                 // Clone it
-                // let cloned = item.cloneNode(true);
+                let cloned = item.cloneNode(true);
                 // Add an increment number to input (so it's unique)
-                // item.querySelectorAll('.form-control').forEach((elm, index) => {
+                item.querySelectorAll('.form-control').forEach((elm) => {
                     // console.log('id:'+elm.getAttribute('id')+'name:'+elm.getAttribute('name'));
                     // if(Number(elm.getAttribute('id'))) {
-                    //     elm.setAttribute('id', Number(elm.getAttribute('id')) + 1);
-                    //     elm.setAttribute('name', Number(elm.getAttribute('name')) + 1);
+                        elm.setAttribute('id', Number(+elm.getAttribute('id')) + 1);
+                        elm.setAttribute('name', Number(+elm.getAttribute('name')) + 1);
                     // }
                     // else {
                     //     elm.setAttribute('id', elm.getAttribute('id') + index);
                     //     elm.setAttribute('name', elm.getAttribute('name') + index);
                     // }
-                // });
+                });
                 // Append
-                // const lastRow = gForm.querySelector('.row:not(.row-inputs)');
-                // lastRow.parentNode.insertBefore(cloned,lastRow);
+                const lastRow = gForm.querySelector('.row:not(.row-inputs)');
+                lastRow.parentNode.insertBefore(cloned,lastRow);
 
-                // document.querySelectorAll('.clone-me').forEach((el, index) => {
-                //     if(index >= 1){
-                //         el.remove();
-                //     }
-                // });
-            // });
+                let cloneMe = document.querySelectorAll('.clone-me');
+                cloneMe[0].classList.remove('clone-me');
+            });
 
         });
 
