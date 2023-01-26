@@ -789,7 +789,7 @@
                 // Clone it
                 let cloned = item.cloneNode(true);
                 // Add an increment number to input (so it's unique)
-                item.querySelectorAll('.form-control').forEach((elm) => {
+                cloned.querySelectorAll('.form-control').forEach((elm) => {
                     // console.log('id:'+elm.getAttribute('id')+'name:'+elm.getAttribute('name'));
                     // if(Number(elm.getAttribute('id'))) {
                     let idAttribute = elm.getAttribute('id');
@@ -806,7 +806,7 @@
                     // }
                 });
 
-                item.classList.remove('clone-me');
+                cloned.classList.remove('clone-me');
 
                 // Append
                 const lastRow = gForm.querySelector('.row:not(.row-inputs)');
