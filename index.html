@@ -792,8 +792,8 @@
                 item.querySelectorAll('.form-control').forEach((elm) => {
                     // console.log('id:'+elm.getAttribute('id')+'name:'+elm.getAttribute('name'));
                     // if(Number(elm.getAttribute('id'))) {
-                        elm.setAttribute('id', Number(+elm.getAttribute('id')) + 1);
-                        elm.setAttribute('name', Number(+elm.getAttribute('name')) + 1);
+                        elm.setAttribute('id', parseFloat(elm.getAttribute('id')) + 1);
+                        elm.setAttribute('name', parseFloat(elm.getAttribute('name')) + 1);
                     // }
                     // else {
                     //     elm.setAttribute('id', elm.getAttribute('id') + index);
