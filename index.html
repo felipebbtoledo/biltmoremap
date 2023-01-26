@@ -794,7 +794,7 @@
                     elm.setAttribute('name', +elm.getAttribute('name') + 1);
                 });
                 // Append
-                const lastRow = document.querySelector('.row:not(.row-inputs)');
+                const lastRow = gForm.querySelector('.row:not(.row-inputs)');
                 lastRow.parentNode.insertBefore(cloned,lastRow);
             });
 
