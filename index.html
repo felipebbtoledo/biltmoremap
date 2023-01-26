@@ -794,8 +794,8 @@
                     // if(Number(elm.getAttribute('id'))) {
                     let idAttribute = elm.getAttribute('id');
                     let newIdAttributeWord = idAttribute.substring(0, idAttribute.length - 1);
-                    let newIdNumber = idAttribute.substr(idAttribute.length - 1); // => "1"
-                        elm.setAttribute('id',  newIdAttributeWord + Number(newIdNumber + 1));
+                    let newIdNumber = idAttribute.split('on',2);
+                        elm.setAttribute('id',  newIdAttributeWord + Number(newIdNumber) + 1);
                         // elm.setAttribute('name', parseInt(elm.getAttribute('name')) + 1);
                     // }
                     // else {
