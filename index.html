@@ -783,8 +783,8 @@
 
         // Add other communities to track in the form
         document.querySelector('.other-communities-link').addEventListener('click', function(){
-            const rowsContainer = document.querySelector('.gform');
-            rowsContainer.querySelectorAll('.clone-me').forEach((item) => {
+            const gForm = document.querySelector('.gform');
+            gForm.querySelectorAll('.clone-me').forEach((item) => {
                 // Clone it
                 let cloned = item.cloneNode(true);
                 // Add an increment number to input (so it's unique)
@@ -794,7 +794,8 @@
                     elm.setAttribute('name', +elm.getAttribute('name') + 1);
                 });
                 // Append
-                rowsContainer.append(cloned);
+                const lastRow = document.querySelector('.row:not(.row-inputs)');
+                lastRow.parentNode.insertBefore(cloned,lastRow);
             });
 
         });
