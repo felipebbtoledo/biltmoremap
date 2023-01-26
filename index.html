@@ -798,7 +798,7 @@
                     // let newAttributeName = nameAttribute.substring(0, nameAttribute.length - 1);
                     // let newIdNumber = idAttribute.substr(newAttributeName.length - 1);
                         elm.setAttribute('id',  idAttribute.replace(/\d+$/, function(n){ return ++n }));
-                        elm.setAttribute('name', nameAttribute).replace(/\d+$/, function(n){ return ++n });
+                        elm.setAttribute('name', nameAttribute.replace(/\d+$/, function(n){ return ++n }));
                     // }
                     // else {
                     //     elm.setAttribute('id', elm.getAttribute('id') + index);
