@@ -784,21 +784,17 @@
         // Add other communities to track in the form
         document.querySelector('.other-communities-link').addEventListener('click', function(){
             const rowsContainer = document.querySelector('.gform');
-            rowsContainer.querySelectorAll('.clone-me').forEach((item, index) => {
-                console.log(index);
-                // if (index < 2) {
+            rowsContainer.querySelectorAll('.clone-me').forEach((item) => {
                 // Clone it
                 let cloned = item.cloneNode(true);
                 // Add an increment number to input (so it's unique)
-                item.querySelectorAll('.form-control').forEach((formcontrol) => {
-                    formcontrol.setAttribute('id', (+formcontrol.getAttribute('id') + 1));
-                    formcontrol.setAttribute('name', (+formcontrol.getAttribute('name') + 1));
+                item.querySelectorAll('.form-control').forEach((elm, index) => {
+                    console.log(elm + index)
+                    elm.setAttribute('id', (+elm.getAttribute('id') + 1));
+                    elm.setAttribute('name', (+elm.getAttribute('name') + 1));
                 });
-
-                    // Append
-                    rowsContainer.append(cloned);
-
-                // }
+                // Append
+                rowsContainer.append(cloned);
             });
 
         });
