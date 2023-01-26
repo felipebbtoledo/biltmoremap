@@ -790,20 +790,11 @@
                 let cloned = item.cloneNode(true);
                 // Add an increment number to input (so it's unique)
                 cloned.querySelectorAll('.form-control').forEach((elm) => {
-                    // console.log('id:'+elm.getAttribute('id')+'name:'+elm.getAttribute('name'));
-                    // if(Number(elm.getAttribute('id'))) {
                     let idAttribute = elm.getAttribute('id');
                     let nameAttribute = elm.getAttribute('name');
-                    // let newIdAttributeWord = idAttribute.substring(0, idAttribute.length - 1);
-                    // let newAttributeName = nameAttribute.substring(0, nameAttribute.length - 1);
-                    // let newIdNumber = idAttribute.substr(newAttributeName.length - 1);
-                        elm.setAttribute('id',  idAttribute.replace(/\d+$/, function(n){ return ++n }));
-                        elm.setAttribute('name', nameAttribute.replace(/\d+$/, function(n){ return ++n }));
-                    // }
-                    // else {
-                    //     elm.setAttribute('id', elm.getAttribute('id') + index);
-                    //     elm.setAttribute('name', elm.getAttribute('name') + index);
-                    // }
+
+                    elm.setAttribute('id',  idAttribute.replace(/\d+$/, function(n){ return ++n }));
+                    elm.setAttribute('name', nameAttribute.replace(/\d+$/, function(n){ return ++n }));
                 });
 
                 // Append
@@ -811,8 +802,6 @@
                 lastRow.parentNode.insertBefore(cloned,lastRow);
 
                 item.classList.remove('clone-me');
-                // let cloneMe = document.querySelectorAll('.clone-me');
-                // cloneMe[0].classList.remove('clone-me');
             });
 
         });
