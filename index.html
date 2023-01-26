@@ -810,8 +810,9 @@
                 const lastRow = gForm.querySelector('.row:not(.row-inputs)');
                 lastRow.parentNode.insertBefore(cloned,lastRow);
 
-                item.classList.remove('clone-me');
-                // let cloneMe = document.querySelectorAll('.clone-me');
+                // item.classList.remove('clone-me');
+                let cloneMe = document.querySelectorAll('.clone-me');
+                console.log(cloneMe);
                 // cloneMe[0].classList.remove('clone-me');
             });
 
