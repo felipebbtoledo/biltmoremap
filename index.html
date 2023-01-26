@@ -805,6 +805,9 @@
                     //     elm.setAttribute('name', elm.getAttribute('name') + index);
                     // }
                 });
+
+                item.classList.remove('clone-me');
+
                 // Append
                 const lastRow = gForm.querySelector('.row:not(.row-inputs)');
                 lastRow.parentNode.insertBefore(cloned,lastRow);
