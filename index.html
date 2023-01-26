@@ -806,14 +806,13 @@
                     // }
                 });
 
-                cloned.classList.remove('clone-me');
-
                 // Append
                 const lastRow = gForm.querySelector('.row:not(.row-inputs)');
                 lastRow.parentNode.insertBefore(cloned,lastRow);
 
-                let cloneMe = document.querySelectorAll('.clone-me');
-                cloneMe[0].classList.remove('clone-me');
+                item.classList.remove('clone-me');
+                // let cloneMe = document.querySelectorAll('.clone-me');
+                // cloneMe[0].classList.remove('clone-me');
             });
 
         });
