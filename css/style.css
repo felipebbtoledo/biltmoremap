@@ -587,44 +587,51 @@ svg > rect:target + foreignObject {
     opacity: 1;
 }*/
 @keyframes flickerAnimation {
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
+    0%   { fill-opacity:1; }
+    50%  { fill-opacity:0; }
+    100% { fill-opacity:1; }
 }
 @-o-keyframes flickerAnimation{
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
+    0%   { fill-opacity:1; }
+    50%  { fill-opacity:0; }
+    100% { fill-opacity:1; }
 }
 @-moz-keyframes flickerAnimation{
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
+    0%   { fill-opacity:1; }
+    50%  { fill-opacity:0; }
+    100% { fill-opacity:1; }
 }
 @-webkit-keyframes flickerAnimation{
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
+    0%   { fill-opacity:1; }
+    50%  { fill-opacity:0; }
+    100% { fill-opacity:1; }
 }
-svg > rect:target + foreignObject + a {
+/*svg > rect:target + foreignObject + a {*/
+/*    -webkit-animation: flickerAnimation 3s infinite;*/
+/*    -moz-animation: flickerAnimation 3s infinite;*/
+/*    -o-animation: flickerAnimation 3s infinite;*/
+/*    animation: flickerAnimation 3s infinite;*/
+/*}*/
+svg > rect:target + foreignObject ~ a {
+    pointer-events: none;
+}
+svg > rect:not(:target) ~ a polygon {
     -webkit-animation: flickerAnimation 3s infinite;
     -moz-animation: flickerAnimation 3s infinite;
     -o-animation: flickerAnimation 3s infinite;
     animation: flickerAnimation 3s infinite;
 }
-svg > rect:target + foreignObject ~ a {
-    pointer-events: none;
-    -webkit-animation: none;
-    -moz-animation: none;
-    -o-animation: none;
-    animation: none;
-}
+svg > rect:not(:target) ~ a polygon,
 svg > rect:not(:target) ~ a:hover polygon {
     fill:var(--dark-color);
     fill-opacity: .33;
     stroke-opacity: 1;
 }
 svg > rect:target + foreignObject + a polygon {
+    -webkit-animation: none;
+    -moz-animation: none;
+    -o-animation: none;
+    animation: none;
     fill-opacity: 0!important;
     stroke-opacity: 1;
 }
