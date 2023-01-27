@@ -587,24 +587,24 @@ svg > rect:target + foreignObject {
     opacity: 1;
 }*/
 @keyframes flickerAnimation {
-    0%   { fill-opacity:1; }
+    0%   { fill-opacity:.33; }
     50%  { fill-opacity:0; }
-    100% { fill-opacity:1; }
+    100% { fill-opacity:.33; }
 }
 @-o-keyframes flickerAnimation{
-    0%   { fill-opacity:1; }
+    0%   { fill-opacity:.33; }
     50%  { fill-opacity:0; }
-    100% { fill-opacity:1; }
+    100% { fill-opacity:.33; }
 }
 @-moz-keyframes flickerAnimation{
-    0%   { fill-opacity:1; }
+    0%   { fill-opacity:.33; }
     50%  { fill-opacity:0; }
-    100% { fill-opacity:1; }
+    100% { fill-opacity:.33; }
 }
 @-webkit-keyframes flickerAnimation{
-    0%   { fill-opacity:1; }
+    0%   { fill-opacity:.33; }
     50%  { fill-opacity:0; }
-    100% { fill-opacity:1; }
+    100% { fill-opacity:.33; }
 }
 /*svg > rect:target + foreignObject + a {*/
 /*    -webkit-animation: flickerAnimation 3s infinite;*/
