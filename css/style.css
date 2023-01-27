@@ -586,53 +586,15 @@ svg > rect:target + foreignObject {
 /*svg > rect:target + foreignObject .popup {
     opacity: 1;
 }*/
-@keyframes flickerAnimation {
-    0%   { fill-opacity:.33; }
-    50%  { fill-opacity:0; }
-    100% { fill-opacity:.33; }
-}
-@-o-keyframes flickerAnimation{
-    0%   { fill-opacity:.33; }
-    50%  { fill-opacity:0; }
-    100% { fill-opacity:.33; }
-}
-@-moz-keyframes flickerAnimation{
-    0%   { fill-opacity:.33; }
-    50%  { fill-opacity:0; }
-    100% { fill-opacity:.33; }
-}
-@-webkit-keyframes flickerAnimation{
-    0%   { fill-opacity:.33; }
-    50%  { fill-opacity:0; }
-    100% { fill-opacity:.33; }
-}
-/*svg > rect:target + foreignObject + a {*/
-/*    -webkit-animation: flickerAnimation 3s infinite;*/
-/*    -moz-animation: flickerAnimation 3s infinite;*/
-/*    -o-animation: flickerAnimation 3s infinite;*/
-/*    animation: flickerAnimation 3s infinite;*/
-/*}*/
 svg > rect:target + foreignObject ~ a {
     pointer-events: none;
 }
-svg > rect:not(:target) ~ a polygon {
-    -webkit-animation: flickerAnimation 3s infinite;
-    -moz-animation: flickerAnimation 3s infinite;
-    -o-animation: flickerAnimation 3s infinite;
-    animation: flickerAnimation 3s infinite;
-    stroke-opacity: 0;
-}
-svg > rect:not(:target) ~ a polygon,
 svg > rect:not(:target) ~ a:hover polygon {
     fill:var(--dark-color);
     fill-opacity: .33;
     stroke-opacity: 1;
 }
-.aside-panel:not(.collapsed) + svg > rect:target + foreignObject + a polygon {
-    -webkit-animation: none;
-    -moz-animation: none;
-    -o-animation: none;
-    animation: none;
+svg > rect:target + foreignObject + a polygon {
     fill-opacity: 0!important;
     stroke-opacity: 1;
 }
