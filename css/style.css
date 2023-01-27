@@ -620,6 +620,7 @@ svg > rect:not(:target) ~ a polygon {
     -moz-animation: flickerAnimation 3s infinite;
     -o-animation: flickerAnimation 3s infinite;
     animation: flickerAnimation 3s infinite;
+    stroke-opacity: 0;
 }
 svg > rect:not(:target) ~ a polygon,
 svg > rect:not(:target) ~ a:hover polygon {
@@ -627,7 +628,7 @@ svg > rect:not(:target) ~ a:hover polygon {
     fill-opacity: .33;
     stroke-opacity: 1;
 }
-svg > rect:target + foreignObject + a polygon {
+.aside-panel:not(.collapsed) + svg > rect:target + foreignObject + a polygon {
     -webkit-animation: none;
     -moz-animation: none;
     -o-animation: none;
