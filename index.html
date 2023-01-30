@@ -18,6 +18,11 @@
 </head>
 <body>
 <main>
+    <div id="searchCommunitiesFilter">
+        <select name="searchCommunitiesFilter" class="selectpicker" data-live-search="true" data-width="100%">
+            <!--                                    <option>Communities</option>-->
+        </select>
+    </div>
     <div id="google-sheets"></div>
     <div class="aside-panel collapsed">
 
@@ -781,8 +786,12 @@
     document.addEventListener("DOMContentLoaded", function(event) {
 
         // Search community filter
-        document.querySelectorAll('main > svg > rect').forEach((comm, index) => {
-            console.log(index);
+        const searchCommunitiesFilter = document.getElementById("searchCommunitiesFilter");
+        document.querySelectorAll('main > svg > rect').forEach((comm) => {
+            let newChild = document.createElement('option');
+            newChild.value = comm;
+            newChild.textContent = comm;
+            searchCommunitiesFilter.appendChild(newChild);
         });
 
         // Add other communities to track in the form

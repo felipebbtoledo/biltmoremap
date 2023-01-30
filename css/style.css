@@ -548,33 +548,16 @@ mask > polygon ~ polygon {
     border:1px solid var(--gray-color);
 }
 #searchCommunitiesFilter {
-    background-color: rgba(255, 255, 255, .95);
-    border-radius: 0.1875rem;
-    box-shadow: 0 0.1875rem 0.9375rem rgb(0 0 0 / 15%);
-    padding: 1rem;
+    background-color:rgba(255, 255, 255, .95);
+    border-radius:0.1875rem;
+    box-shadow:0 0.1875rem 0.9375rem rgba(0, 0, 0, .15);
+    /*display:none;*/
+    padding:1rem;
+    position:fixed;
+    top:1rem;
+    left:1rem;
+    right:1rem;
 }
-/* Communities fading animation */
-@keyframes fadingAnimation {
-    0%   { fill-opacity:.33; }
-    50%  { fill-opacity:0; }
-    100% { fill-opacity:.33; }
-}
-@-o-keyframes fadingAnimation{
-    0%   { fill-opacity:.33; }
-    50%  { fill-opacity:0; }
-    100% { fill-opacity:.33; }
-}
-@-moz-keyframes fadingAnimation{
-    0%   { fill-opacity:.33; }
-    50%  { fill-opacity:0; }
-    100% { fill-opacity:.33; }
-}
-@-webkit-keyframes fadingAnimation{
-    0%   { fill-opacity:.33; }
-    50%  { fill-opacity:0; }
-    100% { fill-opacity:.33; }
-}
-/* End Communities fading animation */
 svg {
     height:100%;
     width:auto;
@@ -618,19 +601,11 @@ svg > rect:target + foreignObject ~ a {
     pointer-events: none;
 }
 svg > rect ~ a polygon {
-    -webkit-animation: fadingAnimation 3s infinite;
-    -moz-animation: fadingAnimation 3s infinite;
-    -o-animation: fadingAnimation 3s infinite;
-    animation: fadingAnimation 3s infinite;
     fill:var(--dark-color);
 }
 svg > rect:not(:target) ~ a:hover polygon {
-    -webkit-animation: none;
-    -moz-animation: none;
-    -o-animation: none;
-    animation: none;
     fill:var(--light-color);
-    fill-opacity: .33;
+    fill-opacity: .35;
     stroke-opacity: 1;
 }
 svg > rect:target + foreignObject + a polygon {
