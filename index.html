@@ -805,6 +805,7 @@
                 searchCommunitiesFilter.appendChild(newChild);
             });
         }
+        setTimeout(function() { mobileSearchCommFilter(); }, 250);
 
         // Add other communities to track in the form
         document.querySelector('.other-communities-link').addEventListener('click', function(){
@@ -937,8 +938,7 @@
 
         window.addEventListener('hashchange', function() {
             // setTimeout(function() { slideshow(); }, 500);
-            setTimeout(function() { mapCommunitySelected(); }, 250);
-
+            setTimeout(function() { mapCommunitySelected();mobileSearchCommFilter(); }, 250);
             // function to set dynamic mask on hash change
             const hashId = window.location.hash.substr(1);
             const dynamicMask = document.querySelector('main > svg > mask')
