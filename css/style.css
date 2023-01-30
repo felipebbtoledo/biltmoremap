@@ -517,7 +517,6 @@ mask > polygon ~ polygon {
 .thankyou_message {
     height:100%;
     left:0;
-    /*opacity:0;*/
     position:fixed;
     top:60px;
     visibility: hidden!important;
