@@ -903,9 +903,9 @@
             setTimeout(function() {
                 //mapCommunitySelected();
                 document.querySelector('.aside-panel .page-section').style.opacity = '1';
-                if(document.documentElement.clientWidth < 1025) {
-                    document.querySelector('svg > rect:target + foreignObject .popup').scrollIntoView();
-                }
+                // if(document.documentElement.clientWidth < 1025) {
+                //     document.querySelector('svg > rect:target + foreignObject .popup').scrollIntoView();
+                // }
             }, 500);
         }
 
@@ -972,9 +972,9 @@
             var communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
             var communityPopupButtonsSelector = document.querySelector('svg > rect:target + foreignObject .popup .caption .buttons');
 
-            if(document.querySelector('svg > rect:target + foreignObject')){
-                document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
-            }
+            // if(document.querySelector('svg > rect:target + foreignObject')){
+            //     document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
+            // }
 
             var selectedCommunityId = document.querySelector('svg > rect:target');
             var CommunityId, communityDetailsList, communityPhotosList;
