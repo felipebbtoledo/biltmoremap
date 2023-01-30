@@ -421,34 +421,18 @@ mask > polygon ~ polygon {
     border-color:transparent!important;
     color:var(--light-color);
 }
-/*.popup .caption .buttons li:nth-of-type(1) .btn:hover {*/
-/*    background: var(--accent-hover-color);*/
-/*    color:var(--light-color);*/
-/*}*/
-/*.popup .caption .buttons li:nth-of-type(2) .btn {*/
-/*    color: var(--green-color);*/
-/*}*/
 .popup .caption .buttons li:nth-of-type(2) .btn {
     background: var(--green-color);
     color:var(--light-color);
 }
-/*.popup .caption .buttons li:nth-of-type(3) .btn {*/
-/*    color: var(--blue-color);*/
-/*}*/
 .popup .caption .buttons li:nth-of-type(3) .btn {
     background: var(--blue-color);
     color: var(--light-color);
 }
-/*.popup .caption .buttons li:nth-of-type(4) .btn {*/
-/*    color: var(--orange-color);*/
-/*}*/
 .popup .caption .buttons li:nth-of-type(4) .btn {
     background: var(--orange-color);
     color:var(--light-color);
 }
-/*.popup .caption .buttons li:nth-of-type(5) .btn {*/
-/*    color: var(--purple-color);*/
-/*}*/
 .popup .caption .buttons li:nth-of-type(5) .btn {
     background: var(--purple-color);
     color:var(--light-color);
