@@ -789,8 +789,9 @@
         const searchCommunitiesFilter = document.getElementById("searchCommunitiesFilter");
         document.querySelectorAll('main > svg > rect').forEach((comm) => {
             let newChild = document.createElement('option');
-            newChild.value = comm.innerText;
-            newChild.textContent = comm.innerText;
+            let commId = comm.getAttribute('id');
+            newChild.value = commId;
+            newChild.textContent = commId;
             searchCommunitiesFilter.appendChild(newChild);
         });
 
