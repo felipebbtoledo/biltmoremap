@@ -800,7 +800,7 @@
                 let newChild = document.createElement('option');
                 let commId = comm.getAttribute('id');
                 newChild.value = commId;
-                newChild.textContent = commId;
+                newChild.textContent = commId.match(/[A-Z][a-z]+|[0-9]+/g).join(" ");
                 // append the options
                 searchCommunitiesFilter.appendChild(newChild);
             });
