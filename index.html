@@ -780,6 +780,11 @@
 
     document.addEventListener("DOMContentLoaded", function(event) {
 
+        // Search community filter
+        document.querySelectorAll('main > svg > rect').forEach((comm, index) => {
+            console.log(index);
+        });
+
         // Add other communities to track in the form
         document.querySelector('.other-communities-link').addEventListener('click', function(){
 
