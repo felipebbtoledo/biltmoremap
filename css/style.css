@@ -557,7 +557,7 @@ mask > polygon ~ polygon {
     position:fixed;
     top:1rem;
     left:1rem;
-    width:91vw;
+    width: calc(100vw - 2rem);
     z-index:2;
 }
 svg {
