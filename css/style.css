@@ -553,7 +553,6 @@ mask > polygon ~ polygon {
     border-radius:0.1875rem;
     box-shadow:0 0.1875rem 0.9375rem rgba(0, 0, 0, .75);
     display:none;
-    padding:1rem;
     position:fixed;
     top:1rem;
     left:1rem;
