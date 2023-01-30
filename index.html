@@ -786,12 +786,13 @@
     document.addEventListener("DOMContentLoaded", function(event) {
 
         // Search community filter
-        const searchCommunitiesFilter = document.getElementById("searchCommunitiesFilter");
+        const searchCommunitiesFilter = document.querySelector('#searchCommunitiesFilter select[name="searchCommunitiesFilter"]');
         document.querySelectorAll('main > svg > rect').forEach((comm) => {
             let newChild = document.createElement('option');
             let commId = comm.getAttribute('id');
             newChild.value = commId;
             newChild.textContent = commId;
+
             searchCommunitiesFilter.appendChild(newChild);
         });
 
