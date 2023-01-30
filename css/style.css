@@ -551,7 +551,7 @@ mask > polygon ~ polygon {
     background-color:rgba(255, 255, 255, .95);
     border-radius:0.1875rem;
     box-shadow:0 0.1875rem 0.9375rem rgba(0, 0, 0, .15);
-    /*display:none;*/
+    display:none;
     padding:1rem;
     position:fixed;
     top:1rem;
@@ -744,7 +744,8 @@ svg > #BiltmoreHotelVillas + foreignObject {
     .popup .caption .caption-title {
         font-size: 1rem;
     }
-    .popup .caption .caption-text, .popup .caption .buttons {
+    .popup .caption .caption-text, .popup .caption .buttons,
+    #searchCommunitiesFilter {
         display: block;
     }
     svg {
@@ -764,9 +765,9 @@ svg > #BiltmoreHotelVillas + foreignObject {
         y:460;
     }
     svg > #\32 211 + foreignObject {
-                       x:320;
-                       y:430;
-                   }
+       x:320;
+       y:430;
+   }
     svg > #Optima + foreignObject {
         x:370;
         y:520;
