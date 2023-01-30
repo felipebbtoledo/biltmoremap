@@ -600,11 +600,8 @@ svg > rect:target + foreignObject {
 svg > rect:target + foreignObject ~ a {
     pointer-events: none;
 }
-svg > rect ~ a polygon {
-    fill:var(--dark-color);
-}
 svg > rect:not(:target) ~ a:hover polygon {
-    fill:var(--light-color);
+    fill:var(--dark-color);
     fill-opacity: .35;
     stroke-opacity: 1;
 }
