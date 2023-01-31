@@ -928,7 +928,7 @@
         // if hash is not empty, display aside panel
         if(hashValue){
             asidePanel.classList.remove('collapsed');
-            document.getElementById('searchCommunitiesFilter').removeAttribute('style');
+            document.getElementById('searchCommunitiesFilter').style.display = 'none';
             setTimeout(function() {
                 //mapCommunitySelected();
                 document.querySelector('.aside-panel .page-section').style.opacity = '1';
@@ -937,9 +937,9 @@
                 // }
             }, 500);
         }
-        // else {
-        //     document.getElementById('searchCommunitiesFilter').style.display = 'none';
-        // }
+        else {
+            document.getElementById('searchCommunitiesFilter').removeAttribute('style');
+        }
 
         window.addEventListener('hashchange', function() {
             // setTimeout(function() { slideshow(); }, 500);
