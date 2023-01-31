@@ -928,7 +928,6 @@
         // if hash is not empty, display aside panel
         if(hashValue){
             asidePanel.classList.remove('collapsed');
-            document.getElementById('searchCommunitiesFilter').style.display = 'none';
             setTimeout(function() {
                 //mapCommunitySelected();
                 document.querySelector('.aside-panel .page-section').style.opacity = '1';
@@ -937,11 +936,14 @@
                 // }
             }, 500);
         }
-        else {
-            document.getElementById('searchCommunitiesFilter').removeAttribute('style');
-        }
 
         window.addEventListener('hashchange', function() {
+            if(hashValue){
+                document.getElementById('searchCommunitiesFilter').style.display = 'none';
+            }
+            else {
+                document.getElementById('searchCommunitiesFilter').removeAttribute('style');
+            }
             // setTimeout(function() { slideshow(); }, 500);
             setTimeout(function() { mapCommunitySelected(); mobileSearchCommFilter(); }, 250);
             // function to set dynamic mask on hash change
