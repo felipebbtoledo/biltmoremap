@@ -938,6 +938,7 @@
         }
 
         window.addEventListener('hashchange', function() {
+            console.log("hashValue:"+hashValue);
             if(hashValue){
                 document.getElementById('searchCommunitiesFilter').style.display = 'none';
             }
