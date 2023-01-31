@@ -978,7 +978,7 @@
 
             // Scroll into view on mobile
             if(document.documentElement.clientWidth < 1025) {
-                document.querySelector('svg > rect:target + foreignObject + a').scrollIntoView();
+                document.querySelector('svg > rect:target + foreignObject .popup').scrollIntoView();
             }
 
             // Reset: remove dynamic mask polygon
