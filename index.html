@@ -876,7 +876,8 @@
         });
 
         // Enable clicking outside the popup to close it
-        $(document).on("click", "svg > a", function(){
+        $(document).on('click', 'rect', function(e){
+            console.log(e.target.className);
             if(document.querySelector('.popup[style]').length){
                 console.log('popup is shown scenario');
             }
