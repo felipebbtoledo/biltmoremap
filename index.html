@@ -941,17 +941,22 @@
             // setTimeout(function() { slideshow(); }, 500);
             setTimeout(function() { mapCommunitySelected(); mobileSearchCommFilter(); }, 250);
 
-            // function to set dynamic mask on hash change
+            // Function to set dynamic mask on hash change
             const hashId = window.location.hash.substr(1);
             const dynamicMask = document.querySelector('main > svg > mask')
             const dynamicMaskPolygon = document.querySelector('main > svg > mask polygon');
 
-            // show or hide the search filter for mobile
+            // Show or hide the search filter for mobile
             if(hashId){
                 document.getElementById('searchCommunitiesFilter').style.display = 'none';
             }
             else {
                 document.getElementById('searchCommunitiesFilter').removeAttribute('style');
+            }
+
+            // Scroll into view on mobile
+            if(document.documentElement.clientWidth < 1025) {
+                document.querySelector('svg > rect:target').scrollIntoView();
             }
 
             // Reset: remove dynamic mask polygon
