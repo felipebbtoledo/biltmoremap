@@ -949,6 +949,17 @@
             // Show or hide the search filter for mobile
             if(hashId){
                 document.getElementById('searchCommunitiesFilter').style.display = 'none';
+
+                // Enable clicking outside the popup to close it
+                document.onclick = function(e){
+                    if(e.target.tagName === 'RECT'){
+                        console.log('clicked outside popup');
+                        asidePanel.classList.add('collapsed');
+                        document.querySelector('.aside-panel .page-section').style.opacity = '0';
+                        const dynamicMaskPolygon = document.querySelector('main > svg > mask polygon');
+                        dynamicMaskPolygon.remove();
+                    }
+                };
             }
             else {
                 document.getElementById('searchCommunitiesFilter').removeAttribute('style');
