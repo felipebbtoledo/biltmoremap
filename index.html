@@ -951,11 +951,14 @@
                 document.getElementById('searchCommunitiesFilter').style.display = 'none';
 
                 // Enable clicking outside the popup to close it
-                console.log('mouseup listener');
                 document.addEventListener('mouseup', function(e) {
                     let popupContainer = document.querySelector('svg > rect:target + foreignObject');
                     if (!popupContainer.contains(e.target)) {
-                        console.log('clicked outside');
+                        console.log('clicked outside!');
+                        asidePanel.classList.add('collapsed');
+                        document.querySelector('.aside-panel .page-section').style.opacity = '0';
+                        const dynamicMaskPolygon = document.querySelector('main > svg > mask polygon');
+                        dynamicMaskPolygon.remove();
                     }
                 });
             }
