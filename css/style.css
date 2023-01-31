@@ -538,6 +538,9 @@ mask > polygon ~ polygon {
     width: calc(100vw - 2rem);
     z-index:2;
 }
+#searchCommunitiesFilter .dropdown-toggle {
+    padding:1rem;
+}
 svg {
     height:100%;
     width:auto;
