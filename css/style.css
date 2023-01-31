@@ -706,7 +706,7 @@ svg > #BiltmoreHotelVillas + foreignObject {
         height: auto;
         /*min-height: 320px;*/
         position: fixed;
-        top:25vh;
+        top:20vh;
         /*width: 100%;*/
         width: 90vw;
     }
