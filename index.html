@@ -876,9 +876,9 @@
         });
 
         // Enable clicking outside the popup to close it
-        $(document).on("click", "rect", function(){
+        $(document).on("click", "svg > a", function(){
             if(document.querySelector('.popup[style]').length){
-                console.log('clicked outside popup scenario');
+                console.log('popup is shown scenario');
             }
         });
 
