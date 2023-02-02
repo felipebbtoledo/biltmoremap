@@ -942,18 +942,20 @@
             setTimeout(function() { mapCommunitySelected(); mobileSearchCommFilter(); }, 250);
 
             function watchClickArea(event) {
-                let popupContainer = document.querySelector('svg > rect:target + foreignObject');
-                if (!popupContainer.contains(event.target)) {
-                    // Hide popup
-                    document.querySelector('svg > rect:target + foreignObject .popup')
-                    // Collapse aside panel
-                    asidePanel.classList.add('collapsed');
-                    document.querySelector('.aside-panel .page-section').style.opacity = '0';
-                    // Remove dynamic mask polygon
-                    const dynamicMaskPolygon = document.querySelector('main > svg > mask polygon');
-                    dynamicMaskPolygon.remove();
-                    // Remove hash values from url
-                    window.location.href = '';
+                if(window.outerWidth < 1025) { // mobile only
+                    let popupContainer = document.querySelector('svg > rect:target + foreignObject');
+                    if (!popupContainer.contains(event.target)) {
+                        // Hide popup
+                        document.querySelector('svg > rect:target + foreignObject .popup')
+                        // Collapse aside panel
+                        asidePanel.classList.add('collapsed');
+                        document.querySelector('.aside-panel .page-section').style.opacity = '0';
+                        // Remove dynamic mask polygon
+                        const dynamicMaskPolygon = document.querySelector('main > svg > mask polygon');
+                        dynamicMaskPolygon.remove();
+                        // Remove hash values from url
+                        window.location.href = '';
+                    }
                 }
             }
 
