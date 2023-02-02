@@ -74,9 +74,15 @@
           if (formElements) {
             formElements.style.display = "none"; // hide form
           }
-          var thankYouMessage = form.querySelector(".thankyou_message");
-          if (thankYouMessage) {
-            thankYouMessage.classList.add("sent");
+          // handle thank you message
+          if(window.outerWidth < 1025) { // mobile only
+            form.innerHTML = "<h6>Thanks for contacting us!</h6><p>We will get back to you soon.</p>";
+          }
+          else {
+            var thankYouMessage = form.querySelector(".thankyou_message");
+            if (thankYouMessage) {
+              thankYouMessage.classList.add("sent");
+            }
           }
         }
     };
