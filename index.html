@@ -811,10 +811,10 @@
 
         // Add other communities to track in the form
         const mobileGform = document.querySelector('.popup[style] .gform .other-communities-link');
-        const gForm = document.querySelector('.gform');
         // if on mobile device
         if (mobileGform) {
             mobileGform.addEventListener('click', function(){
+                const gForm = document.querySelector('.popup[style] .gform');
                 gForm.querySelectorAll('.clone-me').forEach((item) => {
                     // Clone it
                     let cloned = item.cloneNode(true);
@@ -839,7 +839,7 @@
         // if on desktop
         else {
             document.querySelector('.aside-panel .gform .other-communities-link').addEventListener('click', function(){
-
+                const gForm = document.querySelector('.aside-panel .gform');
                 gForm.querySelectorAll('.clone-me').forEach((item) => {
                     // Clone it
                     let cloned = item.cloneNode(true);
