@@ -750,6 +750,10 @@ svg > #BiltmoreHotelVillas + foreignObject {
         max-width:50%;
         padding-right:.5rem;
     }
+    .popup .comm-info h6, .popup .comm-info p, .popup .comm-info div, .popup .comm-info form label,
+    .form-control[type="text"], .form-control[type="email"], .form-control[type="password"], select.form-control {
+        font-size:1.1rem
+    }
     svg {
         position:absolute;
         left:0;
