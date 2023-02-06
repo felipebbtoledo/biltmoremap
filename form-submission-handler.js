@@ -57,11 +57,11 @@
     var data = formData.data;
 
     // If a honeypot field is filled, assume it was done so by a spam bot.
-    // if (formData.honeypot) {
-    //   return false;
-    // }
+    if (formData.honeypot) {
+      return false;
+    }
 
-    // disableAllButtons(form);
+    disableAllButtons(form);
     var url = form.action;
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
@@ -70,24 +70,19 @@
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
           form.reset();
+          // mobile only
+          // if(document.documentElement.clientWidth < 1025) {
+          //     form.querySelector('.row').classList.add('d-none');
+          // }
           var formElements = form.querySelector(".form-elements")
           if (formElements) {
             formElements.style.display = "none"; // hide form
           }
           // handle thank you message
-          if(window.outerWidth < 1025) { // mobile only
-            const popupFeedbackMsg = document.querySelector('.popup[style] .comm-info > .container');
-            console.log('mobile only');
-            if(popupFeedbackMsg){
-              popupFeedbackMsg.innerHTML = "<h5>Thanks for contacting us!</h5><p style='margin-top:1rem'>We will get back to you soon.</p>";
-            }
-          }
-          else {
             var thankYouMessage = form.querySelector(".thankyou_message");
             if (thankYouMessage) {
               thankYouMessage.classList.add("sent");
             }
-          }
         }
     };
     // url encode form data for sending as post data
@@ -106,10 +101,10 @@
   };
   document.addEventListener("DOMContentLoaded", loaded, false);
 
-  // function disableAllButtons(form) {
-  //   var buttons = form.querySelectorAll("button");
-  //   for (var i = 0; i < buttons.length; i++) {
-  //     buttons[i].disabled = true;
-  //   }
-  // }
+  function disableAllButtons(form) {
+    var buttons = form.querySelectorAll("button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+    }
+  }
 })();

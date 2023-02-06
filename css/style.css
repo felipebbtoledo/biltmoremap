@@ -822,6 +822,22 @@ svg > #BiltmoreHotelVillas + foreignObject {
     /*.popup.arrow:before {*/
     /*  display:none;*/
     /*}*/
+    .thankyou_message.sent {
+        opacity: 1!important;
+        top: 0;
+        z-index: 1;
+        height: 100%;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        background: var(--light-color);
+    }
+    .thankyou_message.sent h6 {
+        font-size:1.5rem;
+    }
+    .thankyou_message.sent p {
+        font-size: 1.25rem;
+    }
 }
 @media (min-width: 1025px) and (max-width: 1440px) {
     :root {
