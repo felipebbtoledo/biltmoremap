@@ -76,7 +76,11 @@
           }
           // handle thank you message
           if(window.outerWidth < 1025) { // mobile only
-            document.querySelector('.popup[style] .comm-info > .container').innerHTML = "<h5>Thanks for contacting us!</h5><p style='margin-top:1rem'>We will get back to you soon.</p>";
+            const popupFeedbackMsg = document.querySelector('.popup[style] .comm-info > .container');
+            console.log('mobile only');
+            if(popupFeedbackMsg){
+              popupFeedbackMsg.innerHTML = "<h5>Thanks for contacting us!</h5><p style='margin-top:1rem'>We will get back to you soon.</p>";
+            }
           }
           else {
             var thankYouMessage = form.querySelector(".thankyou_message");
