@@ -590,7 +590,7 @@ svg > rect:not(:target) ~ a:hover polygon {
 }
 svg > rect:target + foreignObject + a polygon {
     fill-opacity: 0!important;
-    stroke-opacity: 1;
+    stroke-opacity: 0!important;
 }
 svg > #BiltmoreFairwayLodge + foreignObject {
     x:120;
