@@ -807,7 +807,7 @@ svg > #BiltmoreHotelVillas + foreignObject {
         /*y:0;*/
     }
     svg > rect:target + foreignObject { /* reset Y pos */
-      y:0;
+      y:0!important;
     }
     /*svg > rect:target + foreignObject .popup {*/
     /*  top: 20px;*/
