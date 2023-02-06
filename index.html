@@ -883,6 +883,7 @@
             dynamicMaskPolygon.remove();
         });
 
+        // on mobile, copy aside panel content and remove its form
         $(document).on('click', '.popup[style] .buttons .btn-comm-info', function (e) {
             let commInfoContent = asidePanel.querySelector('.page-section');
             let slideShowContainer = document.querySelector('.popup[style] .slideshow-container');
@@ -894,6 +895,8 @@
                 slideShowContainer.remove();
             }
             document.querySelector('.popup[style] .comm-info').innerHTML = commInfoContent.innerHTML;
+            // prevent gForm to be duplicated
+            asidePanel.querySelector('.gform').remove();
         });
 
         // toggle aside panel by area clicking
