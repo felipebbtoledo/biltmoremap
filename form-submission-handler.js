@@ -70,6 +70,7 @@
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
           form.reset();
+          console.log('status 200');
           // mobile only
           // if(document.documentElement.clientWidth < 1025) {
           //     form.querySelector('.row').classList.add('d-none');
