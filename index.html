@@ -810,30 +810,58 @@
         mobileSearchCommFilter();
 
         // Add other communities to track in the form
-        document.querySelector('.other-communities-link').addEventListener('click', function(){
+        const mobileGform = document.querySelector('.popup[style] .gform .other-communities-link');
+        const gForm = document.querySelector('.gform');
+        // if on mobile device
+        if (mobileGform) {
+            mobileGform.addEventListener('click', function(){
+                gForm.querySelectorAll('.clone-me').forEach((item) => {
+                    // Clone it
+                    let cloned = item.cloneNode(true);
+                    // Add an increment number to input (so it's unique)
+                    cloned.querySelectorAll('.form-control').forEach((elm) => {
+                        let idAttribute = elm.getAttribute('id');
+                        let nameAttribute = elm.getAttribute('name');
 
-            const gForm = document.querySelector('.gform');
-            gForm.querySelectorAll('.clone-me').forEach((item) => {
-                // Clone it
-                let cloned = item.cloneNode(true);
-                // Add an increment number to input (so it's unique)
-                cloned.querySelectorAll('.form-control').forEach((elm) => {
-                    let idAttribute = elm.getAttribute('id');
-                    let nameAttribute = elm.getAttribute('name');
+                        elm.setAttribute('id',  idAttribute.replace(/\d+$/, function(n){ return ++n }));
+                        elm.setAttribute('name', nameAttribute.replace(/\d+$/, function(n){ return ++n }));
+                        elm.previousElementSibling.setAttribute('for', idAttribute.replace(/\d+$/, function(n){ return ++n }));
+                    });
 
-                    elm.setAttribute('id',  idAttribute.replace(/\d+$/, function(n){ return ++n }));
-                    elm.setAttribute('name', nameAttribute.replace(/\d+$/, function(n){ return ++n }));
-                    elm.previousElementSibling.setAttribute('for', idAttribute.replace(/\d+$/, function(n){ return ++n }));
+                    // Append
+                    const lastRow = gForm.querySelector('.row:not(.row-inputs)');
+                    lastRow.parentNode.insertBefore(cloned,lastRow);
+
+                    item.classList.remove('clone-me');
+                });
+            })
+        }
+        // if on desktop
+        else {
+            document.querySelector('.other-communities-link').addEventListener('click', function(){
+
+                gForm.querySelectorAll('.clone-me').forEach((item) => {
+                    // Clone it
+                    let cloned = item.cloneNode(true);
+                    // Add an increment number to input (so it's unique)
+                    cloned.querySelectorAll('.form-control').forEach((elm) => {
+                        let idAttribute = elm.getAttribute('id');
+                        let nameAttribute = elm.getAttribute('name');
+
+                        elm.setAttribute('id',  idAttribute.replace(/\d+$/, function(n){ return ++n }));
+                        elm.setAttribute('name', nameAttribute.replace(/\d+$/, function(n){ return ++n }));
+                        elm.previousElementSibling.setAttribute('for', idAttribute.replace(/\d+$/, function(n){ return ++n }));
+                    });
+
+                    // Append
+                    const lastRow = gForm.querySelector('.row:not(.row-inputs)');
+                    lastRow.parentNode.insertBefore(cloned,lastRow);
+
+                    item.classList.remove('clone-me');
                 });
 
-                // Append
-                const lastRow = gForm.querySelector('.row:not(.row-inputs)');
-                lastRow.parentNode.insertBefore(cloned,lastRow);
-
-                item.classList.remove('clone-me');
             });
-
-        });
+        }
 
         // phone number formatting
         document.getElementById('phone').addEventListener('input', function (e) {
