@@ -826,11 +826,7 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     form.reset();
-                    console.log('status 200');
-                    // mobile only
-                    // if(document.documentElement.clientWidth < 1025) {
-                    //     form.querySelector('.row').classList.add('d-none');
-                    // }
+
                     var formElements = form.querySelector(".form-elements")
                     if (formElements) {
                         formElements.style.display = "none"; // hide form
@@ -1085,7 +1081,7 @@
             function watchClickArea(event) {
                 if(window.outerWidth < 1025) { // mobile only
                     let popupContainer = document.querySelector('svg > rect:target + foreignObject');
-                    if (!popupContainer.contains(event.target)) {
+                    if (popupContainer && !popupContainer.contains(event.target)) {
                         // Hide popup
                         document.querySelector('svg > rect:target + foreignObject .popup')
                         // Collapse aside panel
