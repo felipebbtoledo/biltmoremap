@@ -107,16 +107,16 @@
                         <div class="row row-inputs clone-me">
                             <div class="col-sm-12 col-md-6 pr-lg-2">
                                 <div class="form-group has-icon has-label">
-                                    <label>Notify me based on</label>
+                                    <label for="notify_me_based_on1">Notify me based on</label>
                                     <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
-                                    <select class="form-control" name="notify_me_based_on1" id="notify_me_based_on1">
+                                    <select class="form-control" name="notify_me_based_on1" id="notify_me_based_on1" required>
                                     </select>
                                     <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 pl-lg-2">
                                 <div class="form-group">
-                                    <label>Property For</label>
+                                    <label for="property_for1">Property For</label>
                                     <select name="property_for1" class="form-control" id="property_for1" required>
                                         <option value="" disabled selected>Select</option>
                                         <option value="sale">For sale</option>
@@ -823,6 +823,7 @@
 
                     elm.setAttribute('id',  idAttribute.replace(/\d+$/, function(n){ return ++n }));
                     elm.setAttribute('name', nameAttribute.replace(/\d+$/, function(n){ return ++n }));
+                    elm.previousSibling.setAttribute('for', idAttribute.replace(/\d+$/, function(n){ return ++n }));
                 });
 
                 // Append
