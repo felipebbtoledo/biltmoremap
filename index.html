@@ -755,7 +755,6 @@
     // End Slideshow function
 
     // BEGIN form-submission-handler.js
-    (function() {
         // get all data in form and return object
         function getFormData(form) {
             var elements = form.elements;
@@ -865,8 +864,6 @@
                 buttons[i].disabled = true;
             }
         }
-    })();
-
     // END form-submission-handler.js
 
     // email field validation
@@ -976,8 +973,6 @@
         }
         // desktop phone number formatting
         formatPhoneField('.aside-panel .gform #phone');
-        // mobile phone number formatting
-        formatPhoneField('.popup .gform #phone');
 
         // hide popup by button clicking
         for (let i = 0; i < popupButtons.length; i++) {
@@ -1008,9 +1003,11 @@
                 slideShowContainer.remove();
             }
             document.querySelector('.popup[style] .comm-info').innerHTML = commInfoContent.innerHTML;
-            // prevent gForm to be duplicated
-            //asidePanel.querySelector('.gform').remove();
+
+            // run ajax script on mobile gform
             loaded();
+            // mobile phone number formatting
+            formatPhoneField('.popup .gform #phone');
         });
 
         // toggle aside panel by area clicking
