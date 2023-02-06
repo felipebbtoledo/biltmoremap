@@ -721,7 +721,7 @@ svg > #BiltmoreHotelVillas + foreignObject {
     }
     .popup .comm-info {
         overflow: auto;
-        height: 100vh;
+        height: 80vh;
     }
     .popup .comm-info > .container {
         padding: 15px;
