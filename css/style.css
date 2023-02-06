@@ -340,6 +340,9 @@ main {
 mask > polygon ~ polygon {
     opacity:0!important
 }
+.other-communities-link {
+    font-size:.875rem;
+}
 .popup {
     background-color: var(--light-color);
     border: 1px solid var(--light-color);
