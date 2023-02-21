@@ -895,6 +895,18 @@
 
     document.addEventListener("DOMContentLoaded", function(event) {
 
+        var accessCounter = localStorage.getItem('counter') || 0;
+        accessCounter ++;
+
+        if(accessCounter > 3) {
+            console.log('You visited the Biltmore map more than 3 times');
+        }
+        else {
+            console.log('accessCounter' + accessCounter);
+        }
+
+        localStorage.setItem('counter', accessCounter);
+
         // Search community filter
         function mobileSearchCommFilter() {
             document.querySelectorAll('main > svg > rect').forEach((comm, index) => {
