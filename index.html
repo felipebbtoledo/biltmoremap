@@ -859,12 +859,20 @@
 
         function loaded() {
             // bind to the submit event of our form
-            var forms = document.querySelectorAll("form.gform");
+            const forms = document.querySelectorAll("form.gform");
             for (var i = 0; i < forms.length; i++) {
                 forms[i].addEventListener("submit", handleFormSubmit, false);
-                // populate tags input hidden on blur
-                forms[i].addEventListener("blur", function(evt) {
+            }
+
+            // populate tags input hidden on blur
+            const dropboxes = document.querySelectorAll("form.gform select:not([name])");
+            const tagsInputHidden = document.querySelectorAll("form.gform input[name='tags']");
+            for (var j = 0; j < dropboxes.length; j++) {
+                dropboxes[j].addEventListener("blur", function(evt) {
                     console.log(evt.target.value);
+                    tagsInputHidden.forEach(function(elm){
+                        elm.value += evt.target.value;
+                    });
                 }, true);
             }
 
