@@ -949,9 +949,14 @@
                     let idAttribute = elm.getAttribute('id');
                     let nameAttribute = elm.getAttribute('name');
 
-                    elm.setAttribute('id',  idAttribute.replace(/\d+$/, function(n){ return ++n }));
-                    elm.setAttribute('name', nameAttribute.replace(/\d+$/, function(n){ return ++n }));
-                    elm.previousElementSibling.setAttribute('for', idAttribute.replace(/\d+$/, function(n){ return ++n }));
+                    if(idAttribute){
+                        elm.setAttribute('id',  idAttribute.replace(/\d+$/, function(n){ return ++n }));
+                        elm.previousElementSibling.setAttribute('for', idAttribute.replace(/\d+$/, function(n){ return ++n }));
+                    }
+                    if(nameAttribute){
+                        elm.setAttribute('name', nameAttribute.replace(/\d+$/, function(n){ return ++n }));
+                    }
+
                 });
 
                 // Append
