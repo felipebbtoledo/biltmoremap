@@ -824,7 +824,7 @@
             // populate tags input hidden
             const tagsInputHidden = form.querySelector("form.gform input[name='tags']");
             form.querySelectorAll("select:not([name])").forEach((elm) => {
-                tagsInputHidden.value ? tagsInputHidden.value += ', ' + elm.value : tagsInputHidden.value = elm.value;
+                tagsInputHidden.value ? tagsInputHidden.value += ',' + elm.value : tagsInputHidden.value = elm.value;
             });
 
             var form = event.target;
