@@ -820,6 +820,7 @@
 
         function handleFormSubmit(event) {  // handles form submit without any jquery
             event.preventDefault();           // we are submitting via xhr below
+            var form = event.target;
 
             // populate tags input hidden
             const tagsInputHidden = form.querySelector("form.gform input[name='tags']");
@@ -827,7 +828,6 @@
                 tagsInputHidden.value ? tagsInputHidden.value += ',' + elm.value : tagsInputHidden.value = elm.value;
             });
 
-            var form = event.target;
             var formData = getFormData(form);
             var data = formData.data;
 
