@@ -864,7 +864,7 @@
                 forms[i].addEventListener("submit", handleFormSubmit, false);
                 // populate tags input hidden on blur
                 forms[i].addEventListener("blur", function(evt) {
-                    console.log(evt);
+                    console.log(evt.target.value);
                 }, true);
             }
 
