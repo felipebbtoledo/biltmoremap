@@ -93,7 +93,6 @@
 <!--                    <form class="gform" data-email="phil@thetibigroup.com" method="POST"-->
                     <form class="gform" data-email="analisegrafica@gmail.com" method="POST"
                           action="https://script.google.com/macros/s/AKfycby1p4N3NGhVaCkzjjtH4UOlvIAStZ3yWtHvKd3EqmtpB3HrJuEfrw1yM_ozXtEAlkGF/exec">
-                        <input type="hidden" name="tags" value="">
                         <h6>Follow your favorite properties</h6>
                         <p>Be notified and kept up to date the moment a property within this Community becomes available or any status changes.</p>
                         <div class="row row-inputs">
@@ -155,6 +154,7 @@
                                 <p>We will get back to you soon.</p>
                             </div>
                         </div>
+                        <input type="hidden" name="tags" value="">
                     </form>
 
                     <hr class="page-divider half transparent">
@@ -820,15 +820,16 @@
 
         function handleFormSubmit(event) {  // handles form submit without any jquery
             event.preventDefault();           // we are submitting via xhr below
-            var form = event.target;
-            var formData = getFormData(form);
-            var data = formData.data;
 
             // populate tags input hidden
             const tagsInputHidden = form.querySelector("form.gform input[name='tags']");
             form.querySelectorAll("select:not([name])").forEach((elm) => {
                 tagsInputHidden.value ? tagsInputHidden.value += ', ' + elm.value : tagsInputHidden.value = elm.value;
             });
+
+            var form = event.target;
+            var formData = getFormData(form);
+            var data = formData.data;
 
             // If a honeypot field is filled, assume it was done so by a spam bot.
             if (formData.honeypot) {
