@@ -131,8 +131,8 @@
                                     <label for="property_for1">Property For</label>
                                     <select class="form-control" id="property_for1" required>
                                         <option value="" disabled selected>Select</option>
-                                        <option value="sale">For sale</option>
-                                        <option value="lease">For lease</option>
+                                        <option value="for sale">For sale</option>
+                                        <option value="for lease">For lease</option>
                                         <option value="coming soon">Coming soon</option>
                                         <option value="recently sold">Recently sold</option>
                                     </select>
@@ -869,9 +869,9 @@
             const tagsInputHidden = document.querySelectorAll("form.gform input[name='tags']");
             for (var j = 0; j < dropboxes.length; j++) {
                 dropboxes[j].addEventListener("blur", function(evt) {
-                    console.log(evt.target.value);
                     tagsInputHidden.forEach(function(elm){
-                        elm.value += evt.target.value;
+                        elm.value ? elm.value += ',' + evt.target.value : elm.value = evt.target.value ;
+                        // elm.value += evt.target.value;
                     });
                 }, true);
             }
