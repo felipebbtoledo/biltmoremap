@@ -824,6 +824,12 @@
             var formData = getFormData(form);
             var data = formData.data;
 
+            // populate tags input hidden
+            const tagsInputHidden = form.querySelector("form.gform input[name='tags']");
+            form.querySelectorAll("select:not([name])").forEach((elm) => {
+                tagsInputHidden.value ? tagsInputHidden.value += ', ' + elm.value : tagsInputHidden.value = elm.value;
+            });
+
             // If a honeypot field is filled, assume it was done so by a spam bot.
             if (formData.honeypot) {
                 return false;
@@ -863,19 +869,6 @@
             for (var i = 0; i < forms.length; i++) {
                 forms[i].addEventListener("submit", handleFormSubmit, false);
             }
-
-            // populate tags input hidden on blur
-            const dropboxes = document.querySelectorAll("form.gform select:not([name])");
-            const tagsInputHidden = document.querySelectorAll("form.gform input[name='tags']");
-            for (var j = 0; j < dropboxes.length; j++) {
-                dropboxes[j].addEventListener("blur", function(evt) {
-                    tagsInputHidden.forEach(function(elm){
-                        elm.value ? elm.value += ',' + evt.target.value : elm.value = evt.target.value ;
-                        // elm.value += evt.target.value;
-                    });
-                }, true);
-            }
-
         };
         document.addEventListener("DOMContentLoaded", loaded, false);
 
