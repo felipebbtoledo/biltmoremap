@@ -157,6 +157,10 @@ body {
     opacity: 1;
     transition: opacity 1s ease-in-out 1s;
 }
+.aside-panel .page-section .community-name:empty,
+.aside-panel .page-section .community-links:empty {
+    display: none;
+}
 .aside-panel .page-section .community-links {
     display: flex;
     flex-flow: row nowrap;

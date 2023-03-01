@@ -90,7 +90,8 @@
                     <h6 class="community-additional-info-title">Community Additional Info</h6>
                     <p class="community-additional-info"></p>
                     <!-- Follow your favorite properties form -->
-                    <form class="gform" data-email="phil@thetibigroup.com" method="POST"
+<!--                    <form class="gform" data-email="phil@thetibigroup.com" method="POST"-->
+                    <form class="gform" data-email="analisegrafica@gmail.com" method="POST"
                           action="https://script.google.com/macros/s/AKfycby1p4N3NGhVaCkzjjtH4UOlvIAStZ3yWtHvKd3EqmtpB3HrJuEfrw1yM_ozXtEAlkGF/exec">
                         <h6>Follow your favorite properties</h6>
                         <p>Be notified and kept up to date the moment a property within this Community becomes available or any status changes.</p>
@@ -818,6 +819,9 @@
         }
 
         function handleFormSubmit(event) {  // handles form submit without any jquery
+            formSubmittedCounter++;
+            localStorage.setItem('fs', formSubmittedCounter);
+
             event.preventDefault();           // we are submitting via xhr below
             var form = event.target;
 
@@ -904,17 +908,22 @@
     document.addEventListener("DOMContentLoaded", function(event) {
 
         // Using localStorage
-        var accessCounter = localStorage.getItem('counter') || 0;
+        var accessCounter = localStorage.getItem('ac') || 0;
+        var formSubmittedCounter = localStorage.getItem('fs') || 0;
+
         accessCounter ++;
 
-        if(accessCounter > 3) {
-            alert('You visited the Biltmore map more than 3 times');
+        if(accessCounter > 2) {
+            if(formSubmittedCounter == 0) {
+                alert('To continue using the Biltmore Interactive Map, please fill in the FOLLOW YOUR FAVORITE PROPERTIES form.');
+                window.location.href='#capture';
+            }
         }
         else {
-            console.log('accessCounter' + accessCounter);
+            console.log('ac' + accessCounter);
         }
 
-        localStorage.setItem('counter', accessCounter);
+        localStorage.setItem('ac', accessCounter);
 
         // Search community filter
         function mobileSearchCommFilter() {
