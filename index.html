@@ -913,17 +913,34 @@
         accessCounter ++;
 
         if(accessCounter > 2) {
-            if(formSubmittedCounter == 0) {
+            if(formSubmittedCounter > 0) {
+                unblockPointerEvents();
+            }
+            else {
                 alert('To continue using the Biltmore Interactive Map, please fill in the FOLLOW YOUR FAVORITE PROPERTIES form.');
                 window.location.href='#capture';
                 asidePanel.classList.remove('collapsed');
-                document.querySelector('.aside-panel .page-section').style.opacity = '1';
-                document.querySelector('.aside-panel .header .dropdown.bootstrap-select').style.display = 'none';
-                mapCommunitySelected();
+                setTimeout(function() {
+                    document.querySelector('.aside-panel .page-section').style.opacity = '1';
+                    mapCommunitySelected();
+                    blockPointerEvents();
+                } , 500 );
             }
         }
 
         localStorage.setItem('ac', accessCounter);
+    }
+
+    function blockPointerEvents () {
+        document.querySelector('.aside-panel .header .dropdown.bootstrap-select').style.display = 'none';
+        document.querySelector('.main > svg').style.opacity = '0.66';
+        document.querySelector('.open-close-area').style.pointerEvents = 'none';
+    }
+
+    function unblockPointerEvents () {
+        document.querySelector('.aside-panel .header .dropdown.bootstrap-select').removeAttribute('style');
+        document.querySelector('.main > svg').removeAttribute('style');
+        document.querySelector('.open-close-area').removeAttribute('style');
     }
 
     document.addEventListener("DOMContentLoaded", function(event) {
