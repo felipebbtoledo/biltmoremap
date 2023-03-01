@@ -903,33 +903,18 @@
 
     document.addEventListener("DOMContentLoaded", function(event) {
 
-        if(document.cookie.indexOf('ac=') !== -1){
+        // Using localStorage
+        var accessCounter = localStorage.getItem('counter') || 0;
+        accessCounter ++;
 
-            const cookieVal = $.cookie('ac');
-            let cookieValue = parseInt(cookieVal,10);  //convert it to number
-
-            cookieValue++;  //increment the value
-            document.cookie  = 'ac='+cookieValue+'; expires=Sun, 1 Jan 2024 00:00:00 UTC; path=/'
-
-            console.log('access number'+cookieValue);
-
+        if(accessCounter > 3) {
+            alert('You visited the Biltmore map more than 3 times');
         }
         else {
-            console.log('first access');
-            document.cookie = 'ac=1; expires=Sun, 1 Jan 2024 00:00:00 UTC; path=/'
+            console.log('accessCounter' + accessCounter);
         }
 
-        // var accessCounter = localStorage.getItem('counter') || 0;
-        // accessCounter ++;
-
-        // if(accessCounter > 3) {
-        //     console.log('You visited the Biltmore map more than 3 times');
-        // }
-        // else {
-        //     console.log('accessCounter' + accessCounter);
-        // }
-        //
-        // localStorage.setItem('counter', accessCounter);
+        localStorage.setItem('counter', accessCounter);
 
         // Search community filter
         function mobileSearchCommFilter() {
