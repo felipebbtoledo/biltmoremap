@@ -819,9 +819,6 @@
         }
 
         function handleFormSubmit(event) {  // handles form submit without any jquery
-            formSubmittedCounter++;
-            localStorage.setItem('fs', formSubmittedCounter);
-
             event.preventDefault();           // we are submitting via xhr below
             var form = event.target;
 
@@ -872,6 +869,8 @@
             const forms = document.querySelectorAll("form.gform");
             for (var i = 0; i < forms.length; i++) {
                 forms[i].addEventListener("submit", handleFormSubmit, false);
+                // formSubmittedCounter++;
+                // localStorage.setItem('fs', formSubmittedCounter);
             }
         };
         document.addEventListener("DOMContentLoaded", loaded, false);
@@ -919,6 +918,7 @@
                 window.location.href='#capture';
                 asidePanel.classList.remove('collapsed');
                 document.querySelector('.aside-panel .page-section').style.opacity = '1';
+                mapCommunitySelected();
             }
         }
         else {
