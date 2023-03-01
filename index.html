@@ -905,7 +905,7 @@
 
         if(document.cookie.indexOf('ac=') !== -1){
 
-            const cookieVal = document.cookie('ac');
+            const cookieVal = $.cookie('ac');
             let cookieValue = parseInt(cookieVal,10);  //convert it to number
 
             cookieValue++;  //increment the value
