@@ -933,13 +933,13 @@
 
     function blockPointerEvents () {
         document.querySelector('.aside-panel .header .dropdown.bootstrap-select').style.display = 'none';
-        document.querySelector('.main > svg').style.opacity = '0.66';
+        document.querySelector('main > svg').style.opacity = '0.66';
         document.querySelector('.open-close-area').style.pointerEvents = 'none';
     }
 
     function unblockPointerEvents () {
         document.querySelector('.aside-panel .header .dropdown.bootstrap-select').removeAttribute('style');
-        document.querySelector('.main > svg').removeAttribute('style');
+        document.querySelector('main > svg').removeAttribute('style');
         document.querySelector('.open-close-area').removeAttribute('style');
     }
 
