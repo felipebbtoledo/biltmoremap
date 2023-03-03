@@ -918,8 +918,9 @@
             else {
                 alert('To continue using the Biltmore Interactive Map, please fill in the FOLLOW YOUR FAVORITE PROPERTIES form.');
                 window.location.href='#capture';
-                document.querySelector('.aside-panel').classList.remove('collapsed');
                 setTimeout(function() {
+                    console.log('timeout ran');
+                    asidePanel.classList.remove('collapsed');
                     document.querySelector('.aside-panel .page-section').style.opacity = '1';
                     mapCommunitySelected();
                     blockPointerEvents();
