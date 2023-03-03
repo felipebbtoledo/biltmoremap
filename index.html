@@ -819,6 +819,7 @@
     }
 
     function handleFormSubmit(event) {  // handles form submit without any jquery
+        formSubmittedCounter++;
         accessControl(accessCounter, formSubmittedCounter);
         event.preventDefault();           // we are submitting via xhr below
         var form = event.target;
@@ -908,8 +909,8 @@
     var formSubmittedCounter = localStorage.getItem('fs') || 0;
 
     function accessControl(accessCounter, formSubmittedCounter){
-
         accessCounter ++;
+        console.log("accessCounter"+accessCounter + "formSubmittedCounter"+formSubmittedCounter);
 
         if(accessCounter > 2) {
             if(formSubmittedCounter > 0) {
@@ -919,7 +920,6 @@
                 alert('To continue using the Biltmore Interactive Map, please fill in the FOLLOW YOUR FAVORITE PROPERTIES form.');
                 window.location.href='#capture';
                 setTimeout(function() {
-                    console.log('timeout ran');
                     asidePanel.classList.remove('collapsed');
                     document.querySelector('.aside-panel .page-section').style.opacity = '1';
                     mapCommunitySelected();
