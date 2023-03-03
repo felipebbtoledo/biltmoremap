@@ -827,6 +827,7 @@
         // populate tags input hidden
         const tagsInputHidden = form.querySelector("input[name='tags']");
         form.querySelectorAll("select:not([name])").forEach((elm) => {
+            console.log(elm);
             tagsInputHidden.value ? tagsInputHidden.value += ',' + elm.value : tagsInputHidden.value = elm.value;
         });
 
