@@ -1223,216 +1223,216 @@
             }
         }
 
+    }); // DOMContentLoaded
 
-        function mapCommunitySelected() {
+    function mapCommunitySelected() {
 
-            var hash = window.location.hash;
-            var hashValue = hash.split('#')[1];
-            var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
-            var communitiesDropdownNotifyMe = document.querySelector('select#notify_me_based_on1');
-            var communityNameSelector = document.querySelector('.content-area .page-section .community-name');
-            var communityLinksSelector = document.querySelector('.content-area .page-section .community-links');
-            var communitySummaryTitleSelector = document.querySelector('.content-area .page-section .community-summary-title');
-            var communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
-            var communityDetailsTitleSelector = document.querySelector('.content-area .page-section .community-details-title');
-            var communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
-            var communityAdditionalInfoTitleSelector = document.querySelector('.content-area .page-section .community-additional-info-title');
-            var communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
-            var communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
-            var communityPopupPhotos = document.querySelectorAll('svg > rect:target + foreignObject .popup > img');
-            var communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
-            var communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
-            var communityPopupButtonsSelector = document.querySelector('svg > rect:target + foreignObject .popup .caption .buttons');
+        var hash = window.location.hash;
+        var hashValue = hash.split('#')[1];
+        var communitiesDropdownSelector = document.querySelector('select[name="CommunitiesList"]');
+        var communitiesDropdownNotifyMe = document.querySelector('select#notify_me_based_on1');
+        var communityNameSelector = document.querySelector('.content-area .page-section .community-name');
+        var communityLinksSelector = document.querySelector('.content-area .page-section .community-links');
+        var communitySummaryTitleSelector = document.querySelector('.content-area .page-section .community-summary-title');
+        var communitySummarySelector = document.querySelector('.content-area .page-section .community-summary');
+        var communityDetailsTitleSelector = document.querySelector('.content-area .page-section .community-details-title');
+        var communityDetailsSelector = document.querySelector('.content-area .page-section .community-details');
+        var communityAdditionalInfoTitleSelector = document.querySelector('.content-area .page-section .community-additional-info-title');
+        var communityAdditionalInfoSelector = document.querySelector('.content-area .page-section .community-additional-info');
+        var communityPopup = document.querySelector('svg > rect:target + foreignObject .popup');
+        var communityPopupPhotos = document.querySelectorAll('svg > rect:target + foreignObject .popup > img');
+        var communityPopupCaption = document.querySelector('svg > rect:target + foreignObject .popup .caption');
+        var communityPopupCaptionTitle = document.querySelector('svg > rect:target + foreignObject .popup .caption .caption-title');
+        var communityPopupButtonsSelector = document.querySelector('svg > rect:target + foreignObject .popup .caption .buttons');
 
-            // if(document.querySelector('svg > rect:target + foreignObject')){
-            //     document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
-            // }
+        // if(document.querySelector('svg > rect:target + foreignObject')){
+        //     document.querySelector('svg > rect:target + foreignObject').scrollIntoView();
+        // }
 
-            var selectedCommunityId = document.querySelector('svg > rect:target');
-            var CommunityId, communityDetailsList, communityPhotosList;
-            if(selectedCommunityId !== null) {
-                CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
-            }
-            else {
-                CommunityId = hashValue;
-            }
-            var communityIdFormatted = CommunityId;
-            if(communityIdFormatted) {
-                communityIdFormatted = communityIdFormatted.replace(/([A-Z])/g, ' $1').trim();
-            }
+        var selectedCommunityId = document.querySelector('svg > rect:target');
+        var CommunityId, communityDetailsList, communityPhotosList;
+        if(selectedCommunityId !== null) {
+            CommunityId = document.querySelector('svg > rect:target').getAttribute('id');
+        }
+        else {
+            CommunityId = hashValue;
+        }
+        var communityIdFormatted = CommunityId;
+        if(communityIdFormatted) {
+            communityIdFormatted = communityIdFormatted.replace(/([A-Z])/g, ' $1').trim();
+        }
 
-            // items to reset
-            $('.selectpicker:not([id*="property_for"])').empty();
-            <!-- Google Sheets -->
-            "use strict";
+        // items to reset
+        $('.selectpicker:not([id*="property_for"])').empty();
+        <!-- Google Sheets -->
+        "use strict";
 
-            getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv",
-                function thenAfter(contents, didError){
-                    for (var row=0; row < contents.length; row=row+1|0) { //loop through rows
-                        var curRow = contents[row];
+        getGoogleSheetByEditURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQiD-4OVRtVHt9P7dJhrpXFlqx20O31D19UnqLXBqS_Z0QzoLgopGCcG7TggfWzK8gapj2I4tPAGEg/pub?output=csv",
+            function thenAfter(contents, didError){
+                for (var row=0; row < contents.length; row=row+1|0) { //loop through rows
+                    var curRow = contents[row];
 
-                        // populate the Communities dropdown list
-                        var ddlEl = document.createElement("option");
-                        var ddlEl2 = document.createElement("option");
-                        if(curRow[0].startsWith("Community")) {
-                            ddlEl.textContent = "Communities";
-                            // ddlEl2.textContent = "Communities";
-                        }
-                        else if (row == 0) {
-                            communitiesDropdownNotifyMe.innerHTML = "";
-                            ddlEl2.textContent = "Select"
-                            ddlEl2.setAttribute("disabled","disabled");
-                            ddlEl2.setAttribute("selected","selected");
-                            ddlEl2.value = "";
-                        }
-                        else {
-                            ddlEl.textContent = curRow[0];
-                            ddlEl2.textContent = curRow[0];
-                            ddlEl.value = curRow[0];
-                            ddlEl2.value = curRow[0];
-                        }
-                        communitiesDropdownSelector.appendChild(ddlEl);
-                        communitiesDropdownNotifyMe.appendChild(ddlEl2);
+                    // populate the Communities dropdown list
+                    var ddlEl = document.createElement("option");
+                    var ddlEl2 = document.createElement("option");
+                    if(curRow[0].startsWith("Community")) {
+                        ddlEl.textContent = "Communities";
+                        // ddlEl2.textContent = "Communities";
+                    }
+                    else if (row == 0) {
+                        communitiesDropdownNotifyMe.innerHTML = "";
+                        ddlEl2.textContent = "Select"
+                        ddlEl2.setAttribute("disabled","disabled");
+                        ddlEl2.setAttribute("selected","selected");
+                        ddlEl2.value = "";
+                    }
+                    else {
+                        ddlEl.textContent = curRow[0];
+                        ddlEl2.textContent = curRow[0];
+                        ddlEl.value = curRow[0];
+                        ddlEl2.value = curRow[0];
+                    }
+                    communitiesDropdownSelector.appendChild(ddlEl);
+                    communitiesDropdownNotifyMe.appendChild(ddlEl2);
 
-                        for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
-                            if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
-                                if(curRow[col] == communityIdFormatted) {
-                                    communityNameSelector.textContent = curRow[col]; // GS Community Name
-                                    //GS Community Summary
-                                    if(curRow[col + 1]) {
-                                        communitySummarySelector.textContent = curRow[col + 1];
-                                        communitySummaryTitleSelector.style.display = 'block';
-                                        communitySummarySelector.style.display = 'block';
-                                    }
-                                    else {
-                                        communitySummaryTitleSelector.style.display = 'none';
-                                        communitySummarySelector.style.display = 'none';
-                                    }
-                                    //GS Community Details
-                                    if(curRow[col + 2]) {
-                                        communityDetailsList = curRow[col + 2];
-                                        communityDetailsTitleSelector.style.display = 'block';
-                                        communityDetailsSelector.style.display = 'flex';
-                                    }
-                                    else {
-                                        communityDetailsTitleSelector.style.display = 'none';
-                                        communityDetailsSelector.style.display = 'none';
-                                    }
-                                    //GS Community Additional Info
-                                    if(curRow[col + 3]) {
-                                        communityAdditionalInfoSelector.textContent = curRow[col + 3];
-                                        communityAdditionalInfoTitleSelector.style.display = 'block';
-                                        communityAdditionalInfoSelector.style.display = 'block';
-                                    }
-                                    else {
-                                        communityAdditionalInfoTitleSelector.style.display = 'none';
-                                        communityAdditionalInfoSelector.style.display = 'none';
-                                    }
-                                    //GS Community Address
-                                    if(curRow[col + 4]) {
-                                        communityPopupCaption.style.display = 'block';
-                                        communityPopupCaptionTitle.textContent = curRow[col + 4];
-                                    }
-                                    //GS Community Photos
-                                    if(curRow[col + 5]) {
-                                        communityPhotosList = curRow[col + 5];
+                    for (var col=0; col < curRow.length; col=col+1|0) { //loop through cells
+                        if(!curRow[col].startsWith("Community")) { // skip the cells that starts with Community word
+                            if(curRow[col] == communityIdFormatted) {
+                                communityNameSelector.textContent = curRow[col]; // GS Community Name
+                                //GS Community Summary
+                                if(curRow[col + 1]) {
+                                    communitySummarySelector.textContent = curRow[col + 1];
+                                    communitySummaryTitleSelector.style.display = 'block';
+                                    communitySummarySelector.style.display = 'block';
+                                }
+                                else {
+                                    communitySummaryTitleSelector.style.display = 'none';
+                                    communitySummarySelector.style.display = 'none';
+                                }
+                                //GS Community Details
+                                if(curRow[col + 2]) {
+                                    communityDetailsList = curRow[col + 2];
+                                    communityDetailsTitleSelector.style.display = 'block';
+                                    communityDetailsSelector.style.display = 'flex';
+                                }
+                                else {
+                                    communityDetailsTitleSelector.style.display = 'none';
+                                    communityDetailsSelector.style.display = 'none';
+                                }
+                                //GS Community Additional Info
+                                if(curRow[col + 3]) {
+                                    communityAdditionalInfoSelector.textContent = curRow[col + 3];
+                                    communityAdditionalInfoTitleSelector.style.display = 'block';
+                                    communityAdditionalInfoSelector.style.display = 'block';
+                                }
+                                else {
+                                    communityAdditionalInfoTitleSelector.style.display = 'none';
+                                    communityAdditionalInfoSelector.style.display = 'none';
+                                }
+                                //GS Community Address
+                                if(curRow[col + 4]) {
+                                    communityPopupCaption.style.display = 'block';
+                                    communityPopupCaptionTitle.textContent = curRow[col + 4];
+                                }
+                                //GS Community Photos
+                                if(curRow[col + 5]) {
+                                    communityPhotosList = curRow[col + 5];
+                                    communityPopup.style.opacity = '1';
+                                }
+                                //GS Community Photos is empty
+                                else {
+                                    if(document.documentElement.clientWidth < 1025) {
+                                        communityPopup.classList.add('hide-arrow');
                                         communityPopup.style.opacity = '1';
                                     }
-                                    //GS Community Photos is empty
                                     else {
-                                        if(document.documentElement.clientWidth < 1025) {
-                                            communityPopup.classList.add('hide-arrow');
-                                            communityPopup.style.opacity = '1';
-                                        }
-                                        else {
-                                            communityPopup.classList.remove('hide-arrow');
-                                            communityPopup.style.opacity = '0';
+                                        communityPopup.classList.remove('hide-arrow');
+                                        communityPopup.style.opacity = '0';
+                                    }
+                                }
+                                // GS Community Links
+                                if(curRow[col + 6]) {
+                                    var communityLinksList = curRow[col + 6];
+                                    if(communityLinksList) {
+                                        let tempLinksList;
+                                        communityLinksSelector.innerHTML = '';
+                                        communityPopupButtonsSelector.innerHTML = '';
+                                        communityPopupButtonsSelector.innerHTML += '<li><a class="btn btn-comm-info">Community Info</a></li>';
+                                        var communityLinksListElems = communityLinksList.split(";").filter(x => x);
+                                        for (var communityLinksListElem in communityLinksListElems) {
+                                            tempLinksList = communityLinksListElems[communityLinksListElem].split(/:(.*)/s);
+                                            communityLinksSelector.innerHTML += '<li><a href="' + tempLinksList[1] + '">' + tempLinksList[0] + '</a></li>';
+                                            communityPopupButtonsSelector.innerHTML += '<li><a href="' + tempLinksList[1] + '" class="btn">' + tempLinksList[0] + '</a></li>';
                                         }
                                     }
-                                    // GS Community Links
-                                    if(curRow[col + 6]) {
-                                        var communityLinksList = curRow[col + 6];
-                                        if(communityLinksList) {
-                                            let tempLinksList;
-                                            communityLinksSelector.innerHTML = '';
-                                            communityPopupButtonsSelector.innerHTML = '';
-                                            communityPopupButtonsSelector.innerHTML += '<li><a class="btn btn-comm-info">Community Info</a></li>';
-                                            var communityLinksListElems = communityLinksList.split(";").filter(x => x);
-                                            for (var communityLinksListElem in communityLinksListElems) {
-                                                tempLinksList = communityLinksListElems[communityLinksListElem].split(/:(.*)/s);
-                                                communityLinksSelector.innerHTML += '<li><a href="' + tempLinksList[1] + '">' + tempLinksList[0] + '</a></li>';
-                                                communityPopupButtonsSelector.innerHTML += '<li><a href="' + tempLinksList[1] + '" class="btn">' + tempLinksList[0] + '</a></li>';
+                                }
+
+                                // populate community details list
+                                if(communityDetailsList) {
+                                    let tempDetailsList;
+                                    communityDetailsSelector.innerHTML = '';
+                                    var communityDetailsListElems = communityDetailsList.split(/:|;/);
+                                    for (var communityDetailsListElem in communityDetailsListElems) {
+                                        tempDetailsList = communityDetailsListElems[communityDetailsListElem].split(":");
+                                        communityDetailsSelector.innerHTML += '<div>' + tempDetailsList[0] + '</div>';
+                                    }
+                                }
+
+                                // populate community photos
+                                for (var i = communityPopupPhotos.length; i-- > 0;){
+                                    communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
+                                }
+                                if(communityPhotosList) {
+                                    var communityPhotosListElems = communityPhotosList.split(",");
+                                    // slideshow photos to be displayed
+                                    if(communityPhotosListElems.length > 1) {
+                                        // append slideshow-container
+                                        if(!document.querySelectorAll('.slideshow-container').length) {
+                                            let slideshowContainer = document.createElement('div');
+                                            slideshowContainer.classList.add('slideshow-container');
+                                            slideshowContainer.innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>';
+
+                                            for(var communityPhotosListElem in communityPhotosListElems){
+                                                let slideshowSlide = document.createElement('div');
+                                                let newPhoto = document.createElement('img');
+                                                slideshowSlide.classList.add('mySlides','fading');
+                                                newPhoto.src = communityPhotosListElems[communityPhotosListElem];
+                                                newPhoto.setAttribute('alt',curRow[col]);
+                                                slideshowSlide.appendChild(newPhoto);
+                                                slideshowContainer.appendChild(slideshowSlide);
                                             }
+                                            communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
                                         }
+                                        showSlides(slideIndex);
                                     }
-
-                                    // populate community details list
-                                    if(communityDetailsList) {
-                                        let tempDetailsList;
-                                        communityDetailsSelector.innerHTML = '';
-                                        var communityDetailsListElems = communityDetailsList.split(/:|;/);
-                                        for (var communityDetailsListElem in communityDetailsListElems) {
-                                            tempDetailsList = communityDetailsListElems[communityDetailsListElem].split(":");
-                                            communityDetailsSelector.innerHTML += '<div>' + tempDetailsList[0] + '</div>';
-                                        }
-                                    }
-
-                                    // populate community photos
-                                    for (var i = communityPopupPhotos.length; i-- > 0;){
-                                        communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
-                                    }
-                                    if(communityPhotosList) {
-                                        var communityPhotosListElems = communityPhotosList.split(",");
-                                        // slideshow photos to be displayed
-                                        if(communityPhotosListElems.length > 1) {
-                                            // append slideshow-container
-                                            if(!document.querySelectorAll('.slideshow-container').length) {
-                                                let slideshowContainer = document.createElement('div');
-                                                slideshowContainer.classList.add('slideshow-container');
-                                                slideshowContainer.innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>';
-
-                                                for(var communityPhotosListElem in communityPhotosListElems){
-                                                    let slideshowSlide = document.createElement('div');
-                                                    let newPhoto = document.createElement('img');
-                                                    slideshowSlide.classList.add('mySlides','fading');
-                                                    newPhoto.src = communityPhotosListElems[communityPhotosListElem];
-                                                    newPhoto.setAttribute('alt',curRow[col]);
-                                                    slideshowSlide.appendChild(newPhoto);
-                                                    slideshowContainer.appendChild(slideshowSlide);
-                                                }
-                                                communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
-                                            }
-                                            showSlides(slideIndex);
-                                        }
-                                        // single photo to be displayed
-                                        else {
-                                            let newPhoto = document.createElement('img');
-                                            newPhoto.src = communityPhotosList;
-                                            newPhoto.setAttribute('alt',curRow[col]);
-                                            communityPopup.insertBefore(newPhoto,communityPopupCaption);
-                                        }
+                                    // single photo to be displayed
+                                    else {
+                                        let newPhoto = document.createElement('img');
+                                        newPhoto.src = communityPhotosList;
+                                        newPhoto.setAttribute('alt',curRow[col]);
+                                        communityPopup.insertBefore(newPhoto,communityPopupCaption);
                                     }
                                 }
                             }
                         }
                     }
-                    $('.selectpicker').selectpicker('refresh').trigger('change');
-                    if (didError) console.log("failed to HTTP get");
-                });
-            function getGoogleSheetByEditURL(url, then) {
-                var xhr = new XMLHttpRequest;
-                xhr.open("get", url);
-                xhr.responseType = "text";
-                xhr.onloadend = function(){
-                    return then(parseCSV(""||xhr.responseText), !xhr.responseText);
-                };
-                xhr.timeout = 8192; // assume timeout after 8 seconds
-                xhr.send();
-            }
-            function parseCSV(g){for(var c=[],e=!1,a=0,b=0,f=0;f<g.length;f++){var d=g[f],h=g[f+1];c[a]=c[a]||[];c[a][b]=c[a][b]||"";'"'==d&&e&&'"'==h?(c[a][b]+=d,++f):'"'==d?e=!e:","!=d||e?"\r"!=d||"\n"!=h||e?"\n"!=d||e?"\r"!=d||e?c[a][b]+=d:(++a,b=0):(++a,b=0):(++a,b=0,++f):++b}return c}
-            <!-- /Google Sheets -->
-        } // /mapCommunitySelected
-    });
+                }
+                $('.selectpicker').selectpicker('refresh').trigger('change');
+                if (didError) console.log("failed to HTTP get");
+            });
+        function getGoogleSheetByEditURL(url, then) {
+            var xhr = new XMLHttpRequest;
+            xhr.open("get", url);
+            xhr.responseType = "text";
+            xhr.onloadend = function(){
+                return then(parseCSV(""||xhr.responseText), !xhr.responseText);
+            };
+            xhr.timeout = 8192; // assume timeout after 8 seconds
+            xhr.send();
+        }
+        function parseCSV(g){for(var c=[],e=!1,a=0,b=0,f=0;f<g.length;f++){var d=g[f],h=g[f+1];c[a]=c[a]||[];c[a][b]=c[a][b]||"";'"'==d&&e&&'"'==h?(c[a][b]+=d,++f):'"'==d?e=!e:","!=d||e?"\r"!=d||"\n"!=h||e?"\n"!=d||e?"\r"!=d||e?c[a][b]+=d:(++a,b=0):(++a,b=0):(++a,b=0,++f):++b}return c}
+        <!-- /Google Sheets -->
+    } // /mapCommunitySelected
 </script>
 </body>
 </html>
