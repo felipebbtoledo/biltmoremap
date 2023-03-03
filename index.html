@@ -866,12 +866,11 @@
     }
 
     function loaded() {
+        console.log("loaded()");
         // bind to the submit event of our form
         const forms = document.querySelectorAll("form.gform");
         for (var i = 0; i < forms.length; i++) {
             forms[i].addEventListener("submit", handleFormSubmit, false);
-            // formSubmittedCounter++;
-            // localStorage.setItem('fs', formSubmittedCounter);
         }
     };
     // document.addEventListener("DOMContentLoaded", loaded, false);
