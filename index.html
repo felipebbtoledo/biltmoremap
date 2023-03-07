@@ -917,6 +917,7 @@
         if(accessCounter > 2) {
             if(formSubmittedCounter > 0) {
                 unblockPointerEvents();
+                localStorage.setItem('fs', formSubmittedCounter);
             }
             else {
                 alert('To continue using the Biltmore Interactive Map, please fill in the FOLLOW YOUR FAVORITE PROPERTIES form.');
