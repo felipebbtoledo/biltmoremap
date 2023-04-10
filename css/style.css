@@ -857,7 +857,7 @@ svg > #BiltmoreHotelVillas + foreignObject {
     :root {
         --aside-panel-width: 36vw;
     }
-    .aside-panel .page-section .community-links li {
+    .aside-panel .page-section .community-links li a {
         font-size:.75rem;
     }
 }
