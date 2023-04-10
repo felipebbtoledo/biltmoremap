@@ -699,6 +699,13 @@ svg > #BiltmoreHotelVillas + foreignObject {
     .aside-panel {
         display: none;
     }
+    .aside-panel:not(.collapsed) {
+        display: block;
+        flex: 0 0 100%;
+    }
+    .aside-panel:not(.collapsed) .content-area {
+        width: 100%;
+    }
     .form-group {
         margin-bottom:.5rem;
     }
