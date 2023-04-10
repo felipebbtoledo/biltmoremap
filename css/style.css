@@ -862,6 +862,11 @@ svg > #BiltmoreHotelVillas + foreignObject {
         padding: 0.375rem;
     }
 }
+@media (min-width: 1441px) and (max-width: 1850px) {
+    .aside-panel .page-section .community-links li a {
+        padding: 0.375rem;
+    }
+}
 /* Slideshow */
 .slideshow-container {
     /*max-width: 100%;*/
