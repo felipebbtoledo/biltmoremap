@@ -1061,6 +1061,10 @@
             let commInfoContent = asidePanel.querySelector('.page-section');
             let slideShowContainer = document.querySelector('.popup[style] .slideshow-container');
             let commImage = document.querySelector('.popup[style] img');
+
+            // block body scrolling
+            document.body.style.overflow = 'hidden';
+
             if(commImage) {
                 commImage.remove();
             }
@@ -1087,6 +1091,8 @@
                 item.querySelector('.comm-info').innerHTML='';
                 item.removeAttribute('style');
             });
+
+            document.body.removeAttribute('style');
         });
 
         // refresh aside panel communities dropdown
