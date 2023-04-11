@@ -912,7 +912,7 @@
 
     function accessControl(accessCounter, formSubmittedCounter){
         accessCounter ++;
-        console.log("accessCounter"+accessCounter + "formSubmittedCounter"+formSubmittedCounter);
+        //console.log("accessCounter"+accessCounter + "formSubmittedCounter"+formSubmittedCounter);
 
         if(accessCounter > 2) {
             if(formSubmittedCounter > 0) {
@@ -924,6 +924,7 @@
                 window.location.href='#capture';
                 setTimeout(function() {
                     asidePanel.classList.remove('collapsed');
+                    asidePanel.classList.add('favorite-properties');
                     document.querySelector('.aside-panel .page-section').style.opacity = '1';
                     mapCommunitySelected();
                     blockPointerEvents();
