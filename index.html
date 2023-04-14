@@ -869,7 +869,7 @@
     }
 
     function loaded() {
-        console.log("loaded()");
+        // console.log("loaded()");
         // bind to the submit event of our form
         const forms = document.querySelectorAll("form.gform");
         for (var i = 0; i < forms.length; i++) {
@@ -946,7 +946,7 @@
     }
 
     function unblockPointerEvents () {
-        document.querySelector('.aside-panel .header .dropdown.bootstrap-select').removeAttribute('style');
+        document.querySelector('.aside-panel .header .dropdown.bootstrap-select').style.removeProperty('display');
         document.querySelector('main > svg').removeAttribute('style');
         document.querySelector('.open-close-area').removeAttribute('style');
         document.getElementById("searchCommunitiesFilter").removeAttribute('style');
