@@ -950,6 +950,8 @@
         document.querySelector('main > svg').removeAttribute('style');
         document.querySelector('.open-close-area').removeAttribute('style');
         document.getElementById("searchCommunitiesFilter").removeAttribute('style');
+        asidePanel.classList.add('collapsed');
+        asidePanel.classList.remove('favorite-properties');
     }
 
     document.addEventListener("DOMContentLoaded", function(event) {
