@@ -938,7 +938,7 @@
     function blockPointerEvents () {
         document.querySelector('.aside-panel .header .dropdown.bootstrap-select').style.display = 'none';
         document.getElementById("searchCommunitiesFilter").style.display = 'none';
-        if(document.documentElement.clientWidth < 1025) {
+        if(document.documentElement.clientWidth > 1024) {
             document.querySelector('main > svg').style.opacity = '0.33';
         }
         document.querySelector('main > svg').style.pointerEvents = 'none';
