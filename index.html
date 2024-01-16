@@ -945,7 +945,9 @@
     }
 
     function unblockPointerEvents () {
-        document.querySelector('.aside-panel .header .dropdown.bootstrap-select').style.removeProperty('display');
+        if(document.querySelector('.aside-panel .header .dropdown.bootstrap-select[style*="display"]')){
+            document.querySelector('.aside-panel .header .dropdown.bootstrap-select[style*="display"]').style.removeProperty('display');
+        }
         document.querySelector('main > svg').removeAttribute('style');
         document.querySelector('.open-close-area').removeAttribute('style');
         document.getElementById("searchCommunitiesFilter").removeAttribute('style');
