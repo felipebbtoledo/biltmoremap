@@ -591,7 +591,7 @@ svg > rect:target + foreignObject ~ a {
     pointer-events: none;
 }
 svg > rect:not(:target) ~ a:hover polygon {
-    fill:var(--dark-color);
+    fill:var(--light-color);
     fill-opacity: .35;
     stroke-opacity: 1;
 }
