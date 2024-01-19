@@ -932,8 +932,6 @@
 
     function loaded() {
         console.log("loaded");
-        // Remove hash
-        window.location.hash = '';
         // bind to the submit event of our form
         const forms = document.querySelectorAll("form.gform");
         for (var i = 0; i < forms.length; i++) {
@@ -948,7 +946,14 @@
             }
         }
     };
-    document.addEventListener("DOMContentLoaded", loaded, false);
+
+    function removeHash() {
+        console.log("removeHash");
+        // Remove hash
+        window.location.hash = '';
+    }
+
+    document.addEventListener("DOMContentLoaded", () => { removeHash(); loaded(); }, false);
 
     // function disableAllButtons(form) {
     //     var buttons = form.querySelectorAll("button");
