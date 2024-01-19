@@ -1484,12 +1484,13 @@
                                     communityPopupPhotos[i].parentNode.removeChild(communityPopupPhotos[i]);
                                 }
                                 if(communityPhotosList) {
-                                    console.log("has communityPhotosList");
                                     var communityPhotosListElems = communityPhotosList.split(",");
                                     // slideshow photos to be displayed
                                     if(communityPhotosListElems.length > 1) {
+                                        console.log("slideshow photos to be displayed");
                                         // append slideshow-container
-                                        if(!document.querySelectorAll('.slideshow-container').length) {
+                                        // if(!document.querySelectorAll('.slideshow-container').length) {
+                                        if(!document.querySelector('svg > rect:target + foreignObject .popup .slideshow-container'))
                                             let slideshowContainer = document.createElement('div');
                                             slideshowContainer.classList.add('slideshow-container');
                                             slideshowContainer.innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>';
