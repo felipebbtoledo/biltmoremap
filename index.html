@@ -1225,11 +1225,6 @@
                 //     document.querySelector('svg > rect:target + foreignObject .popup').scrollIntoView();
                 // }
             }, 500);
-            // function stopGlowEffect
-            const polygons = document.getElementsByTagName("polygon");
-            for (var i = 0; i < polygons.length; i++) {
-                polygons[i].setAttribute("fill", "transparent");
-            }
         }
 
         window.addEventListener('hashchange', function() {
@@ -1265,12 +1260,24 @@
 
                 // Enable clicking outside the popup to close it
                 document.addEventListener('mouseup', watchClickArea);
+
+                // Stop glow effect on polygons
+                const polygons = document.getElementsByTagName("polygon");
+                for (var i = 0; i < polygons.length; i++) {
+                    polygons[i].setAttribute("fill", "transparent");
+                }
             }
             else {
                 document.getElementById('searchCommunitiesFilter').removeAttribute('style');
 
                 // Disable clicking outside the popup to close it
                 document.removeEventListener('mouseup', watchClickArea);
+
+                // Start glow effect on polygons
+                const polygons = document.getElementsByTagName("polygon");
+                for (var i = 0; i < polygons.length; i++) {
+                    polygons[i].setAttribute("fill", "white");
+                }
             }
 
             // Scroll into view on mobile
