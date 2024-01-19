@@ -1505,7 +1505,10 @@
                                             communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
                                         }
                                         showSlides(slideIndex);
-                                        setInterval(plusSlides(1), 2000);
+                                        setInterval(autoscrollPhotos, 2000);
+                                        function autoscrollPhotos() {
+                                            plusSlides(1);
+                                        }
                                     }
                                     // single photo to be displayed
                                     else {
