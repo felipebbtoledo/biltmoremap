@@ -835,6 +835,15 @@ svg > #BiltmoreHotelVillas + foreignObject {
     svg > rect:target + foreignObject { /* reset Y pos */
       y:0!important;
     }
+    .slideshow-container {
+        margin-top: 6rem;
+    }
+    .slideshow-container ~ .caption .buttons li:nth-of-type(1) {
+        position: absolute;
+        left: 15px;
+        right: 15px;
+        top: 10px;
+    }
     /*svg > rect:target + foreignObject .popup {*/
     /*  top: 20px;*/
     /*  bottom: 20px;*/
