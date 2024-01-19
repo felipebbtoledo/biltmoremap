@@ -937,6 +937,12 @@
         for (var i = 0; i < forms.length; i++) {
             forms[i].addEventListener("submit", handleFormSubmit, false);
         }
+    };
+
+    function removeHash() {
+        console.log("removeHash");
+        // Remove hash
+        window.location.hash = '';
         // Start glow effect with a delay
         setTimeout(startGlowEffect, 1500);
         function startGlowEffect() {
@@ -945,12 +951,6 @@
                 polygons[i].setAttribute("fill", "white");
             }
         }
-    };
-
-    function removeHash() {
-        console.log("removeHash");
-        // Remove hash
-        window.location.hash = '';
     }
 
     document.addEventListener("DOMContentLoaded", () => { removeHash(); loaded(); }, false);
