@@ -937,8 +937,7 @@
             forms[i].addEventListener("submit", handleFormSubmit, false);
         }
         // Start glow effect with a delay
-        console.log("start glow");
-        setTimeout(startGlowEffect, 1000);
+        setTimeout(startGlowEffect, 1500);
         function startGlowEffect() {
             const polygons = document.getElementsByTagName("polygon");
             for (var i = 0; i < polygons.length; i++) {
@@ -1275,7 +1274,6 @@
                 document.removeEventListener('mouseup', watchClickArea);
 
                 // Start glow effect on polygons
-                console.log("restart glow");
                 const polygons = document.getElementsByTagName("polygon");
                 for (var i = 0; i < polygons.length; i++) {
                     polygons[i].setAttribute("fill", "white");
