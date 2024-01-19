@@ -936,6 +936,7 @@
         for (var i = 0; i < forms.length; i++) {
             forms[i].addEventListener("submit", handleFormSubmit, false);
         }
+        // Start glow effect with a delay
         setTimeout(startGlowEffect, 1000);
         function startGlowEffect() {
             const polygons = document.getElementsByTagName("polygon");
@@ -1224,6 +1225,11 @@
                 //     document.querySelector('svg > rect:target + foreignObject .popup').scrollIntoView();
                 // }
             }, 500);
+            // function stopGlowEffect
+            const polygons = document.getElementsByTagName("polygon");
+            for (var i = 0; i < polygons.length; i++) {
+                polygons[i].setAttribute("fill", "transparent");
+            }
         }
 
         window.addEventListener('hashchange', function() {
