@@ -1506,11 +1506,15 @@
                                         }
                                         showSlides(slideIndex);
                                         // auto scroll photos
-                                        setInterval(autoscrollPhotos, 3000);
+                                        var autoscrollInterval = setInterval(autoscrollPhotos, 3000);
+
                                         function autoscrollPhotos() {
                                             const nextSlidePopup = document.querySelector('svg > rect:target + foreignObject .popup .slideshow-container .next');
                                             if(nextSlidePopup){
                                                 nextSlidePopup.click();
+                                            }
+                                            else {
+                                                clearInterval(autoscrollInterval);
                                             }
                                         }
                                     }
