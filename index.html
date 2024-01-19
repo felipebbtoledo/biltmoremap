@@ -1505,9 +1505,11 @@
                                             communityPopup.insertBefore(slideshowContainer,communityPopupCaption);
                                         }
                                         showSlides(slideIndex);
+                                        // auto scroll photos
                                         setInterval(autoscrollPhotos, 3000);
                                         function autoscrollPhotos() {
-                                            plusSlides(1);
+                                            // plusSlides(1);
+                                            document.querySelector('svg > rect:target + foreignObject .popup .slideshow-container .next').click();
                                         }
                                     }
                                     // single photo to be displayed
