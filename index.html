@@ -936,9 +936,12 @@
         for (var i = 0; i < forms.length; i++) {
             forms[i].addEventListener("submit", handleFormSubmit, false);
         }
-        const polygons = document.getElementsByTagName("polygon");
-        for (var i = 0; i < polygons.length; i++) {
-            polygons[i].setAttribute("fill", "white");
+        setTimeout(startGlowEffect, 1000);
+        function startGlowEffect() {
+            const polygons = document.getElementsByTagName("polygon");
+            for (var i = 0; i < polygons.length; i++) {
+                polygons[i].setAttribute("fill", "white");
+            }
         }
     };
     document.addEventListener("DOMContentLoaded", loaded, false);
