@@ -1508,8 +1508,10 @@
                                         // auto scroll photos
                                         setInterval(autoscrollPhotos, 3000);
                                         function autoscrollPhotos() {
-                                            // plusSlides(1);
-                                            document.querySelector('svg > rect:target + foreignObject .popup .slideshow-container .next').click();
+                                            const nextSlidePopup = document.querySelector('svg > rect:target + foreignObject .popup .slideshow-container .next');
+                                            if(nextSlidePopup){
+                                                nextSlidePopup.click();
+                                            }
                                         }
                                     }
                                     // single photo to be displayed
