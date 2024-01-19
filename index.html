@@ -930,7 +930,8 @@
     }
 
     function loaded() {
-        // console.log("loaded()");
+        // Onload, remove hash
+        window.location.hash = '';
         // bind to the submit event of our form
         const forms = document.querySelectorAll("form.gform");
         for (var i = 0; i < forms.length; i++) {
@@ -1225,12 +1226,6 @@
                 //     document.querySelector('svg > rect:target + foreignObject .popup').scrollIntoView();
                 // }
             }, 500);
-
-            // Stop glow effect on polygons
-            const polygons = document.getElementsByTagName("polygon");
-            for (var i = 0; i < polygons.length; i++) {
-                polygons[i].setAttribute("fill", "transparent");
-            }
         }
 
         window.addEventListener('hashchange', function() {
