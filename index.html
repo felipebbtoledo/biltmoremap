@@ -931,7 +931,8 @@
     }
 
     function loaded() {
-        // Onload, remove hash
+        console.log("loaded");
+        // Remove hash
         window.location.hash = '';
         // bind to the submit event of our form
         const forms = document.querySelectorAll("form.gform");
@@ -983,7 +984,7 @@
 
     function accessControl(accessCounter, formSubmittedCounter){
         accessCounter ++;
-        console.log("accessCounter"+accessCounter + "formSubmittedCounter"+formSubmittedCounter);
+        //console.log("accessCounter"+accessCounter + "formSubmittedCounter"+formSubmittedCounter);
 
         if(accessCounter > 2) {
             if(formSubmittedCounter > 0) {
@@ -1514,7 +1515,6 @@
                                             const nextSlidePopup = document.querySelector('svg > rect:target + foreignObject .popup .slideshow-container .next');
                                             if(nextSlidePopup){
                                                 nextSlidePopup.click();
-                                                console.log("executing interval");
                                             }
                                             else {
                                                 clearInterval(autoscrollInterval);
