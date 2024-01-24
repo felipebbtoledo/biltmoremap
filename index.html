@@ -904,7 +904,7 @@
             return false;
         }
 
-        disableAllButtons(form);
+        handleFormButtons(form,"disable");
         var url = form.action;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url);
@@ -913,6 +913,7 @@
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 form.reset();
+                handleFormButtons(form,"enable");
 
                 var formElements = form.querySelector(".form-elements")
                 if (formElements) {
@@ -955,10 +956,15 @@
         }
     }
 
-    function disableAllButtons(form) {
+    function handleFormButtons(form,state) {
         var buttons = form.querySelectorAll("button");
         for (var i = 0; i < buttons.length; i++) {
-            buttons[i].disabled = true;
+            if(state == "disable") {
+                buttons[i].disabled = true;
+            }
+            else {
+                buttons[i].disabled = false;
+            }
         }
     }
     //*** END form-submission-handler.js
