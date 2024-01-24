@@ -830,7 +830,7 @@
     }
     // End Slideshow function
 
-    // BEGIN form-submission-handler.js
+    //*** BEGIN form-submission-handler.js
     // get all data in form and return object
     function getFormData(form) {
         var elements = form.elements;
@@ -904,7 +904,7 @@
             return false;
         }
 
-        // disableAllButtons(form);
+        disableAllButtons(form);
         var url = form.action;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url);
@@ -955,15 +955,15 @@
         }
     }
 
-    document.addEventListener("DOMContentLoaded", () => { runOnce(); loaded(); }, false);
+    function disableAllButtons(form) {
+        var buttons = form.querySelectorAll("button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+        }
+    }
+    //*** END form-submission-handler.js
 
-    // function disableAllButtons(form) {
-    //     var buttons = form.querySelectorAll("button");
-    //     for (var i = 0; i < buttons.length; i++) {
-    //         buttons[i].disabled = true;
-    //     }
-    // }
-    // END form-submission-handler.js
+    document.addEventListener("DOMContentLoaded", () => { runOnce(); loaded(); }, false);
 
     // email field validation
     function checkEmail(str) {
