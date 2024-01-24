@@ -90,7 +90,10 @@
                     <h6 class="community-additional-info-title">Community Additional Info</h6>
                     <p class="community-additional-info"></p>
                     <!-- Follow your favorite properties form -->
-                    <form class="gform" action="https://formsubmit.co/analisegrafica@gmail.com" method="POST" />
+<!--                    <form class="gform" data-email="phil@thetibigroup.com" method="POST"-->
+<!--                          action="https://script.google.com/macros/s/AKfycby1p4N3NGhVaCkzjjtH4UOlvIAStZ3yWtHvKd3EqmtpB3HrJuEfrw1yM_ozXtEAlkGF/exec">-->
+                    <form class="gform" data-email="analisegrafica@gmail.com" method="POST"
+                          action="https://script.google.com/macros/s/AKfycbzIFYajVosIUiM_hWZ3XySCmM_dkyegGTSGhb15hdRyO5q2giXnDxNwjq-6z-XbzCVB/exec">
                         <h6>Follow your favorite properties</h6>
                         <p>Be notified and kept up to date the moment a property within this Community becomes available or any status changes.</p>
                         <div class="row row-inputs">
@@ -118,7 +121,7 @@
                                 <div class="form-group has-icon has-label">
                                     <label for="notify_me_based_on1">Notify me based on</label>
                                     <!--                                    <input type="text" class="form-control ui-autocomplete-input" id="notifyMeLocation" name="address" placeholder="Community" value="" autocomplete="off" required>-->
-                                    <select class="form-control" name="notify_me_based_on1" id="notify_me_based_on1" required>
+                                    <select class="form-control" id="notify_me_based_on1" required>
                                     </select>
                                     <!--                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>-->
                                 </div>
@@ -126,7 +129,7 @@
                             <div class="col-sm-12 col-md-6 pl-lg-2">
                                 <div class="form-group">
                                     <label for="property_for1">Property For</label>
-                                    <select class="form-control" name="property_for1" id="property_for1" required>
+                                    <select class="form-control" id="property_for1" required>
                                         <option value="" disabled selected>Select</option>
                                         <option value="for sale">For sale</option>
                                         <option value="for lease">For lease</option>
@@ -146,16 +149,13 @@
                         </div>
 
                         <!-- Customise the Thankyou Message People See when they submit the form: -->
-<!--                        <div class="thankyou_message popup">-->
-<!--                            <div class="container">-->
-<!--                                <h6>Thanks for contacting us!</h6>-->
-<!--                                <p>We will get back to you soon.</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-                        <input type="hidden" name="_template" value="box">
-                        <input type="hidden" name="_next" value="https://felipebbtoledo.github.io/biltmoremap/thanks.html">
-                        <input type="hidden" name="_subject" value="Biltmore map form submitted">
-                        <input type="hidden" name="_captcha" value="false">
+                        <div class="thankyou_message popup">
+                            <div class="container">
+                                <h6>Thanks for contacting us!</h6>
+                                <p>We will get back to you soon.</p>
+                            </div>
+                        </div>
+                        <input type="hidden" name="tags" value="">
                     </form>
 
                     <hr class="page-divider half transparent">
@@ -830,8 +830,119 @@
     }
     // End Slideshow function
 
+    // BEGIN form-submission-handler.js
+    // get all data in form and return object
+    function getFormData(form) {
+        var elements = form.elements;
+        var honeypot;
+
+        var fields = Object.keys(elements).filter(function(k) {
+            if (elements[k].name === "honeypot") {
+                honeypot = elements[k].value;
+                return false;
+            }
+            return true;
+        }).map(function(k) {
+            if(elements[k].name !== undefined) {
+                return elements[k].name;
+                // special case for Edge's html collection
+            }else if(elements[k].length > 0){
+                return elements[k].item(0).name;
+            }
+        }).filter(function(item, pos, self) {
+            return self.indexOf(item) == pos && item;
+        });
+
+        var formData = {};
+        fields.forEach(function(name){
+            var element = elements[name];
+
+            // singular form elements just have one value
+            formData[name] = element.value;
+
+            // when our element has multiple items, get their values
+            if (element.length) {
+                var data = [];
+                for (var i = 0; i < element.length; i++) {
+                    var item = element.item(i);
+                    if (item.checked || item.selected) {
+                        data.push(item.value);
+                    }
+                }
+                formData[name] = data.join(', ');
+            }
+        });
+
+        // add form-specific values into the data
+        formData.formDataNameOrder = JSON.stringify(fields);
+        formData.formGoogleSheetName = form.dataset.sheet || "responses"; // default sheet name
+        formData.formGoogleSendEmail
+            = form.dataset.email || ""; // no email by default
+
+        return {data: formData, honeypot: honeypot};
+    }
+
+    function handleFormSubmit(event) {  // handles form submit without any jquery
+        // console.log("handleFormSubmit()");
+        formSubmittedCounter++;
+        accessControl(accessCounter, formSubmittedCounter);
+        event.preventDefault();           // we are submitting via xhr below
+        var form = event.target;
+
+        // populate tags input hidden
+        const tagsInputHidden = form.querySelector("input[name='tags']");
+        form.querySelectorAll("select:not([name])").forEach((elm) => {
+            // console.log('elm'+ elm + elm.value + 'tagsInputHidden' + tagsInputHidden.value);
+            tagsInputHidden.value ? tagsInputHidden.value += ',' + elm.value : tagsInputHidden.value = elm.value;
+        });
+
+        var formData = getFormData(form);
+        var data = formData.data;
+
+        // If a honeypot field is filled, assume it was done so by a spam bot.
+        if (formData.honeypot) {
+            return false;
+        }
+
+        // disableAllButtons(form);
+        var url = form.action;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url);
+        // xhr.withCredentials = true;
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                form.reset();
+
+                var formElements = form.querySelector(".form-elements")
+                if (formElements) {
+                    formElements.style.display = "none"; // hide form
+                }
+                // handle thank you message
+                var thankYouMessage = form.querySelector(".thankyou_message");
+                if (thankYouMessage) {
+                    thankYouMessage.classList.add("sent");
+                }
+            }
+        };
+        // url encode form data for sending as post data
+        var encoded = Object.keys(data).map(function(k) {
+            return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+        }).join('&');
+        xhr.send(encoded);
+    }
+
+    function loaded() {
+        console.log("loaded");
+        // bind to the submit event of our form
+        const forms = document.querySelectorAll("form.gform");
+        for (var i = 0; i < forms.length; i++) {
+            forms[i].addEventListener("submit", handleFormSubmit, false);
+        }
+    };
+
     function runOnce() {
-        console.log("runOnce()");
+        console.log("runOnce");
         // Remove hash
         window.location.hash = '';
         // Start glow effect with a delay
@@ -844,7 +955,15 @@
         }
     }
 
-    document.addEventListener("DOMContentLoaded", () => { runOnce() }, false);
+    document.addEventListener("DOMContentLoaded", () => { runOnce(); loaded(); }, false);
+
+    // function disableAllButtons(form) {
+    //     var buttons = form.querySelectorAll("button");
+    //     for (var i = 0; i < buttons.length; i++) {
+    //         buttons[i].disabled = true;
+    //     }
+    // }
+    // END form-submission-handler.js
 
     // email field validation
     function checkEmail(str) {
@@ -1042,6 +1161,8 @@
             }
             document.querySelector('.popup[style] .comm-info').innerHTML = commInfoContent.innerHTML;
 
+            // run ajax script on mobile gform
+            loaded();
             // mobile phone number formatting
             formatPhoneField('.popup .gform #phone');
         });
