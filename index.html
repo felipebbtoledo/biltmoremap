@@ -933,6 +933,7 @@
                     setTimeout(()=> {
                         thankYouMessage.classList.remove("sent");
                         unblockPointerEvents();
+                        closePopup();
                     }, 5000);
                 }
             }
@@ -1072,11 +1073,22 @@
             document.getElementById('BackIcon').removeAttribute('style');
         }
 
+        closePopup();
+
         // Start glow effect on polygons
         const polygons = document.getElementsByTagName("polygon");
         for (var i = 0; i < polygons.length; i++) {
             polygons[i].setAttribute("fill", "white");
         }
+    }
+
+    function closePopup() {
+        document.querySelectorAll('.popup[style]').forEach(item => {
+            item.querySelector('.comm-info').innerHTML='';
+            item.removeAttribute('style');
+        });
+
+        document.body.removeAttribute('style');
     }
 
     document.addEventListener("DOMContentLoaded", function(event) {
@@ -1222,12 +1234,7 @@
 
         // remove style attribute from popup
         $(document).on('click', '.popup[style] .close', function (e) {
-            document.querySelectorAll('.popup[style]').forEach(item => {
-                item.querySelector('.comm-info').innerHTML='';
-                item.removeAttribute('style');
-            });
-
-            document.body.removeAttribute('style');
+            closePopup();
         });
 
         // refresh aside panel communities dropdown
