@@ -253,11 +253,39 @@ body {
     background: var(--accent-color);
     color: var(--light-color);
 }
+#BackIcon {
+    background: var(--light-color);
+    border-radius: 50%;
+    bottom: 1rem;
+    box-shadow:0 0.1875rem 0.9375rem rgba(0, 0, 0, .75);
+    display: block;
+    left: auto;
+    position: fixed;
+    right: 1rem;
+    height: 3rem;
+    top: auto;
+    width: 3rem;
+    z-index: 3;
+}
 .dropdown-toggle {
     min-height: 35px;
 }
 .dropdown-item, .dropdown-item:focus, .dropdown-item:hover {
     color: var(--accent-color);
+}
+#FavIcon {
+    background: var(--light-color);
+    border-radius: 50%;
+    bottom: 5rem;
+    box-shadow:0 0.1875rem 0.9375rem rgba(0, 0, 0, .75);
+    display: block;
+    left: auto;
+    position: fixed;
+    right: 1rem;
+    height: 3rem;
+    top: auto;
+    width: 3rem;
+    z-index: 3;
 }
 .fa-angle-left:before {
     font-weight: bold;
@@ -333,6 +361,9 @@ h5, h6 {
     font-family: var(--secondary-font);
     font-weight: 900;
     text-transform: uppercase;
+}
+#honeypot {
+    display: none;
 }
 main {
     position:relative;
@@ -509,6 +540,9 @@ mask > polygon ~ polygon {
     visibility: hidden!important;
     width: var(--aside-panel-width);
     z-index: 1;
+}
+.thankyou_message:not(.sent) {
+    z-index: -1;
 }
 .thankyou_message h6 {
     line-height: 1.5;
@@ -711,6 +745,12 @@ svg > #BiltmoreHotelVillas + foreignObject {
     .aside-panel.favorite-properties + svg {
         opacity: 0;
     }
+    .aside-panel.favorite-properties .gform > h6 {
+        margin: 0;
+    }
+    #BackIcon.capture-page {
+        bottom: 6rem;
+    }
     .form-group {
         margin-bottom:.5rem;
     }
@@ -858,14 +898,15 @@ svg > #BiltmoreHotelVillas + foreignObject {
     /*  display:none;*/
     /*}*/
     .thankyou_message.sent {
-        opacity: 1!important;
-        top: 0;
-        z-index: 1;
-        height: 100%;
-        left: 0;
-        width: 100%;
-        position: absolute;
         background: var(--light-color);
+        left: 0;
+        opacity: 1!important;
+        padding-top: 5rem;
+        position: absolute;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 1;
     }
     .thankyou_message.sent h6 {
         font-size: 1.5rem;
