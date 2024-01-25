@@ -233,6 +233,9 @@ body {
 .popup .comm-info .community-details > div:nth-child(2) {
     border-top: 1px solid var(--light-gray-color);
 }
+.aside-panel.favorite-properties .page-section .container > *:not(.gform) {
+    display:none!important;
+}
 .aside-panel .page-section .community-details > div:nth-child(odd),
 .popup .comm-info .community-details > div:nth-child(odd) {
     color: var(--dark-gray-color);
