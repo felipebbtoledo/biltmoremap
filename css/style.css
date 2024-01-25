@@ -755,6 +755,10 @@ svg > #BiltmoreHotelVillas + foreignObject {
     .aside-panel.favorite-properties .gform > h6 {
         margin: 0;
     }
+    .aside-panel.favorite-properties .thankyou_message.sent {
+        padding-top: 5rem;
+        position: fixed;
+    }
     #BackIcon.capture-page {
         bottom: 6rem;
     }
