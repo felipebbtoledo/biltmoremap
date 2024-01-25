@@ -33,6 +33,16 @@
         <!--                                    <option>Communities</option>-->
     </select>
 </div>
+<a href="#" onclick="unblockPointerEvents()" title="Back">
+    <svg id="BackIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48Zm97.67 281.1c-24.07-25.21-51.51-38.68-108.58-38.68v37.32a8.32 8.32 0 0 1-14.05 6L146.58 254a8.2 8.2 0 0 1 0-11.94L231 162.29a8.32 8.32 0 0 1 14.05 6v37.32c88.73 0 117.42 55.64 122.87 117.09.73 7.72-8.85 12.05-14.25 6.4Z"/>
+    </svg>
+</a>
+<a href="#capture" onclick="capture()" title="Follow your favorite properties">
+    <svg id="FavIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48Zm74.69 252.82c-8.5 10.36-39.69 38.48-74.69 63.51-35-25-66.19-53.15-74.69-63.51-20-24.37-29.58-49.4-29.3-76.5.31-31.06 25.22-56.33 55.53-56.33 22 0 37.3 12.41 46.19 22.76l2.27 2.75 2.27-2.75C267 180.29 282.42 168 304.46 168c30.31 0 55.22 25.27 55.53 56.33.28 27.09-9.31 52.12-29.3 76.49Z"/>
+    </svg>
+</a>
 <main>
     <div id="google-sheets"></div>
     <div class="aside-panel collapsed">
@@ -90,8 +100,6 @@
                     <h6 class="community-additional-info-title">Community Additional Info</h6>
                     <p class="community-additional-info"></p>
                     <!-- Follow your favorite properties form -->
-<!--                    <form class="gform" data-email="phil@thetibigroup.com" method="POST"-->
-<!--                          action="https://script.google.com/macros/s/AKfycby1p4N3NGhVaCkzjjtH4UOlvIAStZ3yWtHvKd3EqmtpB3HrJuEfrw1yM_ozXtEAlkGF/exec">-->
                     <form class="gform" data-email="analisegrafica@gmail.com" method="POST"
                           action="https://script.google.com/macros/s/AKfycbzIFYajVosIUiM_hWZ3XySCmM_dkyegGTSGhb15hdRyO5q2giXnDxNwjq-6z-XbzCVB/exec">
                         <h6>Follow your favorite properties</h6>
@@ -139,7 +147,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-3">
                             <div class="container-fluid">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="javascript:void(0)" class="other-communities-link"><i class="fa fa-plus-circle"></i> Add other communities to track</a>
@@ -147,8 +155,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Customise the Thankyou Message People See when they submit the form: -->
                         <div class="thankyou_message popup">
                             <div class="container">
                                 <h6>Thanks for contacting us!</h6>
@@ -156,6 +162,7 @@
                             </div>
                         </div>
                         <input type="hidden" name="tags" value="">
+                        <input id="honeypot" type="text" name="honeypot" value="" />
                     </form>
 
                     <hr class="page-divider half transparent">
@@ -915,14 +922,18 @@
                 form.reset();
                 handleFormButtons(form,"enable");
 
-                var formElements = form.querySelector(".form-elements")
+                const formElements = form.querySelector(".form-elements")
                 if (formElements) {
                     formElements.style.display = "none"; // hide form
                 }
                 // handle thank you message
-                var thankYouMessage = form.querySelector(".thankyou_message");
+                const thankYouMessage = form.querySelector(".thankyou_message");
                 if (thankYouMessage) {
                     thankYouMessage.classList.add("sent");
+                    setTimeout(()=> {
+                        thankYouMessage.classList.remove("sent");
+                        unblockPointerEvents();
+                    }, 5000);
                 }
             }
         };
@@ -941,6 +952,19 @@
             forms[i].addEventListener("submit", handleFormSubmit, false);
         }
     };
+
+    function capture(condition) {
+        asidePanel.classList.remove('collapsed');
+        asidePanel.classList.add('favorite-properties');
+        document.querySelector('.aside-panel .page-section').style.opacity = '1';
+        document.getElementById('BackIcon').classList.add('capture-page');
+        if(condition) {
+            document.getElementById('BackIcon').style.display = 'none';
+        }
+        document.getElementById('FavIcon').style.display = 'none';
+        mapCommunitySelected();
+        blockPointerEvents();
+    }
 
     function runOnce() {
         console.log("runOnce");
@@ -999,18 +1023,14 @@
 
         if(accessCounter > 2) {
             if(formSubmittedCounter > 0) {
-                unblockPointerEvents();
+                //unblockPointerEvents('wait');
                 localStorage.setItem('fs', formSubmittedCounter);
             }
             else {
                 alert('To continue using the Biltmore Interactive Map, please fill in the following form.');
                 window.location.href='#capture';
                 setTimeout(function() {
-                    asidePanel.classList.remove('collapsed');
-                    asidePanel.classList.add('favorite-properties');
-                    document.querySelector('.aside-panel .page-section').style.opacity = '1';
-                    mapCommunitySelected();
-                    blockPointerEvents();
+                    capture("block");
                 } , 500 );
             }
         }
@@ -1026,17 +1046,37 @@
         }
         document.querySelector('main > svg').style.pointerEvents = 'none';
         document.querySelector('.open-close-area').style.display = 'none';
+        // Stop glow effect on polygons
+        const polygons = document.getElementsByTagName("polygon");
+        for (var i = 0; i < polygons.length; i++) {
+            polygons[i].setAttribute("fill", "transparent");
+        }
     }
 
-    function unblockPointerEvents () {
+    function unblockPointerEvents (condition) {
         if(document.querySelector('.aside-panel .header .dropdown.bootstrap-select[style*="display"]')){
             document.querySelector('.aside-panel .header .dropdown.bootstrap-select[style*="display"]').style.removeProperty('display');
         }
         document.querySelector('main > svg').removeAttribute('style');
         document.querySelector('.open-close-area').removeAttribute('style');
         document.getElementById("searchCommunitiesFilter").removeAttribute('style');
-        //asidePanel.classList.add('collapsed');
-        //asidePanel.classList.remove('favorite-properties');
+        asidePanel.classList.add('collapsed');
+        asidePanel.classList.remove('favorite-properties');
+        if(document.querySelector('#BackIcon.capture-page')) {
+            document.getElementById('BackIcon').classList.remove('capture-page');
+        }
+        if(document.querySelector('#FavIcon[style]')){
+            document.getElementById('FavIcon').removeAttribute('style');
+        }
+        if(document.querySelector('#BackIcon[style]')){
+            document.getElementById('BackIcon').removeAttribute('style');
+        }
+
+        // Start glow effect on polygons
+        const polygons = document.getElementsByTagName("polygon");
+        for (var i = 0; i < polygons.length; i++) {
+            polygons[i].setAttribute("fill", "white");
+        }
     }
 
     document.addEventListener("DOMContentLoaded", function(event) {
