@@ -72,10 +72,14 @@ body {
     z-index: 9;
 }
 .aside-panel .open-close-area a {
-    display: block;
     background-color: var(--dark-color);
+    border: 4px solid var(--light-color);
+    border-left: 0;
     color: var(--light-color);
-    line-height: 40px;
+    display: block;
+    line-height: 60px;
+    height: 60px;
+    width: 60px;
     text-align: center;
 }
 .aside-panel .content-area .helping-center-line {
@@ -899,12 +903,11 @@ svg > #BiltmoreHotelVillas + foreignObject {
     /*}*/
     .thankyou_message.sent {
         background: var(--light-color);
+        bottom: 0;
         left: 0;
         opacity: 1!important;
-        padding-top: 5rem;
         position: absolute;
         top: 0;
-        height: 100vh;
         width: 100%;
         z-index: 1;
     }
