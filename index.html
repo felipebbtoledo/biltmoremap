@@ -1529,16 +1529,17 @@
                                         for (var communityLinksListElem in communityLinksListElems) {
                                             tempLinksList = communityLinksListElems[communityLinksListElem].split(/:(.*)/s);
 
-                                            var xhr = new XMLHttpRequest();
-                                            xhr.open("GET",tempLinksList[1],false);
-                                            xhr.onreadystatechange = function() {
-                                                if (xhr.readyState == 4) {
-                                                    if(xhr.innerHTML.indexOf('<span id="search_results_blue_counter">0</span>') === -1){ // if not zero
+                                            var xhrComm = new XMLHttpRequest();
+                                            xhrComm.open("GET",tempLinksList[1],false);
+                                            xhrComm.onreadystatechange = function() {
+                                                if (xhrComm.readyState == 4) {
+                                                    if(xhrComm.innerHTML.indexOf('<span id="search_results_blue_counter">0</span>') === -1){ // if not zero
                                                         communityLinksSelector.innerHTML += '<li><a href="' + tempLinksList[1] + '">' + tempLinksList[0] + '</a></li>';
                                                         communityPopupButtonsSelector.innerHTML += '<li><a href="' + tempLinksList[1] + '" class="btn">' + tempLinksList[0] + '</a></li>';
                                                     }
                                                 }
                                             }
+                                            xhrComm.send();
                                         }
                                     }
                                 }
