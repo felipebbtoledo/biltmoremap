@@ -1531,6 +1531,7 @@
 
                                             var xhrComm = new XMLHttpRequest();
                                             xhrComm.open("GET",tempLinksList[1],false);
+                                            xhrComm.responseType = "text";
                                             xhrComm.onreadystatechange = function() {
                                                 if (xhrComm.readyState == 4) {
                                                     if(xhrComm.innerHTML.indexOf('<span id="search_results_blue_counter">0</span>') === -1){ // if not zero
@@ -1539,7 +1540,6 @@
                                                     }
                                                 }
                                             }
-                                            xhrComm.send();
                                         }
                                     }
                                 }
